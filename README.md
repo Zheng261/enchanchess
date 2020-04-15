@@ -15,8 +15,8 @@ Team skills matrix:
 
 | Member|	Skills	|Personal Traits|	Desired Growth	|Weaknesses |
 | ------------- |:-------------:| -----:|--------- | ---------|
-| Haiwen |   (skills) | (personal traits)  |  (desired growth) |  (weaknesses) |
-| Michelle |  (skills) | (personal traits)  |  (desired growth) |  (weaknesses) |
+| Haiwen |   (skills) | (personal traits)  |  (desired growth) |  procrastination |
+| Michelle |  (skills) | (personal traits)  |  (desired growth) |  procrastination|
 | Natasha |  programming | detail oriented  |  ui/ux, fullstack dev |  procrastination |
-| Ray|     (skills) | (personal traits)  |  (desired growth) |  (weaknesses) |
-| Zheng |   (skills) | (personal traits)  |  (desired growth) |  (weaknesses) |
+| Ray|     programming, design | diligent | fullstack dev  |  procrastination |
+| Zheng |   (skills) | (personal traits)  |  (desired growth) |  procrastination) |
