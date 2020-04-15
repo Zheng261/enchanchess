@@ -1,12 +1,12 @@
 # Team-12
 
-Team name: ggez
+**Team name:** ggez
 
-Team logo:
+**Team logo:**
 
 <img src="https://raw.githubusercontent.com/StanfordCS194/Team-12/master/194logocropped.png?token=AK6UDCGBTWPIXNMEXS3XRVK6T63JA" width="40%" height = "40%">
 
-Team members:
+**Team members:**
 
 Natasha Goh
 
@@ -22,13 +22,13 @@ Raymond Thai
 
 Zheng Yan
 
-Documentation link: https://github.com/StanfordCS194/Team-12/wiki
+**Documentation link:** https://github.com/StanfordCS194/Team-12/wiki
 
-Project synopsis: We are team ggez and we are interested in developing a social game to help connect people during this period of social distancing.
+**Project synopsis:** We are team ggez and we are interested in developing a social game to help connect people during this period of social distancing.
 
-Team communication: FB Messenger
+**Team communication:** FB Messenger
 
-Team skills matrix:
+**Team skills matrix:**
 
 | Member|	Skills	|Personal Traits|	Desired Growth	|Weaknesses |
 | ------------- |:-------------:| -----:|--------- | ---------|
