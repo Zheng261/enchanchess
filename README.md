@@ -8,13 +8,15 @@
 
 **Team members:**
 
-Natasha Goh - *natagoh@stanford.edu*
-
 Haiwen Gui - *hgui@stanford.edu*
 
 Michelle Huang - *huangmjy@stanford.edu*
 
 <img src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/s960x960/56395099_645158975921858_272403425960919040_o.jpg?_nc_cat=102&_nc_sid=85a577&_nc_ohc=E45O8HpI4g0AX_WC0qM&_nc_ht=scontent-iad3-1.xx&_nc_tp=7&oh=16bc32d57920a4b95cef701fe956e575&oe=5EBC8DF4" width="30%" height = "30%">
+
+Natasha Goh - *natagoh@stanford.edu*
+
+<img src="https://scontent-iad3-1.xx.fbcdn.net/v/t31.0-8/p960x960/12957473_1076239835768471_7250635040664605915_o.jpg?_nc_cat=102&_nc_sid=85a577&_nc_ohc=CX_CEwBnjNwAX9oB2N-&_nc_ht=scontent-iad3-1.xx&_nc_tp=6&oh=6446be7bf9918e2d57f3b984bd3fdfc1&oe=5EBBFD66" width="30%" height = "30%">
 
 Raymond Thai - *raythai@stanford.edu*
 
