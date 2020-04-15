@@ -43,4 +43,4 @@ Zheng Yan - *yzh@stanford.edu*
 | Michelle |  data analysis & vis | currently obsessed w/ acnh |  ui/ux, database stuff |  procrastination |
 | Natasha |  programming | detail oriented  |  ui/ux, fullstack dev |  procrastination |
 | Ray|     programming, design | diligent | fullstack dev  |  procrastination |
-| Zheng |   (skills) | (personal traits)  |  (desired growth) |  procrastination |
+| Zheng |  AI, marketing, web security| creative, sassy | ui/ux, backend, databases |  procrastination |
