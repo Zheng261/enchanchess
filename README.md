@@ -3,7 +3,7 @@
 Team name: ggez
 
 Team logo:
-![logo](https://scontent-ort2-1.xx.fbcdn.net/v/t1.15752-9/93273972_601326474065216_7773605649996316672_n.png?_nc_cat=110&_nc_sid=b96e70&_nc_ohc=83koseNs5qEAX8Fkrlb&_nc_ht=scontent-ort2-1.xx&oh=90022acabda4526da6ee77d1ab7c6fae&oe=5EBD0297)
+![logo](https://raw.githubusercontent.com/StanfordCS194/Team-12/master/194logocropped.png?token=AK6UDCGBTWPIXNMEXS3XRVK6T63JA)
 
 Team members:
 
