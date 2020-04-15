@@ -32,9 +32,9 @@ Zheng Yan - *yzh@stanford.edu*
 **Team skills matrix:**
 
 | Member|	Skills | Personal Traits |	Desired Growth	| Weaknesses |
-| ------------- |:-------------:| -----:|--------- | ---------|
+| ------------- |-------------:| -----:|--------- | ---------|
 | Haiwen |   (skills) | (personal traits)  |  (desired growth) |  procrastination |
-| Michelle |  data analysis & vis | currently obsessed with animal crossing |  ui/ux, database stuff |  procrastination |
+| Michelle |  data analysis & vis | currently obsessed w/ acnh |  ui/ux, database stuff |  procrastination |
 | Natasha |  programming | detail oriented  |  ui/ux, fullstack dev |  procrastination |
 | Ray|     programming, design | diligent | fullstack dev  |  procrastination |
 | Zheng |   (skills) | (personal traits)  |  (desired growth) |  procrastination |
