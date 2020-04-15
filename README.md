@@ -24,7 +24,7 @@ Raymond Thai - *raythai@stanford.edu*
 
 Zheng Yan - *yzh@stanford.edu*
 
-<img src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/85242422_2754525437916399_168012532139687936_o.jpg?_nc_cat=109&_nc_sid=8024bb&_nc_ohc=APgXzt_1WZYAX_aF72m&_nc_ht=scontent-iad3-1.xx&oh=c49da67b4a4f5f9e9d67f0063377ec64&oe=5EBC74E5" width="30%" height = "30%">
+<img src="https://scontent-iad3-1.xx.fbcdn.net/v/t1.0-9/85242422_2754525437916399_168012532139687936_o.jpg?_nc_cat=109&_nc_sid=8024bb&_nc_ohc=APgXzt_1WZYAX_aF72m&_nc_ht=scontent-iad3-1.xx&oh=c49da67b4a4f5f9e9d67f0063377ec64&oe=5EBC74E5" width="35%" height = "35%">
 
 **Documentation link:** https://github.com/StanfordCS194/Team-12/wiki
 
