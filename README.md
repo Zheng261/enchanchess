@@ -15,7 +15,7 @@ Haiwen Gui
 Michelle Huang
 
 Raymond Thai 
-![Raymond](https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/90969844_3034844793221969_617657305512542208_o.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_ohc=PELBNxDoxaUAX-t4yqd&_nc_ht=scontent-dfw5-1.xx&oh=fba5d6d680a014b8db0f705a6c0afecd&oe=5EBC2A3C)
+<img src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/90969844_3034844793221969_617657305512542208_o.jpg?_nc_cat=111&_nc_sid=09cbfe&_nc_ohc=PELBNxDoxaUAX-t4yqd&_nc_ht=scontent-dfw5-1.xx&oh=fba5d6d680a014b8db0f705a6c0afecd&oe=5EBC2A3C" width="40%" height = "40%">
 
 Zheng Yan
 
