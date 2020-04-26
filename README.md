@@ -4,7 +4,7 @@
 
 **Team logo:**
 
-<img src="https://raw.githubusercontent.com/StanfordCS194/Team-12/master/194logocropped.png?token=AK6UDCGBTWPIXNMEXS3XRVK6T63JA" width="40%" height = "40%">
+<img src="https://imgur.com/1Ik3410" width="40%" height = "40%">
 
 **Team members:**
 
