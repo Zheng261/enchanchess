@@ -4,7 +4,7 @@
 
 **Team logo:**
 
-<img src="https://imgur.com/1Ik3410" width="40%" height = "40%">
+<img src="https://imgur.com/1Ik3410.png" width="40%" height = "40%">
 
 **Team members:**
 
