@@ -1,0 +1,183 @@
+/* Notes: */
+/* #A80C0C is the THEME COLOR */
+
+html {
+  font-family: Helvetica;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background-color: #0c0c0c;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 800;
+  font-size: 4em;
+}
+
+h2 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.7em;
+}
+
+h3 {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.7em;
+}
+
+h4 {
+  font-weight: 700;
+  font-size: 1.45em;
+  margin: 0;
+}
+
+h5 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+h6,
+p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+a {
+  text-decoration: none;
+  opacity: 1;
+  transition: 0.5s ease opacity;
+  cursor: pointer;
+}
+
+a:hover {
+  opacity: 0.6;
+}
+
+textarea,
+button,
+input {
+  font-family: inherit;
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 0;
+  border-radius: 10px;
+  height: 45px;
+  border: none;
+  outline: none;
+}
+
+button {
+  color: white;
+  cursor: pointer;
+  display: block;
+  width: 80px;
+  background-color: #0c0c0c;
+  transition: 0.5s ease background-color;
+}
+
+button:disabled {
+  background-color: #aaaaaa;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+strong {
+  font-weight: 800;
+}
+
+textarea {
+  background-color: #ededed;
+  border-radius: 10px;
+  border: none;
+  width: 400px;
+  height: 240px;
+  min-height: 45px;
+  outline: none;
+  padding-left: 17px;
+  padding-top: 10px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before {
+  box-sizing: inherit;
+}
+*:after {
+  box-sizing: inherit;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+/* large tablet styles */
+@media screen and (max-width: 992px) {
+}
+
+/* medium tablet styles */
+@media screen and (max-width: 768px) {
+}
+
+/* phone styles */
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 3em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.4em;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 1.15em;
+    font-weight: 700;
+  }
+
+  h6,
+  p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1em;
+  }
+
+  a {
+    text-decoration: none;
+    opacity: 1;
+    transition: 0.5s ease opacity;
+    cursor: pointer;
+  }
+
+  a:hover {
+    opacity: 0.6;
+  }
+
+  textarea,
+  button,
+  input {
+    font-size: 1em;
+  }
+
+  textarea {
+    width: 100%;
+  }
+}
