@@ -34,7 +34,7 @@ const TopSectionTextContainer = styled.div`
 const StartGame = () => {
   return (
     <Page>
-      <SEO title="Cards Against Humanity Online -- Start a game" />
+      <SEO title="Start a Game" />
       <TopSection>
         <TopSectionTextContainer>
           <h6>Start a game now! Copy a link and send it to your friends</h6>
