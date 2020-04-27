@@ -108,6 +108,10 @@ export default function HomeLayout() {
         <LinkContainer backgroundColor="#FFFFFF1C" to="/contact">
           <h5>Contact</h5>
         </LinkContainer>
+
+        <LinkContainer backgroundColor="#FFFFFF7A" to="/cardimport">
+          <h5>Import Cards</h5>
+        </LinkContainer>
       </Grid>
     </Container>
   );
