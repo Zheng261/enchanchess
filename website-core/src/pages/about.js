@@ -36,7 +36,7 @@ const TopSectionTextContainer = styled.div`
 const About = () => {
   return (
     <Page>
-      <SEO title="Stanford Speakers Bureau - About Us" />
+      <SEO title="About" />
       <TopSection>
         <TopSectionTextContainer>
           <h6>{Content.whoWeAre}</h6>

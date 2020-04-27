@@ -47,7 +47,7 @@ const IndexPage = () => {
       transition={PAGE_TRANSITION_PRESET}
       exit={{ top: "-100%" }}
     >
-      <SEO title="Cards Against Humanity Online - Home" />
+      <SEO title="Home" />
       {renderBySize()}
     </Container>
   );
