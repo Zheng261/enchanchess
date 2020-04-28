@@ -14,6 +14,13 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello world</h1>');
 });
 
+// joining unique room url
+app.get("/rooms/:roomId", (res, req) => {
+  // res.render("student", {room:req.params.roomId});
+  // res.send(`<h1>Hello room id ${req.params.roomId}</h1>`);
+  consol.log(`Hello room id ${req.params.roomId}`)
+})
+
 io.on('connection', (socket) => { 
 	console.log("client connected")
 	socket.on('test', test => {
@@ -30,6 +37,8 @@ io.on('connection', (socket) => {
 			sockets: []
 		}
 		rooms[room.id] = room
+		// sends room id back to client
+		socket.emit('dispatchRoomId', roomId)
 		joinRoom(socket, room)
 	})
 });
