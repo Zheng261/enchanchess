@@ -26,7 +26,7 @@ export default function StartGame() {
         Start a game now! Have your friends join you here 
       </p>
       <p>
-        http://localhost:3000/room/{roomId}
+        {window.location.hostname}/room/{roomId}
       </p>
     </PageLayout>
   )
