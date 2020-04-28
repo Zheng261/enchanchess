@@ -3,7 +3,8 @@ import PageLayout from '../../components/PageLayout'
 //  todo: save socket.io context in app state
 //  todo: manage app state in redux, next-redux-wrapper
 import io from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
+// const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
+const ENDPOINT = "https://bestcah-api.herokuapp.com/"
 import { useState, useEffect } from "react";
 
 export default ({ data }) => {
