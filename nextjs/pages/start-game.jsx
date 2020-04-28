@@ -1,22 +1,31 @@
-import Layout from '../components/PageLayout'
-import socketIOClient from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:8000";
-import { useEffect } from "react";
+import PageLayout from '../components/PageLayout'
+import io from "socket.io-client";
+const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
+import { useState, useEffect } from "react";
 
 export default function StartGame() {
+
+  const [roomId, setRoomId] = useState("");
+
   useEffect(() => {
-    const socket = socketIOClient(ENDPOINT);
+    const socket = io(ENDPOINT);
     socket.emit('test', "testing")
     socket.emit('createRoom')
     console.log("socket emitted")
+    socket.on('dispatchRoomId', roomId => {
+      setRoomId(roomId)
+    })
   }, [])
 
   return (
-    <Layout>
+    <PageLayout>
       <h1>Start Game</h1>
       <p>
-        Start a game now! Have your friends join you here [link]
+        Start a game now! Have your friends join you here 
       </p>
-    </Layout>
+      <p>
+        http://localhost:3000/?{roomId}
+      </p>
+    </PageLayout>
   )
 }
