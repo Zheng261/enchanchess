@@ -41,6 +41,21 @@ io.on('connection', (socket) => {
 		socket.emit('dispatchRoomId', roomId)
 		joinRoom(socket, room)
 	})
+
+	// called when a user wants to join a room with specified room id
+	socket.on('joinRoom', roomId => {
+		var room = rooms[roomId]
+		// todo: for testing, later say something like room does not exist... yet
+		if (!room){ 
+			room = {
+				id: roomId,
+				sockets: []
+			}
+			rooms[room.id] = room
+		}
+		joinRoom(socket, room)
+	})
+
 });
 
 const testAPI = socket => {
@@ -60,6 +75,7 @@ const joinRoom = (socket, room) => {
     // store the room id in the socket for future use
     socket.roomId = room.id;
     console.log(`player ${socket.id} joined room ${room.id}`);
+    console.log(rooms[room.id].sockets.join(' '))
   });
 }
 
