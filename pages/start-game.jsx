@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 export default function StartGame() {
 
   const [roomId, setRoomId] = useState("");
+  const [hostname, setHostname] = useState("")
 
   useEffect(() => {
     const socket = io(ENDPOINT);
@@ -17,6 +18,8 @@ export default function StartGame() {
     socket.on('dispatchRoomId', roomId => {
       setRoomId(roomId)
     })
+
+    setHostname(window.location.hostname)
   }, [])
 
   return (
@@ -26,7 +29,7 @@ export default function StartGame() {
         Start a game now! Have your friends join you here 
       </p>
       <p>
-        {window.location.hostname}/room/{roomId}
+        {hostname}/room/{roomId}
       </p>
     </PageLayout>
   )
