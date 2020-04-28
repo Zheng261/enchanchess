@@ -8,11 +8,18 @@ const uuidv4 = require('uuid/v4');
 
 const PORT = 8000	// server port
 
-const rooms = {}
+const roomIds = new Set()
 
 app.get('/', (req, res) => {
   res.send('<h1>Hello world</h1>');
 });
+
+// joining unique room url
+app.get("/rooms/:roomId", (res, req) => {
+  // res.render("student", {room:req.params.roomId});
+  // res.send(`<h1>Hello room id ${req.params.roomId}</h1>`);
+  consol.log(`Hello room id ${req.params.roomId}`)
+})
 
 io.on('connection', (socket) => { 
 	console.log("client connected")
@@ -25,34 +32,44 @@ io.on('connection', (socket) => {
 		const id = uuidv4()
 		const [ roomId ] = id.split('-').slice(-1)
 
-		const room = {
-			id: roomId,
-			sockets: []
-		}
-		rooms[room.id] = room
-		joinRoom(socket, room)
+		roomIds.add(roomId)
+		// sends room id back to client
+		socket.emit('dispatchRoomId', roomId)
+		joinRoom(socket, roomId)
+	})
+
+	// called when a user wants to join a room with specified room id
+	socket.on('joinRoom', roomId => {
+		
+		joinRoom(socket, roomId)
+	})
+
+	// return a list of players connected to the room
+	socket.on('getPlayersInRoom', roomId => {
+		const players = io.sockets.adapter.rooms[roomId];
+		socket.emit('dispatchPlayers', players)
 	})
 });
-
-const testAPI = socket => {
-  const response = "hello world";
-  // Emitting a new message. Will be consumed by the client
-  socket.emit("test", response);
-};
 
 /**
  * connects a socket to a specified room
  * @param {object} [socket] [a connected socket]
  * @param {object} [room] [object representing a room]
  */
-const joinRoom = (socket, room) => {
- 	room.sockets.push(socket);
-  socket.join(room.id, () => {
-    // store the room id in the socket for future use
-    socket.roomId = room.id;
-    console.log(`player ${socket.id} joined room ${room.id}`);
+const joinRoom = (socket, roomId) => {
+  socket.join(roomId, () => {
+    console.log(`player ${socket.id} joined room ${roomId}`);
   });
+  var room = io.sockets.adapter.rooms[roomId];
+	console.log("# ppl in room: ", room.length)
 }
+
+// todo: testing purposes delete after backend is setup
+const testAPI = socket => {
+  const response = "hello world";
+  // Emitting a new message. Will be consumed by the client
+  socket.emit("test", response);
+};
 
 server.listen(PORT, () => {
 	console.log(`Server is live on PORT:${PORT}`);
