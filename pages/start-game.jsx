@@ -3,6 +3,7 @@ import io from "socket.io-client";
 const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
 import { useState, useEffect } from "react";
 
+// io.connect(window.location.hostname)
 export default function StartGame() {
 
   const [roomId, setRoomId] = useState("");
