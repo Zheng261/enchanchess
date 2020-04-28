@@ -7,6 +7,7 @@ export default function StartGame() {
   useEffect(() => {
     const socket = socketIOClient(ENDPOINT);
     socket.emit('test', "testing")
+    socket.emit('createRoom')
     console.log("socket emitted")
   }, [])
 
@@ -14,7 +15,7 @@ export default function StartGame() {
     <Layout>
       <h1>Start Game</h1>
       <p>
-        Start a game now! Copy a link and send it to your friends [link here]
+        Start a game now! Have your friends join you here [link]
       </p>
     </Layout>
   )
