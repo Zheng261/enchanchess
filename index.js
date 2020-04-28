@@ -47,6 +47,7 @@ io.on('connection', (socket) => {
 	// return a list of players connected to the room
 	socket.on('getPlayersInRoom', roomId => {
 		const players = io.sockets.adapter.rooms[roomId];
+		console.log(players.length, players)
 		socket.emit('dispatchPlayers', players)
 	})
 });
