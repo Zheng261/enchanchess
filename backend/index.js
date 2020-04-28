@@ -6,7 +6,7 @@ const io = require('socket.io')(server);
 
 const uuidv4 = require('uuid/v4');
 
-const PORT = 8000	// server port
+const PORT = process.env.PORT || 8000	// server port
 
 const roomIds = new Set()
 
