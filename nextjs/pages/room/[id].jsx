@@ -10,19 +10,35 @@ export default ({ data }) => {
   const router = useRouter()
   const roomId = router.query.id
 
+  // people in the room
+  const [players, setPlayers] = useState([]);
+  const socket = io(ENDPOINT);
+
   useEffect(() => {
   	console.log("room id", roomId, router.query)
-    const socket = io(ENDPOINT);
-    socket.emit('test', "testing")
     socket.emit('joinRoom', roomId)
+    socket.emit('getPlayersInRoom', roomId)
+  	socket.on('dispatchPlayers', res => {
+  		setPlayers(res)
+  		console.log(res)
+  	})
+
   }, [])
+
+  // useEffect(() => {
+  // 	socket.emit('getPlayersInRoom', roomId)
+  // 	socket.on('dispatchPlayers', players => {
+  // 		setPlayers(players)
+  // 	})
+  // }, [players])
 
   return (
     <PageLayout>
       <h1>Game Room</h1>
       <p>*not party owner edition* (aka i joined from a url someone sent me)</p>
       <p>room id: {router.query.id}</p>
-      <h2>Other Connected Players</h2>
+      <h2># of Connected Players</h2>
+      <p>{players.length}</p>
     </PageLayout>
   )
 }
