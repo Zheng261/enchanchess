@@ -8,8 +8,6 @@ export default function About() {
 				We're GGEZ and we're trying to help you social distance :) We're unaffiliated with the CAH team and all that.
 				This is an online version of Cards Against Humanity, a party game for horrible people. Rules can be found <a href="http://s3.amazonaws.com/cah/CAH_Rules.pdf" target="_blank">here</a>.
 			</p>
-			<p> Send help. 
-			</p> 
 		</PageLayout>
 	)
 }
