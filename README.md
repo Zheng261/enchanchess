@@ -1,3 +1,4 @@
+
 # Team-12
 
 **Team name:** ggez
@@ -44,3 +45,4 @@ Zheng Yan - *yzh@stanford.edu*
 | Natasha |  programming | detail oriented  |  ui/ux, fullstack dev |  procrastination |
 | Ray|     programming, design | diligent | fullstack dev  |  procrastination |
 | Zheng |  AI, marketing, web security| creative, sassy | ui/ux, backend, databases |  procrastination |
+
