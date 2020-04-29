@@ -1,5 +1,8 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 67cde009f40c07e993a6fab653d7337b44cc9715
   "name": "learn-starter",
   "version": "0.1.0",
   "private": true,
@@ -15,6 +18,7 @@
     "socket.io-client": "^2.3.0"
   },
   "engines": {
+<<<<<<< HEAD
     "node": "12.x"
   },
   "description": "<<<<<<< HEAD # Team-12",
@@ -53,4 +57,8 @@
   	"node":"12.x"
   }
 >>>>>>> 780ef16d77a5e085f816e1085fa8a60d2af11191
+=======
+    "node":"12.x"
+  }
+>>>>>>> 67cde009f40c07e993a6fab653d7337b44cc9715
 }

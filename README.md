@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Team-12
 
 **Team name:** ggez
@@ -50,3 +51,8 @@ instructions:
 `npm install`
 `npm run dev`
 >>>>>>> d330a7ee1208f226c2ccf373798505cb44454ee0
+=======
+instructions:
+`npm install`
+`npm run dev`
+>>>>>>> 67cde009f40c07e993a6fab653d7337b44cc9715
