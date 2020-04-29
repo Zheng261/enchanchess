@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "learn-starter",
   "version": "0.1.0",
   "private": true,
@@ -29,28 +28,4 @@
     "url": "https://github.com/StanfordCS194/Team-12/issues"
   },
   "homepage": "https://github.com/StanfordCS194/Team-12#readme"
-=======
-  "name": "game-backend",
-  "version": "1.0.0",
-  "description": "handles multiplayer connection/game data management",
-  "main": "index.js",
-  "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "socket.io": "^2.3.0",
-    "uuid": "^7.0.3"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.3"
-  },
-  "engines": {
-  	"node":"12.x"
-  }
->>>>>>> 780ef16d77a5e085f816e1085fa8a60d2af11191
 }
