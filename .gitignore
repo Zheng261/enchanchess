@@ -143,7 +143,4 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-<<<<<<< HEAD
 >>>>>>> d330a7ee1208f226c2ccf373798505cb44454ee0
-=======
->>>>>>> 67cde009f40c07e993a6fab653d7337b44cc9715
