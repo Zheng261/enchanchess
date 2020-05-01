@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT"
+    "start": "next start"
   },
   "dependencies": {
-    "next": "9.3.5",
+    "nan": "^2.14.1",
+    "next": "^9.3.5",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "socket.io-client": "^2.3.0"
@@ -16,7 +17,7 @@
   "engines": {
     "node": "12.x"
   },
-  "description": "<<<<<<< HEAD # Team-12",
+  "description": "# Team-12",
   "main": "index.js",
   "repository": {
     "type": "git",
