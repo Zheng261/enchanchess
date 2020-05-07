@@ -1,8 +1,11 @@
 import PageLayout from '../components/PageLayout'
 import io from "socket.io-client";
-// const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
-const ENDPOINT = "https://bestcah-api.herokuapp.com/"
+const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
+// IMPORTANT; switch to this below endpoint when done on dev!
+// const ENDPOINT = "https://bestcah-api.herokuapp.com/"
 import { useState, useEffect } from "react";
+import GameStarter from "../components/GameStarter"
+import UserContext from '../components/UserContext';
 
 // io.connect(window.location.hostname)
 export default function StartGame() {
@@ -20,14 +23,6 @@ export default function StartGame() {
   }, [])
 
   return (
-    <PageLayout>
-      <h1>Start Game</h1>
-      <p>
-        Start a game now! Have your friends join you here 
-      </p>
-      <p>
-        http://localhost:3000/room/{roomId}
-      </p>
-    </PageLayout>
+    <GameStarter roomId = {roomId}> </GameStarter>
   )
 }
