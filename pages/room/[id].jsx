@@ -1,10 +1,11 @@
-import { useRouter } from 'next/router'
+import { useRouter, Router } from 'next/router'
 import PageLayout from '../../components/PageLayout'
 //  todo: save socket.io context in app state
 //  todo: manage app state in redux, next-redux-wrapper
 import io from "socket.io-client";
 const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
 import { useState, useEffect } from "react";
+import GameLobby from '../../components/GameLobby'
 
 export default ({ data }) => {
   const router = useRouter()
@@ -22,7 +23,6 @@ export default ({ data }) => {
   		setPlayers(res)
   		console.log(res)
   	})
-
   }, [])
 
   // useEffect(() => {
@@ -31,15 +31,13 @@ export default ({ data }) => {
   // 		setPlayers(players)
   // 	})
   // }, [players])
+  function handleClick() {
+    console.log("whatever");
+  }
+
 
   return (
-    <PageLayout>
-      <h1>Game Room</h1>
-      <p>*not party owner edition* (aka i joined from a url someone sent me)</p>
-      <p>room id: {router.query.id}</p>
-      <h2># of Connected Players</h2>
-      <p>{players.length}</p>
-    </PageLayout>
+   <GameLobby roomId = {router.query.id} players = {players}></GameLobby>
   )
 }
 
