@@ -35,9 +35,9 @@ export default ({ data }) => {
     console.log("whatever");
   }
 
-
+// todo: store socket instance in _app.jsx (highest parent component)
   return (
-   <GameLobby roomId = {router.query.id} players = {players}></GameLobby>
+   <GameLobby roomId = {router.query.id} players = {players} socket = {socket}></GameLobby>
   )
 }
 

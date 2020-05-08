@@ -31,11 +31,18 @@ class GameLobby extends React.Component {
   }
 
   playGame = function() {
+    this.props.socket.emit('startGame', this.props.roomId)
     this.setState({ play_game: true })
   }
 
   // when play button is pressed, the play game screen should be shown instead of the lobby
+  // for all people connected to the same lobby the game should start when party leader presses play
   render() {
+    this.props.socket.on('gameStarted', res => {
+      console.log("game started by leader")
+      this.setState({ play_game: true })
+    })
+
     let value = this.context.user
     let screen;
     if (this.state.play_game) {
