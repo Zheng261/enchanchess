@@ -49,6 +49,7 @@ class GameStarter extends React.Component {
         this.setMessage('Please enter your username');
         }
     }
+    
     render() {
         return (
             <PageLayout>
