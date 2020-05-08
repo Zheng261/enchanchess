@@ -1,8 +1,8 @@
 import PageLayout from '../components/PageLayout'
 import io from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
+// const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
 // IMPORTANT; switch to this below endpoint when done on dev!
-// const ENDPOINT = "https://bestcah-api.herokuapp.com/"
+const ENDPOINT = "https://bestcah-api.herokuapp.com/"
 import { useState, useEffect } from "react";
 import GameStarter from "../components/GameStarter"
 import UserContext from '../components/UserContext';
