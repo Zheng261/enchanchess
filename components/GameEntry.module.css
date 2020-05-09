@@ -1,6 +1,6 @@
 .button button {
   border: 0.5px solid grey;
-  background-color: #f2cd46;
+  background-color: var(--btn-primary-color);
   border-radius: 12px;
   transition: color 0.15s ease, border-color 0.15s ease;
   margin: 0.5rem 1rem;

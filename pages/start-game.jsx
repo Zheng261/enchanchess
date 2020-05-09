@@ -30,25 +30,46 @@ export default function StartGame() {
     setHost(window.location.host)
   }, [])
 
+  // todo: remove hardcode and pull from backend
+  const players = ['Henry', 'Bob', 'Melinda', 'Alice']
+  const playerList = players.map((name, index) => 
+    <li key={index}>{name}</li>
+  );
+
   return (
     <div className={styles.container}>
-      <div className={styles.partyLink}>
-        Invite Your Friends!
+      <div className={styles.roomLink}>
+        <h1>Invite Your Friends!</h1>
         <Link href={`/room/${roomId}`}>
-          <a className="card">
+          <a>
             {`${host}/room/${roomId}`}
           </a>
         </Link>
+        <button>
+          Copy Link
+        </button> 
       </div>
       <div className={styles.cardContainer}>
-        <CardDiv>
-          Game Settings
+        <CardDiv heading={'Game Settings'}>
+          <div className={styles.gameSettings}>
+            Score Limit
+          </div>
+          <div className={styles.gameSettings}>
+            Player Limit
+          </div>
+          <div className={styles.gameSettings}>
+            Idle Limit
+          </div>
+          <button className={styles.startBtn}>
+            Start Game!
+          </button>
         </CardDiv>
-        <CardDiv>
-          Card Decks
+        <CardDiv heading={'Card Decks'}>
         </CardDiv>
-        <CardDiv>
-          Players
+        <CardDiv heading={'Players'}>
+          <ul className={styles.playerList}>
+            {playerList}
+          </ul>
         </CardDiv>
       </div>
     </div>

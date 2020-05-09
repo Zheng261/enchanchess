@@ -2,7 +2,6 @@ html,
 body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  line-height: 1.6;
   font-size: 18px;
   height: 100%;
   width: 100%;
@@ -10,12 +9,15 @@ body {
   margin: 0;
 }
 
+:root {
+  --btn-primary-color: #f2cd46;;
+}
+
 * {
   box-sizing: border-box;
 }
 
 a {
-  color: #0070f3;
   text-decoration: none;
 }
 
