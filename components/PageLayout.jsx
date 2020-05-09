@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from './PageLayout.module.css'
 
-function PageLayout({ children }) {
+function PageLayout({children}) {
   return (
     <div className={styles.container}>
       {children}

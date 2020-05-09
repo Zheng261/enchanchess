@@ -1,7 +1,44 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from 'next/head';
+import Link from 'next/link';
+import PageLayout from '../components/PageLayout';
+import io from "socket.io-client";
+// const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
+// IMPORTANT; switch to this below endpoint when done on dev!
+const ENDPOINT = "https://bestcah-api.herokuapp.com/";
+import { useState, useEffect } from "react";
+import UserContext from '../components/UserContext';
+import GameStarter from "../components/GameStarter";
+
+
+// code taken from GameStarter.jsx
+function RoomLinkComponent(props) {
+    if (props.hidden) {
+      return null;
+    }
+    var roomLink = "/room/";
+    roomLink = roomLink.concat(props.roomId)
+    return (
+        <Link href = {roomLink}>
+            <button> Go to room!</button>
+        </Link>
+    );
+  }
 
 export default function Home() {
+  // code taken from start-game.jsx
+  const [roomId, setRoomId] = useState("");
+
+  useEffect(() => {
+    const socket = io(ENDPOINT);
+    socket.emit('test', "testing")
+    socket.emit('createRoom')
+    console.log("socket emitted")
+    socket.on('dispatchRoomId', roomId => {
+      setRoomId(roomId)
+    })
+  }, [])
+
+
   return (
     <div className="container">
       <Head>
@@ -10,42 +47,36 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title">
-          Anti-Humanity Cards
-        </h1>
+        <h2 className="title">
+          Cards Against Humanity
+        </h2>
 
         <p className="description">
-          A Card Game for Horrible People <code>social distancing edition</code>
+          A Card Game for Horrible People <br />
+          <code>social distancing edition</code>
         </p>
 
         <div className="grid">
-          <Link href="/start-game">
-            <a className="card">
-              <h3>Start a Game &rarr;</h3>
-              <p>Play with your friends!</p>
-            </a>
-          </Link>
-
-          <Link href="/about">
-            <a className="card">
-              <h3>About &rarr;</h3>
-              <p>Something about us!</p>
-            </a>
-          </Link>
-
-          <Link href="/contact">
-            <a className="card">
-              <h3>Contact &rarr;</h3>
-              <p>Contact us here!</p>
-            </a>
-          </Link>
-
           <Link href="/import-cards">
             <a className="card">
-              <h3>Import Cards &rarr;</h3>
-              <p>Import your cards here!</p>
+              <p>Add Cards</p>
             </a>
           </Link>
+
+        <GameStarter roomId = {roomId}> </GameStarter>
+
+        <Link href="/about">
+          <a className="card">
+            <p>About</p>
+          </a>
+        </Link>
+
+        <Link href="/contact">
+          <a className="card">
+            <p>Contact</p>
+          </a>
+        </Link>
+
         </div>
       </main>
 
@@ -58,6 +89,8 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background-color: black;
+          color: white;
         }
 
         main {
@@ -91,7 +124,7 @@ export default function Home() {
         }
 
         code {
-          background: #fafafa;
+          color: #fafafa;
           border-radius: 5px;
           padding: 0.75rem;
           font-size: 1.1rem;
@@ -103,49 +136,72 @@ export default function Home() {
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-wrap: wrap;
-
+          flex-direction: row;
           max-width: 800px;
+          max-height: 600px
           margin-top: 3rem;
         }
 
         .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
+          margin: 0.3rem;
+          flex-basis: 15%;
+          padding: 0 1.5rem 1.5rem 0.7rem;
           text-align: left;
-          color: inherit;
+          background-color: white;
+          color: black;
           text-decoration: none;
           border: 1px solid #eaeaea;
-          border-radius: 10px;
+          border-radius: 20px;
           transition: color 0.15s ease, border-color 0.15s ease;
+          min-width: 15%;
+          min-height: 15%;
+          vertical-align: top;
+          white-space: nowrap;
+          align-self: flex-end;
+        }
+
+        .big-card {
+          margin: 1.5rem 2rem 2rem 7rem;
+          padding: 1.5rem 0 1.5rem 0;
+          text-align: center;
+          background-color: white;
+          color: black;
+          text-decoration: none;
+          border: 1px solid #eaeaea;
+          border-radius: 20px;
+          transition: color 0.15s ease, border-color 0.15s ease;
+          flex-basis: 50%;
+          flex-direction: column;
+          min-width: 34%;
+          min-height: 50%;
+          white-space: nowrap;
+          height: 360px;
+          display: flex;
+          justify-content: center;
         }
 
         .card:hover,
         .card:focus,
         .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
+          color: #594d0a;
+          border-color: #594d0a;
+          margin-bottom: 1rem;
         }
 
         .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
+          margin: 0 0 4rem 0;
+          font-size: 1rem;
+          font-weight: bold;
         }
 
         .logo {
           height: 1em;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 800px) {
           .grid {
             width: 100%;
+            height: 100%,
             flex-direction: column;
           }
         }

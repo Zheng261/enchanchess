@@ -13,6 +13,7 @@ const theme = {
     border: '#ddd',
     warning: '#fff3cd',
     success: '#d4edda'
+    background2: '#e0cc5a'
   }
 }
 

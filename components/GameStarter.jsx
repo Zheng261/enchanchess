@@ -2,7 +2,6 @@ import PageLayout from '../components/PageLayout'
 import UserContext from '../components/UserContext';
 import Link from 'next/link'
 
-
 function RoomLinkComponent(props) {
     if (props.hidden) {
       return null;
@@ -52,23 +51,30 @@ class GameStarter extends React.Component {
     
     render() {
         return (
-            <PageLayout>
-            <h1>To start a room, enter your username here!</h1>
-            <div>
-                    <input
-                        type="text"
-                        value={this.state.value}
-                        onChange={this.changeUsername}
-                    />
-                <form onSubmit = {this.submitUsername}>
-                    <button> submit</button>
-                </form>
+            <div className="game-starter-bigcard">
+            <div className="game-starter-input">
+                Pick a username: <br />
+                <input
+                    type="text"
+                    value={this.state.value}
+                    onChange={this.changeUsername}
+                />
             </div> 
-            {this.state.message != '' && <div className="message">{this.state.message}</div>}
+            <form onSubmit = {this.submitUsername}>
+                <a className="game-starter-button">
+                <button>Play!</button>
+              </a>
+              </form>
+              <Link href="/start-game">
+              <a className="game-starter-button">
+                <button>Create Private Room</button>
+              </a>
+              </Link>
+              {this.state.message != '' && <div className="message">{this.state.message}</div>}
             <RoomLinkComponent hidden={this.state.hiddenRoomLink} roomId={this.props.roomId} />
-            </PageLayout>
+            </div>
         )
     }
 }
 
-export default GameStarter
+export default GameStarter;
