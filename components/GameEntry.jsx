@@ -2,7 +2,7 @@ import { useState, useContext } from 'react'
 import PageLayout from '../components/PageLayout'
 import UserContext from '../components/UserContext';
 import Link from 'next/link'
-import styles from './GameStarter.module.css'
+import styles from './GameEntry.module.css'
 
 function RoomLinkComponent(props) {
     if (props.hidden) {
@@ -17,8 +17,8 @@ function RoomLinkComponent(props) {
     );
   }
 
-
-const GameStarter = () => {
+// component where player puts in username and can create room
+const GameEntry = () => {
   // static contextType = UserContext
   const context = useContext(UserContext)
   const [username, setUsername] = useState('')
@@ -77,4 +77,4 @@ const GameStarter = () => {
   )
 }
 
-export default GameStarter;
+export default GameEntry;

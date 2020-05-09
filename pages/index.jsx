@@ -7,10 +7,10 @@ import io from "socket.io-client";
 const ENDPOINT = "https://bestcah-api.herokuapp.com/";
 import { useState, useEffect } from "react";
 import UserContext from '../components/UserContext';
-import GameStarter from "../components/GameStarter";
+import GameEntry from "../components/GameEntry";
 
 
-// code taken from GameStarter.jsx
+// code taken from GameEntry.jsx
 function RoomLinkComponent(props) {
     if (props.hidden) {
       return null;
@@ -63,7 +63,7 @@ export default function Home() {
             </a>
           </Link>
 
-        <GameStarter roomId = {roomId}> </GameStarter>
+        <GameEntry roomId = {roomId}> </GameEntry>
 
         <Link href="/about">
           <a className="card">
