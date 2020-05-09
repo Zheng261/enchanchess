@@ -1,0 +1,23 @@
+.bigCard {
+
+  width: calc(80% / 3);
+  max-width: 300px;
+  min-height: 400px;
+  max-height: calc(100% / 2);
+
+  display: flex; 
+  flex-direction: column;
+
+  padding: 1.5rem 0;
+  margin: 1rem;
+  
+  background-color: white;
+  color: black;
+
+  text-decoration: none;
+  text-align: center;
+
+  border: 1px solid #eaeaea;
+  border-radius: 20px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
