@@ -1,3 +1,4 @@
+import { useState, useContext } from 'react'
 import PageLayout from '../components/PageLayout'
 import UserContext from '../components/UserContext';
 import Link from 'next/link'
@@ -15,66 +16,64 @@ function RoomLinkComponent(props) {
     );
   }
 
-class GameStarter extends React.Component {
-    static contextType = UserContext
 
-    constructor(props) {
-        super(props);
-        this.state = { user: '', message: '', hiddenRoomLink: true};
-        this.setMessage = this.setMessage.bind(this)
-        this.changeUsername = this.changeUsername.bind(this)
-        this.submitUsername = this.submitUsername.bind(this)
-    }
+const GameStarter = () => {
+  // static contextType = UserContext
+  const context = useContext(UserContext)
+  const [username, setUsername] = useState('')
+  const [msg, setMsg] = useState('');
 
-    setMessage = function(str) {
-        this.setState((state, props) => ({
-            message: str
-        }));
+  const changeUsername = function(event) {
+    setUsername(event.target.value)
+    if (event.target.value !== '') {
+      setMsg('')
     }
+  }
 
-    changeUsername = function(event) {
-        this.setState({user: event.target.value});
-    }
+  const clickInput = function() {
+    // clear input on click
+    console.log("cleared input")
+    setUsername('')
+  }
 
-    submitUsername = function(event) {
-        event.preventDefault();
-        const contextUser = this.context;
-        if (this.state.user != '') {
-            contextUser.signIn(this.state.user);
-            this.setState((state, props) => ({
-                hiddenRoomLink: false
-            }));
-        } else {
-        this.setMessage('Please enter your username');
-        }
-    }
-    
-    render() {
-        return (
-            <div className="game-starter-bigcard">
-            <div className="game-starter-input">
-                <span className="game-starter-text">Pick a username: <br /></span>
-                <input
-                    type="text"
-                    value={this.state.value}
-                    onChange={this.changeUsername}
-                />
-            </div> 
-            <form onSubmit = {this.submitUsername}>
-                <a className="game-starter-button">
-                <button>Play!</button>
-              </a>
-              </form>
-              <Link href="/start-game">
-              <a className="game-starter-button">
-                <button>Create Private Room</button>
-              </a>
-              </Link>
-              {this.state.message != '' && <div className="message">{this.state.message}</div>}
-            <RoomLinkComponent hidden={this.state.hiddenRoomLink} roomId={this.props.roomId} />
-            </div>
-        )
-    }
+  const submitUsername = function(event) {
+    event.preventDefault();
+    // const contextUser = this.context;
+    if (username !== '') {
+      context.signIn(username);
+    } else {
+      setMsg('Please enter your username')
+    } 
+  }
+
+  // {this.state.message != '' && <div className="message">{this.state.message}</div>}
+  // <RoomLinkComponent hidden={this.state.hiddenRoomLink} roomId={this.props.roomId} />
+  return (
+    <div className="game-starter-bigcard">
+      <div className="game-starter-input">
+        <div className="game-starter-text">
+          Pick a username: 
+        </div>
+        <input
+          type="text"
+          value={username}
+          onChange={changeUsername}
+          onClick={clickInput}
+        />
+      </div> 
+      {msg !== '' && <div>{msg}</div>}
+      <form onSubmit = {submitUsername}>
+        <a className="game-starter-button">
+          <button>Play!</button>
+        </a>
+        </form>
+        <Link href="/start-game">
+          <a className="game-starter-button">
+            <button>Create Private Room</button>
+          </a>
+        </Link>
+    </div>
+  )
 }
 
 export default GameStarter;
