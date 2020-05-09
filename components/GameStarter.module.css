@@ -1,4 +1,4 @@
-.game-starter-button button {
+.button button {
   border: 0.5px solid grey;
   background-color: #f2cd46;
   border-radius: 12px;
@@ -16,15 +16,15 @@
   font-weight: bold;
 }
 
-.game-starter-button button:hover,
-.game-starter-button button:focus,
-.game-starter-button button:active {
+.button button:hover,
+.button button:focus,
+.button button:active {
   border: 2px solid black;
   color: black;
   text-decoration: none;
 }
 
-.game-starter-bigcard {
+.bigcard {
   margin: 1.5rem 2rem 2rem 7rem;
   padding: 1.5rem 0 1.5rem 0;
   text-align: center;
@@ -43,10 +43,14 @@
   display: flex;
 }
 
-.game-starter-input {
+.input {
   margin-bottom: 1.5rem;
 }
 
-.game-starter-text {
+.text {
   font-weight: bold;
+}
+
+.errorMsg {
+  color: red;
 }

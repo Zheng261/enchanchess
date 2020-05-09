@@ -2,6 +2,7 @@ import { useState, useContext } from 'react'
 import PageLayout from '../components/PageLayout'
 import UserContext from '../components/UserContext';
 import Link from 'next/link'
+import styles from './GameStarter.module.css'
 
 function RoomLinkComponent(props) {
     if (props.hidden) {
@@ -49,9 +50,9 @@ const GameStarter = () => {
   // {this.state.message != '' && <div className="message">{this.state.message}</div>}
   // <RoomLinkComponent hidden={this.state.hiddenRoomLink} roomId={this.props.roomId} />
   return (
-    <div className="game-starter-bigcard">
-      <div className="game-starter-input">
-        <div className="game-starter-text">
+    <div className={styles.bigcard}>
+      <div className={styles.input}>
+        <div className={styles.text}>
           Pick a username: 
         </div>
         <input
@@ -61,14 +62,14 @@ const GameStarter = () => {
           onClick={clickInput}
         />
       </div> 
-      {msg !== '' && <div>{msg}</div>}
+      {msg !== '' && <div className={styles.errorMsg}>{msg}</div>}
       <form onSubmit = {submitUsername}>
-        <a className="game-starter-button">
+        <a className={styles.button}>
           <button>Play!</button>
         </a>
         </form>
         <Link href="/start-game">
-          <a className="game-starter-button">
+          <a className={styles.button}>
             <button>Create Private Room</button>
           </a>
         </Link>
