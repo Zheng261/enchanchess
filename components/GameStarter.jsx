@@ -53,7 +53,7 @@ class GameStarter extends React.Component {
         return (
             <div className="game-starter-bigcard">
             <div className="game-starter-input">
-                Pick a username: <br />
+                <span className="game-starter-text">Pick a username: <br /></span>
                 <input
                     type="text"
                     value={this.state.value}

@@ -1,11 +1,11 @@
 .game-starter-button button {
-  border: none;
+  border: 0.5px solid grey;
   background-color: #f2cd46;
   border-radius: 12px;
   transition: color 0.15s ease, border-color 0.15s ease;
   margin: 0.5rem 1rem;
   text-decoration: none;
-  box-shadow: 0px 2px 5px 1px grey;
+  box-shadow: 1px 2px 5px 1px grey;
   min-height: 15%;
   padding: 0.55rem 0.3rem 0.55rem 0.3rem;
   font-size: 1.2rem;
@@ -44,4 +44,9 @@
 }
 
 .game-starter-input {
+  margin-bottom: 1.5rem;
+}
+
+.game-starter-text {
+  font-weight: bold;
 }
