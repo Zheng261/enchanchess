@@ -1,9 +1,10 @@
 import { useState, useContext } from 'react'
-import PageLayout from '../components/PageLayout'
+//import PageLayout from '../components/PageLayout'
 import UserContext from '../components/UserContext';
 import Link from 'next/link'
 import styles from './GameEntry.module.css'
 
+/* merged with Play / Creative Private Room
 function RoomLinkComponent(props) {
     if (props.hidden) {
       return null;
@@ -16,6 +17,7 @@ function RoomLinkComponent(props) {
         </Link>
     );
   }
+*/ 
 
 // component where player puts in username and can create room
 const GameEntry = () => {
@@ -47,6 +49,42 @@ const GameEntry = () => {
     } 
   }
 
+  function RoomEntryHandler(props) {
+  if (username === '') {
+    return (
+      <div>
+      <form onSubmit={submitUsername}>
+      <a className={styles.button}>
+        <button>Play!</button>
+      </a>
+      </form>
+      <form onSubmit={submitUsername}>
+        <a className={styles.button}>
+          <button>Create Private Room</button>
+        </a>
+      </form>
+      </div>
+    );
+  }
+  //var roomLink = "/room/";
+  //roomLink = roomLink.concat(props.roomId)
+  // needs to be updated with room link 
+  return (
+    <div>
+    <Link href ="/start-game">
+      <a className={styles.button}>
+        <button>Play!</button>
+      </a>
+    </Link>
+    <Link href="/start-game">
+      <a className={styles.button}>
+        <button>Create Private Room</button>
+      </a>
+    </Link>
+    </div>
+  );
+}
+
   // {this.state.message != '' && <div className="message">{this.state.message}</div>}
   // <RoomLinkComponent hidden={this.state.hiddenRoomLink} roomId={this.props.roomId} />
   return (
@@ -63,16 +101,7 @@ const GameEntry = () => {
         />
       </div> 
       {msg !== '' && <div className={styles.errorMsg}>{msg}</div>}
-      <form onSubmit = {submitUsername}>
-        <a className={styles.button}>
-          <button>Play!</button>
-        </a>
-        </form>
-        <Link href="/start-game">
-          <a className={styles.button}>
-            <button>Create Private Room</button>
-          </a>
-        </Link>
+      <RoomEntryHandler />
     </div>
   )
 }

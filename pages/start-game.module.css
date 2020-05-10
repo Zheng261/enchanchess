@@ -1,9 +1,7 @@
 .container {
 	height: 100vh;
 	width: 100vw;
-
 	background-color: black;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -29,6 +27,13 @@
 	color: white;
 	font-weight: bold;
 	font-size: 1.25rem;
+}
+
+.roomLink a:hover,
+.roomLink a:active,
+.roomLink a:focus {
+	text-decoration: none;
+	background-color: #212121;
 }
 
 .roomLink button {
@@ -68,6 +73,14 @@
 	color: black;
 	border: 2px solid var(--btn-primary-color);
 	border-radius: .5rem;
+	box-shadow: 1px 2px 5px 1px grey;
+}
+
+
+.startBtn:hover,
+.startBtn:focus,
+.startBtn:active {
+  border: 2px solid black;
 }
 
 .playerList {

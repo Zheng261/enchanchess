@@ -1,4 +1,7 @@
 import PageLayout from '../components/PageLayout'
+import styles from '../components/ui-elements/CardDiv.module.css'
+import Link from 'next/link';
+import Header from '../components/Header';
 
 export default function About() {
 	return (
