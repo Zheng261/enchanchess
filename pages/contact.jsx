@@ -1,12 +1,17 @@
-import PageLayout from '../components/PageLayout'
+//import PageLayout from '../components/PageLayout'
+import styles from '../components/ui-elements/CardDiv.module.css'
+import Link from 'next/link';
+import HeaderLayout from '../components/HeaderLayout';
+import BackCard from '../components/BackCard'
 
 export default function Contact() {
 	return (
-		<PageLayout>
+		<HeaderLayout>
 			<h1>Contact</h1>
 			<p>
 				Suggestions? Let us know below. (input field maybe idk)
 			</p>
-		</PageLayout>
-	)
+			<BackCard />
+		</HeaderLayout>
+	);
 }
