@@ -200,7 +200,7 @@
 	],
 	"find":
 	{
-		"height": 39.3333333333
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -277,8 +277,8 @@
 						"selection":
 						[
 							[
-								4780,
-								4780
+								3542,
+								3542
 							]
 						],
 						"settings":
@@ -286,7 +286,7 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3219.33333333,
+						"translation.y": 2409.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

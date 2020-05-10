@@ -49,7 +49,7 @@ export default function playGame() {
         <div className="grid">
 	        <a className="blackcard">
 	          <p>Don’t worry kids, it gets better. I’ve been living with ______ for 20 years.</p>
-	          <p className="circle">60</p>
+	          <div className="circle">60</div>
 	        </a>
 	     <div className="cardsgrid">
 	          <Link href="/start-game">
@@ -190,10 +190,10 @@ export default function playGame() {
           right: 0;
         }
         .circle {
-          margin: 0.5rem 2rem 0rem 0rem;
+          margin: 4rem 0rem 0rem 9rem;
           padding: 0.5rem 0.65rem 0.5rem 0.65rem;
           text-align: center;
-          color: inherit;
+          color: white;
           text-decoration: none;
           border: 3px solid white;
           border-radius: 50%;
