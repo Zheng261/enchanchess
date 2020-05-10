@@ -56,7 +56,10 @@ export default function StartGame() {
           </a>
         </Link>
         <input type="hidden"  value={url}/> 
-        <button onClick={copyUrlToClipboard}>
+        <button 
+          onMouseDown={copyUrlToClipboard} 
+          onMouseUp={() => {setButtonText("Copy Link")}}
+        >
           {buttonText}          
         </button> 
       </div>
