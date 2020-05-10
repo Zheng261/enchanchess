@@ -5,13 +5,12 @@ import HeaderLayout from '../components/HeaderLayout';
 
 export default function ImportCards() {
   return (
-    <div>
      <HeaderLayout>
      <div className={styles.bigCard}>
    	 <p> Add Your Deck </p>
    	 </div>
+   	 <BackCard />
      </HeaderLayout>
-    </div>
   )
 }
 

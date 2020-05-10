@@ -2,7 +2,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import Link from 'next/link';
 
-import PageLayout from '../components/PageLayout'
+//import PageLayout from '../components/PageLayout'
 import CardDiv from '../components/ui-elements/CardDiv'
 import styles from './start-game.module.css'
 

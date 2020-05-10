@@ -1,11 +1,12 @@
-import PageLayout from '../components/PageLayout'
+//import PageLayout from '../components/PageLayout'
 import styles from '../components/ui-elements/CardDiv.module.css'
 import Link from 'next/link';
-import Header from '../components/Header';
+import HeaderLayout from '../components/HeaderLayout';
+import BackCard from '../components/BackCard'
 
 export default function About() {
 	return (
-		<PageLayout>
+		<HeaderLayout>
 			<h1>About</h1>
 			<p>			
 				We're GGEZ and we're trying to help you social distance :) We're unaffiliated with the CAH team and all that.
@@ -15,6 +16,7 @@ export default function About() {
 			<p>
 				Testing automatic Heroku deploy!
 			</p>
-		</PageLayout>
-	)
+		<BackCard />
+		</HeaderLayout>
+	);
 }

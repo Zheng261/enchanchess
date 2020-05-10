@@ -9,6 +9,7 @@ export default function HeaderLayout({children}) {
         Cards Against Humanity
       </h2>
       <p className={styles.description}>
+        A Card Game for Horrible People <br />
         <code>social distancing edition</code>
       </p>
       {children}
