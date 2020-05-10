@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 
 import PageLayout from '../components/PageLayout'
 import UserContext from '../components/UserContext';
@@ -56,8 +57,12 @@ class GameLobby extends React.Component {
           <p>room id: {this.props.roomId}</p>
           <h2># of Connected Players</h2>
           <p>{this.props.players.length}</p>
-          <button onClick = {this.handleClick}>Test</button>
           <button onClick = {this.playGame}>Play!</button>
+          <Link href="/playGame">
+            <a>
+              Launch Game
+            </a>
+          </Link>
           <ChatBox roomId = {this.props.roomId} user = {this.context.user}></ChatBox>
         </React.Fragment>
     }

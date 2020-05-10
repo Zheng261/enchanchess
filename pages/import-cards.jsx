@@ -1,16 +1,12 @@
-import BackCard from '../components/BackCard'
-import styles from '../components/ui-elements/CardDiv.module.css'
-import Link from 'next/link';
-import HeaderLayout from '../components/HeaderLayout';
+import PageLayout from '../components/PageLayout'
 
 export default function ImportCards() {
   return (
-     <HeaderLayout>
-     <div className={styles.bigCard}>
-   	 <p> Add Your Deck </p>
-   	 </div>
-   	 <BackCard />
-     </HeaderLayout>
+    <PageLayout>
+      <h1>Import Cards</h1>
+      <p>
+        See [link] for guidelines on how to create and import card packs.
+      </p>
+    </PageLayout>
   )
 }
-
