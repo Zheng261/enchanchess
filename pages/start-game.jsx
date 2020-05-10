@@ -1,5 +1,5 @@
 // this code has been integrated into index.jsx
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useRef} from 'react'
 import Link from 'next/link';
 
 //import PageLayout from '../components/PageLayout'
@@ -16,7 +16,8 @@ import UserContext from '../components/UserContext';
 export default function StartGame() {
 
   const [roomId, setRoomId] = useState("");
-  const [host, setHost] = useState("")
+  const [buttonText, setButtonText] = useState("Copy Link")
+  const [url, setUrl] = useState("")
 
   useEffect(() => {
     const socket = io(ENDPOINT);
@@ -25,10 +26,17 @@ export default function StartGame() {
     console.log("socket emitted")
     socket.on('dispatchRoomId', roomId => {
       setRoomId(roomId)
+      setUrl(`${window.location.host}/room/${roomId}`)
     })
-
-    setHost(window.location.host)
   }, [])
+
+  const copyUrlToClipboard = () => {
+    // console.log(roomUrl)
+    // roomUrl.current.select()
+    // document.execCommand("copy")
+    navigator.clipboard.writeText(url)
+    setButtonText("Copied!")
+  }
 
   // todo: remove hardcode and pull from backend
   const players = ['Henry', 'Bob', 'Melinda', 'Alice']
@@ -36,17 +44,20 @@ export default function StartGame() {
     <li key={index}>{name}</li>
   );
 
+  // room url
+  // need hidden input to implemented copy url to clipboard on button click
   return (
     <div className={styles.container}>
       <div className={styles.roomLink}>
         <h1>Invite Your Friends!</h1>
         <Link href={`/room/${roomId}`}>
           <a>
-            {`${host}/room/${roomId}`}
+            {url}
           </a>
         </Link>
-        <button>
-          Copy Link
+        <input type="hidden"  value={url}/> 
+        <button onClick={copyUrlToClipboard}>
+          {buttonText}          
         </button> 
       </div>
       <div className={styles.cardContainer}>
