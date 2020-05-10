@@ -47,29 +47,26 @@ class GameLobby extends React.Component {
     let value = this.context.user
     let screen;
     if (this.state.play_game) {
-      screen = <GamePlay />
+      screen = <GamePlay roomId = {this.props.roomId}/>
     } else {
       screen =  
-        <React.Fragment>
-          <h1>Game Room</h1>
-          <div>Welcome, {this.context.user} </div>
-          <p>*not party owner edition, will distinguish some other time*</p>
-          <p>room id: {this.props.roomId}</p>
-          <h2># of Connected Players</h2>
-          <p>{this.props.players.length}</p>
-          <button onClick = {this.playGame}>Play!</button>
-          <Link href="/playGame">
-            <a>
-              Launch Game
-            </a>
-          </Link>
-          <ChatBox roomId = {this.props.roomId} user = {this.context.user}></ChatBox>
-        </React.Fragment>
+      <HeaderLayout>
+          <React.Fragment>
+            <h1>Game Room</h1>
+            <div>Welcome, {this.context.user} </div>
+            <p>*not party owner edition, will distinguish some other time*</p>
+            <p>room id: {this.props.roomId}</p>
+            <h2># of Connected Players</h2>
+            <p>{this.props.players.length}</p>
+            <button onClick = {this.playGame}>Play! </button>
+            <ChatBox roomId = {this.props.roomId} user = {this.context.user}></ChatBox>
+          </React.Fragment>
+        </HeaderLayout>
     }
     return (
-      <HeaderLayout>
+      <div>
         {screen}
-      </HeaderLayout>
+     </div>
     )
   }
 }
