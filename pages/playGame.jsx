@@ -302,7 +302,7 @@ export default function playGame() {
         .card {
           width: 170px;
           height: 140px;
-          margin-left: 2 rem;
+          margin-right: 1rem;
           padding: 0.7rem;
           text-align: left;
           border: 1px solid #000000;
@@ -325,7 +325,7 @@ export default function playGame() {
          .deckCard {
           width: 140px;
           height: 100px;
-          margin-left: 2 rem;
+          margin: 0 0 0.5rem 0.5rem;
           padding: 0.7rem;
           text-align: left;
           border: 1px solid #000000;
