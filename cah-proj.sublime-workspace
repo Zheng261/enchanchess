@@ -8,11 +8,12 @@
 	"buffers":
 	[
 		{
-			"file": "/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS142/Spring/project4/components/example/Example.jsx",
+			"file": "pages/playGame.jsx",
 			"settings":
 			{
-				"buffer_size": 14814,
-				"line_ending": "Unix"
+				"buffer_size": 8610,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -57,10 +58,51 @@
 	"expanded_folders":
 	[
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12",
-		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/backend"
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/backend",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/ui-elements",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/frontend-nextjs",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/frontend-nextjs/pages",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/room",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/styles"
 	],
 	"file_history":
 	[
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/scrap code.txt",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/index.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/contact.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/playGame.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/GameEntry.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/HeaderLayout.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/start-game.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/about.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/import-cards.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/ui-elements/CardDiv.module.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/styles/global.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/PageLayout.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/Header.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/HeaderLayout.module.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/PageLayout.module.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/Header.module.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/index-module.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/GameEntry.module.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/start-game.module.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/play-placeholder.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/header.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/heading.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/GameLobby.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/card-module.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/_app.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/styles/theme.js",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/ChatBox.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/GameStarter.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/styles/gameStarter.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/GameStarter.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/components/GamePlay.jsx",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/styles/index.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/css/index.css",
+		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS142/Spring/project4/components/example/Example.jsx",
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/PSYCH 45/section 3 notes.txt",
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/PSYCH 45/section 4 notes.txt",
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/STATS 207/homework stuff/pset2/pset2 notes.txt",
@@ -68,9 +110,6 @@
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/PSYCH 45/midterm notes and review/notes.txt",
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/BIO150/BIO 150 Quiz 4 Notes.txt",
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/BIO150/lecture 10 notes.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/styles/global.css",
-		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/pages/about.jsx",
-		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS194W/Team-12/styles/theme.js",
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS229/ps1/ps1 notes.txt",
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS229/lecture notes/4-24.txt",
 		"/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/BIO150/lecture 9 notes.txt",
@@ -157,38 +196,7 @@
 		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/chatbot.py",
 		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS161/Homework/hw 6 notes.txt",
 		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/Summer Search/CURIS interview notes.txt",
-		"/C/Users/huang/Documents/College/Projects/Data Viz/seda-test-scores/app-todo.txt",
-		"/C/Users/huang/Documents/College/Classes/Archived/Junior Fall Quarter/Interview Prep/Behavioral Situations.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/Summer Search/Slack Interview Notes.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/Chatbot/chatbot.py",
-		"/C/Users/huang/Documents/College/Projects/Data Viz/seda-test-scores/labels-work",
-		"/C/Users/huang/Documents/College/Classes/Archived/Junior Fall Quarter/Interview Prep/notes.txt",
-		"/C/Users/huang/Documents/College/Projects/Data Analysis/stanford-majors/IPEDS notes.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS182/Homework/AlgorithmicDecisionMaking/model_class_par.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/Quiz 5 Script.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS182/Homework/182 Memo Notes.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS161/Homework/hw3-notes.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS182/Homework/AlgorithmicDecisionMaking/model_prot.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS182/Homework/AlgorithmicDecisionMaking/model_no_prot.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS182/Homework/assignment-1-notes.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/NaiveBayes.py",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS161/Homework/hw2-notes.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/IRSystem.py",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS182/Homework/a.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS161/Jupyter Notebooks/HW4aux.py",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/dcl-ta-stuff/GitHub/dcl-2020-01/staff/data/task_codes.yml",
-		"/C/Users/huang/Documents/College/Classes/dcl-ta-stuff/a.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS182/Homework/AlgorithmicDecisionMaking/model.txt",
-		"/C/Users/huang/Downloads/NaiveBayes.py",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/Unix Notes.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/Quiz 1 Files/au_all.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS161/Homework/hw1-notes.txt",
-		"/C/Users/huang/Documents/College/Oxford/Dates.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/Quiz 1 Files/au_space.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/Quiz 1 Files/Quiz 1 Notes.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/Quiz 1 Files/portercounts2.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/Quiz 1 Files/portercounts.txt",
-		"/C/Users/huang/Documents/College/Classes/Junior Winter Quarter/CS124/Quiz 1 Files/stem.txt"
+		"/C/Users/huang/Documents/College/Projects/Data Viz/seda-test-scores/app-todo.txt"
 	],
 	"find":
 	{
@@ -206,6 +214,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"60",
+			"dividingLine",
+			"dividngLine",
+			"PageLayout",
+			"roomId",
+			"username",
+			"roomLinkComponent",
+			"btn-primary",
+			"justify-content",
 			"callback",
 			"year",
 			"calendar",
@@ -249,19 +266,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/huang/Documents/College/Classes/Junior Spring Quarter/CS142/Spring/project4/components/example/Example.jsx",
+					"file": "pages/playGame.jsx",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14814,
+						"buffer_size": 8610,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3542,
+								3542
 							]
 						],
 						"settings":
@@ -269,7 +286,7 @@
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2409.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -355,7 +372,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 367.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
