@@ -362,5 +362,6 @@ export default function playGame() {
         }
       `}</style>
     </div>
-  )
+  );
 }
+
