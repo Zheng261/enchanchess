@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link'
 
-import PageLayout from '../components/PageLayout'
+import HeaderLayout from '../components/HeaderLayout'
 import UserContext from '../components/UserContext';
 import ChatBox from '../components/ChatBox';
 import GamePlay from './GamePlay';
@@ -67,9 +67,9 @@ class GameLobby extends React.Component {
         </React.Fragment>
     }
     return (
-      <PageLayout>
+      <HeaderLayout>
         {screen}
-      </PageLayout>
+      </HeaderLayout>
     )
   }
 }

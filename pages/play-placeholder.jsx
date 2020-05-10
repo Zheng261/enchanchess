@@ -1,11 +1,12 @@
-import PageLayout from '../components/PageLayout'
+
+import HeaderLayout from '../components/HeaderLayout'
 
 // screen where cards/actual game can be played lives
 // currently a duplicate of GamePlay.jsx in components 
 export default function GamePlay() {
   return (
-  	<PageLayout>
-    <p>hi</p>
-    </PageLayout>
+  	<HeaderLayout>
+    	<p>hi</p>
+    </HeaderLayout>
   )
 }
