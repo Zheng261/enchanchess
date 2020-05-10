@@ -49,9 +49,7 @@ export default function playGame() {
         <div className="grid">
 	        <a className="blackcard">
 	          <p>Don’t worry kids, it gets better. I’ve been living with ______ for 20 years.</p>
-	          <a className = "circle">
-	          <p>60</p>
-	          </a>
+	          <p className="circle">60</p>
 	        </a>
 	     <div className="cardsgrid">
 	          <Link href="/start-game">
@@ -70,7 +68,7 @@ export default function playGame() {
           
 	        </div>
 	     </div>
-    	<hr className = "dividingLine"/>
+    	<div className = "dividingLine"/>
 
 	   	<div className="cardsgrid">
 	      <Link href="/start-game">
@@ -192,15 +190,15 @@ export default function playGame() {
           right: 0;
         }
         .circle {
-          margin: 0.5 rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
+          margin: 0.5rem 2rem 0rem 0rem;
+          padding: 0.5rem 0.65rem 0.5rem 0.65rem;
+          text-align: center;
           color: inherit;
           text-decoration: none;
-          border: 1px solid #000000;
-          border-radius: 500px;
-          transition: color 0.15s ease, border-color 0.15s ease;
+          border: 3px solid white;
+          border-radius: 50%;
+          display: inline-block;
+          white-space: nowrap;
         }
         .chatHeader {
           background-color: black;
@@ -283,6 +281,7 @@ export default function playGame() {
           text-align: left;
           background-color: black;
           border-radius: 10px;
+          box-shadow: 1px 1px 3px 1px grey;
         }
 
         .blackcard p {
@@ -307,6 +306,7 @@ export default function playGame() {
           text-align: left;
           border: 1px solid #000000;
           border-radius: 10px;
+          box-shadow: 1px 1px 3px 1px grey;
         }
 
         .card:hover,
@@ -330,6 +330,7 @@ export default function playGame() {
           text-align: left;
           border: 1px solid #000000;
           border-radius: 10px;
+          box-shadow: 1px 1px 3px 1px grey;
         }
 
         .deckCard:hover,
@@ -345,9 +346,9 @@ export default function playGame() {
           line-height: 1.5;
         }
         .dividingLine {
-	      color: black,
-	      backgroundColor: black,
-	      height: 5
+	      border: 1px solid black;
+	      margin: 1rem 0 2rem 0;
+	      width: 60%;
         }
 
         .logo {

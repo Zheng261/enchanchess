@@ -7,6 +7,15 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "pages/playGame.jsx",
+			"settings":
+			{
+				"buffer_size": 8610,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -205,6 +214,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"60",
+			"dividingLine",
+			"dividngLine",
 			"PageLayout",
 			"roomId",
 			"username",
@@ -249,8 +261,37 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "pages/playGame.jsx",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8610,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4780,
+								4780
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3219.33333333,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
 			]
 		}
 	],
