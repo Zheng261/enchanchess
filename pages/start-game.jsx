@@ -7,9 +7,9 @@ import CardDiv from '../components/ui-elements/CardDiv'
 import styles from './start-game.module.css'
 
 import io from "socket.io-client";
-// const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
+const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
 // IMPORTANT; switch to this below endpoint when done on dev!
-const ENDPOINT = "https://bestcah-api.herokuapp.com/"
+// const ENDPOINT = "https://bestcah-api.herokuapp.com/"
 import UserContext from '../components/UserContext';
 
 // io.connect(window.location.hostname)
