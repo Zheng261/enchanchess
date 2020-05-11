@@ -36,18 +36,20 @@ class ChatBox extends React.Component {
   render(){
     return (
       <div>
-      <div className={styles.messageBackground}>
-        {this.state.messages.map(message => {
-          return (
-              <div>{this.props.user}: {message.message}</div>
-          )
-        })}
-      </div>
+        <playerText>
+          {this.state.messages.map(message => {
+            return (
+                <div>{this.props.user}: {message.message}</div>
+            )
+          })}
+        </playerText>
       <div className= {styles.enterTextBox}>
-        <input type="text" placeholder="Message" className="form-control" 
-              value={this.state.message}
-              onChange={ev => this.setState({message: ev.target.value})}/>
-        <button onClick={this.sendMessage} className="btn btn-primary form-control">Send</button>
+        <enterTextStyle>
+            <input type="text" placeholder="Enter message here"
+                  value={this.state.message}
+                  onChange={ev => this.setState({message: ev.target.value})}/>
+            <button onClick={this.sendMessage} className="btn btn-primary form-control">Send</button>
+        </enterTextStyle>
       </div>
       </div>
     );
