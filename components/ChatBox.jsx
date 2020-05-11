@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './playGame.module.css'
 // TODO: NEED TO CHANGE THIS WHEN WE DEPLOY
-import io from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
+// import io from "socket.io-client";
+// const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
 
 class ChatBox extends React.Component {
   constructor(props){
@@ -13,19 +13,19 @@ class ChatBox extends React.Component {
         messages: []
     };
 
-    this.socket = io(ENDPOINT);
+    // this.socket = io(ENDPOINT);
   
     this.sendMessage = ev => {
       ev.preventDefault();
-      this.socket.emit('sendChatMessage', { //TODO: DELETE THIS 
-      // this.props.socket.emit('sendChatMessage', {
+      // this.socket.emit('sendChatMessage', { //TODO: DELETE THIS 
+      this.props.socket.emit('sendChatMessage', {
           author: this.props.user,
           message: this.state.message
       });
       this.setState({message: ''});
     }
-    this.socket.on('RECEIVE_MESSAGE', msg =>{ //TODO: DELETE THIS 
-    // this.props.socket.on('RECEIVE_MESSAGE', msg =>{
+    // this.socket.on('RECEIVE_MESSAGE', msg =>{ //TODO: DELETE THIS 
+    this.props.socket.on('RECEIVE_MESSAGE', msg =>{
       console.log("MESSAGE PASSED IN", msg);
       this.setState({messages: [...this.state.messages, msg]});
       console.log("MESSAGES", this.state.messages);
