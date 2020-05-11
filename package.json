@@ -27,5 +27,10 @@
   "bugs": {
     "url": "https://github.com/StanfordCS194/Team-12/issues"
   },
-  "homepage": "https://github.com/StanfordCS194/Team-12#readme"
+  "homepage": "https://github.com/StanfordCS194/Team-12#readme",
+  "devDependencies": {
+    "fibers": "^5.0.0",
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.5"
+  }
 }

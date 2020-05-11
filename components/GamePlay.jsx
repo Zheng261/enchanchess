@@ -1,8 +1,10 @@
 import { useContext } from 'react'
 import Link from 'next/link'
-import PlayGame_CardBox from './PlayGame_CardBox'
 import styles from './playGame.module.css'
+
+import PlayGame_CardBox from './PlayGame_CardBox'
 import UserContext from '../components/UserContext';
+import ChatBox from '../components/ChatBox';
 
 // CALLED FROM: GameLobby.
 // screen where cards/actual game can be played lives
@@ -37,6 +39,7 @@ function GamePlay(props) {
 	        </div>
 
 	       	<div className= {styles.gamechat}>
+			   <ChatBox roomId = {props.roomId} user = {context.user}></ChatBox>
 	       		<a className = {styles.messageBackground}>
 	            	<cardWinText>Sally gets this round’s black card!</cardWinText>
 	            </a>
