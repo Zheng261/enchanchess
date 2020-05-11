@@ -53,16 +53,7 @@ class ChatBox extends React.Component {
       </div>
       </div>
     );
+  }
 }
-}
-  //   render() {
-  //     return( 
-  //       <div>
-  //           
-  //       </div>
-  //     );
-  //   }
-  // }
-
 
 export default ChatBox

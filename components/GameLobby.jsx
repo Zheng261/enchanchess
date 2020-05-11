@@ -5,6 +5,8 @@ import HeaderLayout from '../components/HeaderLayout'
 import UserContext from '../components/UserContext';
 import GamePlay from './GamePlay';
 
+// Called from: rooms/[id].jsx
+
 class GameLobby extends React.Component {
   static contextType = UserContext
 
@@ -46,7 +48,7 @@ class GameLobby extends React.Component {
     let value = this.context.user
     let screen;
     if (this.state.play_game) {
-      screen = <GamePlay roomId = {this.props.roomId}/>
+      screen = <GamePlay roomId = {this.props.roomId} socket = {this.props.socket}/>
     } else {
       screen =  
       <HeaderLayout>

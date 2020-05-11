@@ -6,7 +6,7 @@ import PlayGame_CardBox from './PlayGame_CardBox'
 import UserContext from '../components/UserContext';
 import ChatBox from '../components/ChatBox';
 
-// CALLED FROM: GameLobby.
+// CALLED FROM: GameLobby, which is called in turn from rooms/[id].jsx
 // screen where cards/actual game can be played lives
 function GamePlay(props) {
   const context = useContext(UserContext)
@@ -74,10 +74,11 @@ function GamePlay(props) {
 	        </div>
 	     </div>
     	<div className = {styles.dividingLine}/>
-        <PlayGame_CardBox></PlayGame_CardBox>
+        <PlayGame_CardBox socket = {props.socket} roomId = {props.roomId} user = {context.user}></PlayGame_CardBox>
       </main>
     </div>
   );
 }
+
 
 export default GamePlay;
