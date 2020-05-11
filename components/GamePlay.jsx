@@ -39,7 +39,7 @@ function GamePlay(props) {
 	        </div>
 
 	       	<div className= {styles.gamechat}>
-			   <ChatBox roomId = {props.roomId} user = {context.user}></ChatBox>
+			   <ChatBox roomId = {props.roomId} user = {context.user} socket = {props.socket}></ChatBox>
 	       		<a className = {styles.messageBackground}>
 	            	<cardWinText>Sally gets this round’s black card!</cardWinText>
 	            </a>
