@@ -5,7 +5,7 @@ import { useRouter, Router } from 'next/router'
 import io from "socket.io-client";
 
 // IMPORTANT: remember to change this when deploying
-const GLOBAL_BACKEND_CONSTANTS = require('../../styles/Backend_Constants.js')
+const GLOBAL_BACKEND_CONSTANTS = require('../../styles/backend_constants.js')
 const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
 
 import { useState, useEffect } from "react";
