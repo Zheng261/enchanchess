@@ -1,0 +1,35 @@
+.cardBtn {
+  background-color: white;
+  color: black;
+  position: relative;
+  text-align: center;
+
+  width: 125px;
+  height: calc(125px * var(--card-hw-ratio));
+
+  margin: 0 .5rem;
+  padding: .5rem;
+  
+  font-weight: bold;
+  
+  border-radius: .5rem;
+  border: none;
+
+
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.cardBtn:hover,
+.cardBtn:focus,
+.cardBtn:active {
+  
+}
+
+.cardBtn p {
+  width: auto;
+  margin: 1em;
+  position: absolute;
+  top: 0;
+}
+
+

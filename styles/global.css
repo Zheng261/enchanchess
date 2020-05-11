@@ -10,6 +10,7 @@ body {
 
 :root {
   --btn-primary-color: #FFCD40;
+  --card-hw-ratio: calc(3.5 / 2.5);
 }
 
 * {

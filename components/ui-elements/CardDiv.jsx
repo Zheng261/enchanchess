@@ -4,7 +4,7 @@ import styles from './CardDiv.module.css'
 // takes in children DOM elements 
 const CardDiv = (props) => {
   return (
-    <div className={styles.bigCard}>
+    <div className={styles.card}>
       <h2>{props.heading}</h2>
       {props.children}
     </div>

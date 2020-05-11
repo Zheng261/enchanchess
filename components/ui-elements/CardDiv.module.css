@@ -1,15 +1,13 @@
-.bigCard {
-  width: calc(80% / 3);
-  max-width: 300px;
-  min-height: 400px;
-  max-height: calc(100% / 2);
-
+.card {
+  width: 300px;
+  height: calc(300px * var(--card-hw-ratio));
+  
   display: flex; 
   flex-direction: column;
   align-items: center;
 
   padding-bottom: 1.5rem;
-  margin: 1rem;
+  margin: 0 1rem;
   
   background-color: white;
   color: black;
@@ -21,46 +19,3 @@
   border-radius: 20px;
   transition: color 0.15s ease, border-color 0.15s ease;
 }
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  max-width: 800px;
-  max-height: 600px;
-  margin-top: 3rem;
-}
-
-.card {
-  margin: 0.3rem;
-  flex-basis: 15%;
-  padding: 0 1.5rem 1.5rem 0.7rem;
-  text-align: left;
-  background-color: white;
-  color: black;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 20px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  min-width: 15%;
-  min-height: 15%;
-  vertical-align: top;
-  white-space: nowrap;
-  align-self: flex-end;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #594d0a;
-  border-color: #594d0a;
-}
-
-.card p {
-  margin: 0 0 4rem 0;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-

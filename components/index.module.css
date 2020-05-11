@@ -1,4 +1,39 @@
+.parentContainer {
+  width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  background-color: black;
+  color: white;
+}
+
 .cardContainer {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+.centerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerContainer h1 {
+  margin-bottom: 0px;
+  font-size: 3rem;
+}
+
+.tagline {
+  margin-top: 0px;
+  margin-bottom: 4rem;
+  font-size: 1.2rem;
 }
