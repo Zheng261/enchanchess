@@ -6,11 +6,17 @@ import CardButton from '../components/ui-elements/CardButton'
 
 import styles from '../components/index.module.css'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router'
+
+import UserContext from '../components/UserContext';
 
 export default function Home() {
   const router = useRouter()
+  const context = useContext(UserContext)
+  const [username, setUsername] = useState('Username')
+  const [msg, setMsg] = useState('');
+
   useEffect(() => {
     router.prefetch('/start-game')
   })
@@ -21,6 +27,30 @@ export default function Home() {
       router.push(link)
     }
   }
+
+  const changeUsername = function(event) {
+    setUsername(event.target.value)
+    if (event.target.value !== '') {
+      setMsg('')
+    }
+  }
+
+  const clickInput = function() {
+    // clear input on click
+    console.log("cleared input")
+    setUsername('')
+  }
+
+  const createRoom = function(event) {
+    if (username !== '' && username !== 'Username') {
+      context.signIn(username);
+      btnNavigate('/start-game').call()
+    } else {
+      setMsg('Please enter your username')
+      event.preventDefault();
+    } 
+  }
+
 
   return (
     <div className={styles.parentContainer}>
@@ -44,9 +74,12 @@ export default function Home() {
           <CardDiv>
             <input
               type="text"
-              value="Username"
+              value={username}
+              onChange={changeUsername}
+              onClick={clickInput}
             />
-            <StyledButton onClick={btnNavigate('/start-game')}>
+            {msg !== '' && <div className={styles.errorMsg}>{msg}</div>}
+            <StyledButton onClick={createRoom}>
               Create Room
             </StyledButton>
           </CardDiv>
