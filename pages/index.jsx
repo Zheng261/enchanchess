@@ -5,7 +5,22 @@ import StyledButton from '../components/ui-elements/StyledButton'
 
 import styles from '../components/index.module.css'
 
+import React, { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+
 export default function Home() {
+  const router = useRouter()
+  useEffect(() => {
+    router.prefetch('/start-game')
+  })
+
+  // clicking button navigates to given link
+  const btnNavigate = (link) => {
+    return () => {
+      router.push(link)
+    }
+  }
+
   return (
     <div className="container">
       <Head>
@@ -31,10 +46,10 @@ export default function Home() {
               value="Username"
             />
 
-            <StyledButton>
-              Create Room!
+            <StyledButton onClick={btnNavigate('/start-game')}>
+              Create Room
             </StyledButton>
-
+            
           </CardDiv>
           <CardDiv heading={'About'}>
           </CardDiv>

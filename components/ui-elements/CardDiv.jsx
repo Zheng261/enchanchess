@@ -2,11 +2,11 @@ import styles from './CardDiv.module.css'
 
 // ui card element, used throughout app for game settings, card decks, players, etc,
 // takes in children DOM elements 
-const CardDiv = ({heading, children}) => {
+const CardDiv = (props) => {
   return (
     <div className={styles.bigCard}>
-      <h2>{heading}</h2>
-      {children}
+      <h2>{props.heading}</h2>
+      {props.children}
     </div>
   )
 }
