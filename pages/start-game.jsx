@@ -4,6 +4,8 @@ import Link from 'next/link';
 
 //import PageLayout from '../components/PageLayout'
 import CardDiv from '../components/ui-elements/CardDiv'
+import StyledButton from '../components/ui-elements/StyledButton'
+
 import styles from '../components/start-game.module.css'
 
 import io from "socket.io-client";
@@ -77,9 +79,9 @@ export default function StartGame() {
           <div className={styles.gameSettings}>
             Idle Limit
           </div>
-          <button className={styles.startBtn}>
+          <StyledButton>
             Start Game!
-          </button>
+          </StyledButton>
         </CardDiv>
         <CardDiv heading={'Card Decks'}>
         </CardDiv>
