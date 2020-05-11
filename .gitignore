@@ -146,5 +146,5 @@ yarn-error.log*
 .env.production.local
 
 # sublime project
-.sublime-project
-.sublime-workspace
+*.sublime-project
+*.sublime-workspace
