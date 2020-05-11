@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import HeaderLayout from '../components/HeaderLayout'
 import UserContext from '../components/UserContext';
-import ChatBox from '../components/ChatBox';
 import GamePlay from './GamePlay';
 
 // Called from: rooms/[id].jsx
@@ -61,7 +60,6 @@ class GameLobby extends React.Component {
             <h2># of Connected Players</h2>
             <p>{this.props.players.length}</p>
             <button onClick = {this.playGame}>Play! </button>
-            <ChatBox roomId = {this.props.roomId} user = {this.context.user}></ChatBox>
           </React.Fragment>
         </HeaderLayout>
     }
