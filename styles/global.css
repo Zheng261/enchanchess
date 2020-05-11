@@ -8,6 +8,10 @@ body {
   font-size: 18px;
 }
 
+:root {
+  --btn-primary-color: #FFCD40;
+}
+
 * {
   box-sizing: border-box;
 }

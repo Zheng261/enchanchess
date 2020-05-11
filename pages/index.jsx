@@ -32,7 +32,7 @@ export default function Home() {
             />
 
             <StyledButton>
-              Create Private Room!
+              Create Room!
             </StyledButton>
 
           </CardDiv>
