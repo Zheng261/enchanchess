@@ -7,10 +7,12 @@ import CardDiv from '../components/ui-elements/CardDiv'
 import styles from '../components/start-game.module.css'
 
 import io from "socket.io-client";
-// const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
-// IMPORTANT; switch to this below endpoint when done on dev!
-const ENDPOINT = "https://bestcah-api.herokuapp.com/"
 
+// IMPORTANT; switch to this below endpoint when done on dev!
+const GLOBAL_BACKEND_CONSTANTS = require('../styles/Backend_Constants.js')
+const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
+
+// Eventually bring in username
 import UserContext from '../components/UserContext';
 
 // io.connect(window.location.hostname)

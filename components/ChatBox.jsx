@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class ChatBox extends React.Component {
     render() {
       return( 
@@ -11,6 +10,5 @@ class ChatBox extends React.Component {
       );
     }
   }
-
 
 export default ChatBox

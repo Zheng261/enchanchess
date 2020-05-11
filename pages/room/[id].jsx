@@ -3,7 +3,11 @@ import { useRouter, Router } from 'next/router'
 //  todo: save socket.io context in app state
 //  todo: manage app state in redux, next-redux-wrapper
 import io from "socket.io-client";
-const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint
+
+// IMPORTANT: remember to change this when deploying
+const GLOBAL_BACKEND_CONSTANTS = require('../../styles/Backend_Constants.js')
+const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
+
 import { useState, useEffect } from "react";
 import GameLobby from '../../components/GameLobby'
 
