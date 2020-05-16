@@ -17,9 +17,9 @@ export default function Home() {
   const [username, setUsername] = useState('Username')
   const [msg, setMsg] = useState('');
 
-  useEffect(() => {
-    router.prefetch('/start-game')
-  })
+  // useEffect(() => {
+  //   router.prefetch('/start-game')
+  // })
 
   // clicking button navigates to given link
   const btnNavigate = (link) => {

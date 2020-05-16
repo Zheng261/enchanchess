@@ -1,5 +1,6 @@
 // this code has been integrated into index.jsx
 import React, { useState, useContext, useEffect, useRef} from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link';
 
 //import PageLayout from '../components/PageLayout'
@@ -19,10 +20,11 @@ import UserContext from '../components/UserContext';
 
 // io.connect(window.location.hostname)
 export default function StartGame() {
-
+  const router = useRouter()
   const [roomId, setRoomId] = useState("");
   const [buttonText, setButtonText] = useState("Copy Link")
-  const [url, setUrl] = useState("")
+  const [url, setUrl] = useState("Loading...")  // the url you share with your friends
+  const copyEl = useRef(null) 
 
   useEffect(() => {
     const socket = io(ENDPOINT);
@@ -35,11 +37,20 @@ export default function StartGame() {
     })
   }, [])
 
-  const copyUrlToClipboard = () => {
-    // console.log(roomUrl)
-    // roomUrl.current.select()
-    // document.execCommand("copy")
-    navigator.clipboard.writeText(url)
+  // clicking button navigates to given link
+  const btnNavigate = (link) => {
+    return () => {
+      router.push(link)
+    }
+  }
+
+  const copyUrlToClipboard = (text) => {
+    var dummy = document.createElement("textarea");
+    document.body.appendChild(dummy);
+    dummy.value = text
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
     setButtonText("Copied!")
   }
 
@@ -55,14 +66,9 @@ export default function StartGame() {
     <div className={styles.container}>
       <div className={styles.roomLink}>
         <h1>Invite Your Friends!</h1>
-        <Link href={`/room/${roomId}`}>
-          <a>
-            {url}
-          </a>
-        </Link>
-        <input type="hidden"  value={url}/> 
+          <a>{url}</a>
         <button 
-          onMouseDown={copyUrlToClipboard} 
+          onMouseDown={copyUrlToClipboard.bind(null, url)} 
           onMouseUp={() => {setButtonText("Copy Link")}}
         >
           {buttonText}          
@@ -79,7 +85,7 @@ export default function StartGame() {
           <div className={styles.gameSettings}>
             Idle Limit
           </div>
-          <StyledButton>
+          <StyledButton onClick={btnNavigate(`/room/${roomId}`)}>
             Start Game!
           </StyledButton>
         </CardDiv>
