@@ -9,7 +9,9 @@ const GLOBAL_BACKEND_CONSTANTS = require('../../styles/backend_constants.js')
 const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
 
 import { useState, useEffect } from "react";
+// remove GameLobby component no longer used
 import GameLobby from '../../components/GameLobby'
+import GamePlay from '../../components/GamePlay'
 
 export default ({ data }) => {
   const router = useRouter()
@@ -41,7 +43,8 @@ export default ({ data }) => {
 
 // todo: store socket instance in _app.jsx (highest parent component)
   return (
-   <GameLobby roomId = {router.query.id} players = {players} socket = {socket}></GameLobby>
+    <GamePlay roomId = {router.query.id} socket = {socket}/>
+    // <GameLobby roomId = {router.query.id} players = {players} socket = {socket}></GameLobby>
   )
 }
 
