@@ -1,5 +1,6 @@
 import styles from './GamePlay.module.css'
 import GameCard from './game-objects/GameCard'
+import { Html5Entities } from 'html-entities'
 
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
 class BlackCard extends React.Component {
@@ -15,12 +16,13 @@ class BlackCard extends React.Component {
     }
 
     componentDidMount() {
-    	this.drawBlackCard(true);
+    	const htmlEntities = new Html5Entities()
         this.props.socket.on(('drawBlackCardReply').concat(this.props.roomId), res => {
             console.log(("black card drawn: ").concat(res.text))
-            let newText = res.text.replace(/_/g, "_____")
+            let newText = htmlEntities.decode(res.text.replace(/_/g, "_____"))
             this.setState({blackCardText: newText, blackCardPick: res.pick});
         });
+        this.drawBlackCard(true);
     }
 
     drawBlackCard = function(startOfGame = false) { 
