@@ -26,6 +26,11 @@
     font-weight: bold;
 }
 
+/* add left border to scoreboard and game chat divs */
+.rightItems {
+    border-left: 2px solid black;  
+}
+
 /* css for dealer (card czar) black card screen */
 .dealerContainer {
     display: flex;

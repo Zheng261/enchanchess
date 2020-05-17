@@ -43,7 +43,7 @@ function GamePlay(props) {
     			</div>
     		</div>
     	</div>
-		<div className={cx(styles.item, styles.scoreboard)}>
+		<div className={cx(styles.item, styles.scoreboard, styles.rightItems)}>
 			<div className={styles.itemHeader}>
 				Scoreboard
 			</div>
@@ -76,7 +76,7 @@ function GamePlay(props) {
 			<GameCard color={'white'} text={'nickelback'}/>
 			<GameCard color={'white'} text={'nickelback'}/>
 		</div>
-		<div className={styles.item}>
+		<div className={cx(styles.item, styles.rightItems)}>
 			<div className={styles.itemHeader}>
 				Game Chat
 			</div>
