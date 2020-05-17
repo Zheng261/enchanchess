@@ -37,20 +37,7 @@ function GamePlay(props) {
 	        <div className= {styles.blackHeader}>
 	            <p>Game Chat</p>
 	        </div>
-
-	       	<div className= {styles.gamechat}>
 			   <ChatBox roomId = {props.roomId} user = {context.user} socket = {props.socket}></ChatBox>
-	       		<a className = {styles.messageBackground}>
-	            	<cardWinText>Sally gets this round’s black card!</cardWinText>
-	            </a>
-	            <playerText>Jack: LOL that was the perfect card to play</playerText>
-	           	<a className = {styles.messageBackground}>
-	            	<playerText>Sam: All the answers were pretty solid</playerText>
-	           	</a>
-	         	<div className= {styles.enterTextBox}>
-	            	<enterTextStyle>Enter Text Here</enterTextStyle>
-	        	</div>
-	        </div>
         </div>
 
 
