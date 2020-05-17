@@ -58,7 +58,7 @@ class PlayGame_CardBox extends React.Component {
         for (var cardNum = 0; cardNum < this.state.thisUserCards.length; cardNum++) {
             // If we need to start a new row of cards
             cardBoxContent.push(
-                <GameCard color={'white'} text={this.state.thisUserCards[cardNum]}/>);
+                <GameCard key={cardNum} color={'white'} text={this.state.thisUserCards[cardNum]}/>);
         }
         return (
             <div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>
