@@ -6,7 +6,6 @@ import cx from 'classnames'
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
 
 class PlayGame_CardBox extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = { 
@@ -18,6 +17,14 @@ class PlayGame_CardBox extends React.Component {
     }
 
     componentDidMount() {
+        this.props.socket.on(('drawCardReply').concat(this.props.roomId), res => {
+            var arrCopy = this.state.thisUserCards
+            console.log(arrCopy)
+            console.log(("card drawn: ").concat(res))
+             // pushes string to card drawn 
+            arrCopy.push(res)
+            this.setState({thisUserCards: arrCopy});
+        });
         this.drawCards(6, true, true)
     }
 
@@ -26,14 +33,6 @@ class PlayGame_CardBox extends React.Component {
         // WHY DO WE HAVE TO RE-OPEN A SOCKET? BECAUSE IT AUTOMATICALLY SHUTS DOWN
         // AFTER COMPONENT MOUNTS AND WE HAVE NO IDEA WHY
         if (!this.state.socketTriggeredPostMount) {
-            this.props.socket.on(('drawCardReply').concat(this.props.roomId), res => {
-                var arrCopy = this.state.thisUserCards
-                console.log(arrCopy)
-                console.log(("card drawn: ").concat(res))
-                 // pushes string to card drawn 
-                arrCopy.push(res)
-                this.setState({thisUserCards: arrCopy});
-            });
             // Make sure we do this again after the mount phase
             if (!startOfGame) {
                 this.setState({socketTriggeredPostMount: true})

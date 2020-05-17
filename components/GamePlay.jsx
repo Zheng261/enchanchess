@@ -58,7 +58,6 @@ export default function GamePlay(props) {
 		</div>
 		<div className={styles.overlayContainer}>
 		<PlayGame_CardBox socket = {props.socket} roomId = {props.roomId} user = {context.user}></PlayGame_CardBox>
-		<CzarView />
 		</div>
 		<div className={cx(styles.item, styles.rightItems)}>
 			<div className={styles.itemHeader}>
