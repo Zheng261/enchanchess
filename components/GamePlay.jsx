@@ -7,17 +7,18 @@ import GameCard from './game-objects/GameCard'
 import UserContext from './UserContext';
 import ChatBox from './ChatBox';
 import PlayGame_CardBox from './PlayGame_CardBox'
+import CzarView from './CzarView'
 
 // CALLED FROM: GameLobby, which is called in turn from rooms/[id].jsx
 // screen where cards/actual game can be played lives
-function GamePlay(props) {
+export default function GamePlay(props) {
   const context = useContext(UserContext)
   return (
     <div className={styles.grid}>
     	<div className={cx(styles.item, styles.dealerContainer)}>
     		<div className={styles.header}>
     			<h2>Cards Against Humanity</h2>
-    			<p>Social distancing edition</p>
+    			<p><code>Social distancing edition</code></p>
     		</div>
     		<div className={styles.dealerCardContainer}>
     			<GameCard color={'black'} text={'Don\'t worry kids it gets better, ive been living with ____ for 20 years now'}/>
@@ -55,7 +56,9 @@ function GamePlay(props) {
 				<li>1- Sam</li>
 			</ol>
 		</div>
+		<div className={styles.overlayContainer}>
 		<PlayGame_CardBox socket = {props.socket} roomId = {props.roomId} user = {context.user}></PlayGame_CardBox>
+		</div>
 		<div className={cx(styles.item, styles.rightItems)}>
 			<div className={styles.itemHeader}>
 				Game Chat
@@ -66,5 +69,3 @@ function GamePlay(props) {
   );
 }
 
-
-export default GamePlay;

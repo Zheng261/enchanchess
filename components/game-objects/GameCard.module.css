@@ -14,7 +14,7 @@
 
 .blackCard {
   width: 220px;
-  height: calc(220px * var(--card-hw-ratio));
+  height: calc(195px * var(--card-hw-ratio));
   background: black;
   color: white;
 }
