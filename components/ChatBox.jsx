@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react'
 import styles from './playGame.module.css'
 // TODO: NEED TO CHANGE THIS WHEN WE DEPLOY
 // import io from "socket.io-client";
@@ -32,27 +32,27 @@ class ChatBox extends React.Component {
       console.log("MESSAGES-1st", this.state.messages[0]);
     });
   }
+  componentDidUpdate() { this._div.scrollTop = this._div.scrollHeight;}
 
   render(){
     return (
-      <div>
-        <playerText>
+      <div className= {styles.gamechat} ref={(ref) => this._div = ref}>
           {this.state.messages.map(message => {
             return (
-                <div>{this.props.user}: {message.message}</div>
+                 <playerText><div><strong>{this.props.user}:</strong> {message.message}</div></playerText>
             )
           })}
-        </playerText>
-      <div className= {styles.enterTextBox}>
-        <enterTextStyle>
-            <input type="text" placeholder="Enter message here"
+      <div>
+        <form onSubmit={this.sendMessage}>
+            <input type="text" placeholder="Enter text" 
                   value={this.state.message}
                   onChange={ev => this.setState({message: ev.target.value})}/>
-            <button onClick={this.sendMessage} className="btn btn-primary form-control">Send</button>
-        </enterTextStyle>
+              <button type="submit">Send</button>
+      </form>
+
       </div>
       </div>
-    );
+    ); 
   }
 }
 
