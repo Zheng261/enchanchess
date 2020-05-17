@@ -8,6 +8,7 @@ import UserContext from './UserContext';
 import ChatBox from './ChatBox';
 import PlayGame_CardBox from './PlayGame_CardBox'
 import CzarView from './CzarView'
+import BlackCard from './BlackCard'
 
 // CALLED FROM: GameLobby, which is called in turn from rooms/[id].jsx
 // screen where cards/actual game can be played lives
@@ -21,7 +22,7 @@ export default function GamePlay(props) {
     			<p><code>Social distancing edition</code></p>
     		</div>
     		<div className={styles.dealerCardContainer}>
-    			<GameCard color={'black'} text={'Don\'t worry kids it gets better, ive been living with ____ for 20 years now'}/>
+    			<BlackCard socket={props.socket} roomId={props.roomId}/>
     			<div className={styles.whiteCards}>
     				<GameCard color={'white'} text={'nickelback'}/>
     				<GameCard color={'white'} text={'nickelback'}/>
@@ -57,13 +58,13 @@ export default function GamePlay(props) {
 			</ol>
 		</div>
 		<div className={styles.overlayContainer}>
-		<PlayGame_CardBox socket = {props.socket} roomId = {props.roomId} user = {context.user}></PlayGame_CardBox>
+		<PlayGame_CardBox socket={props.socket} roomId={props.roomId} user={context.user}></PlayGame_CardBox>
 		</div>
 		<div className={cx(styles.item, styles.rightItems)}>
 			<div className={styles.itemHeader}>
 				Game Chat
 			</div>
-			<ChatBox roomId = {props.roomId} user = {context.user} socket = {props.socket}></ChatBox>
+			<ChatBox roomId={props.roomId} user={context.user} socket={props.socket}></ChatBox>
 		</div>
     </div>
   );
