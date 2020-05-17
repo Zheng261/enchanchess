@@ -94,6 +94,9 @@ export default function StartGame() {
           <StyledButton onClick={btnNavigate(`/room/${roomId}`)}>
             Start Game!
           </StyledButton>
+          <StyledButton onClick={btnNavigate(`/`)}>
+          Quit
+          </StyledButton>
         </CardDiv>
         <CardDiv heading={'Card Decks'}>
         </CardDiv>

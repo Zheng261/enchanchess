@@ -39,6 +39,12 @@ export default function WaitingRoom(props) {
         setButtonText("Copied!")
     }
 
+    const btnNavigate = (link) => {
+        return () => {
+            router.push(link)
+        }
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.roomLink}>
@@ -66,7 +72,9 @@ export default function WaitingRoom(props) {
                 <StyledButton onClick={startGame}>
                     Start Game!
                 </StyledButton>
-
+                <StyledButton onClick={btnNavigate(`/`)}>
+                    Quit
+                </StyledButton>
             </CardDiv>
             <CardDiv heading={'Card Decks'}>
             </CardDiv>

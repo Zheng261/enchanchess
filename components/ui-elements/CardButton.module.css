@@ -2,13 +2,13 @@
   background-color: white;
   color: black;
   position: relative;
-  text-align: center;
+  text-align: left;
 
-  width: 125px;
-  height: calc(125px * var(--card-hw-ratio));
+  width: 105px;
+  height: calc(90px * var(--card-hw-ratio));
 
   margin: 0 .5rem;
-  padding: .5rem;
+  padding: 0rem;
   
   font-weight: bold;
   
@@ -22,7 +22,7 @@
 .cardBtn:hover,
 .cardBtn:focus,
 .cardBtn:active {
-  
+  margin-bottom: 1rem;
 }
 
 .cardBtn p {

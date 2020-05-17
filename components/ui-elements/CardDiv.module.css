@@ -1,6 +1,6 @@
 .card {
-  width: 300px;
-  height: calc(300px * var(--card-hw-ratio));
+  width: 275px;
+  height: calc(270px * var(--card-hw-ratio));
   
   display: flex; 
   flex-direction: column;
