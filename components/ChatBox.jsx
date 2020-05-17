@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './GamePlay.module.css'
+import styles from './ChatBox.module.css'
 
 // TODO: NEED TO CHANGE THIS WHEN WE DEPLOY
 // import io from "socket.io-client";
@@ -43,15 +43,15 @@ class ChatBox extends React.Component {
                  <playerText><div><strong>{this.props.user}:</strong> {message.message}</div></playerText>
             )
           })}
-      <div>
-        <form onSubmit={this.sendMessage}>
-            <input type="text" placeholder="Enter text" 
-                  value={this.state.message}
-                  onChange={ev => this.setState({message: ev.target.value})}/>
-              <button type="submit">Send</button>
-      </form>
 
-      </div>
+        <form onSubmit={this.sendMessage}>
+          <input 
+            type="text" placeholder="Enter text" 
+            value={this.state.message}
+            onChange={ev => this.setState({message: ev.target.value})}
+          />
+          <button type="submit">Send</button>
+        </form>
       </div>
     ); 
   }

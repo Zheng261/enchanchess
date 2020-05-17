@@ -29,6 +29,7 @@
 /* add left border to scoreboard and game chat divs */
 .rightItems {
     border-left: 2px solid black;  
+    overflow-y: hidden;
 }
 
 /* css for dealer (card czar) black card screen */

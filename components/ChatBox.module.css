@@ -1,0 +1,22 @@
+.gamechat {
+    max-height: 80%;
+    margin-left: 2 rem;
+    padding: 0.7rem;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.gamechat cardWinText {
+    color: green; 
+    margin: 0;
+    font-size: 0.6rem;
+    display: table;
+    text-align: left
+}
+.gamechat playerText {
+    color: black; 
+    margin: 0;
+    font-size: 0.6rem;
+    text-align: left;
+    display: table;
+}
