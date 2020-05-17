@@ -1,7 +1,7 @@
-import UserContext from '../components/UserContext';
+import UserContext from './UserContext';
 import Link from 'next/link'
-import styles from './playGame.module.css'
-import Card from './Game_Objects/card.js'
+import styles from './GamePlay.module.css'
+import Card from './game-objects/GameCard'
 
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
 

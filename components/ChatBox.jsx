@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './playGame.module.css'
+import styles from './GamePlay.module.css'
 // TODO: NEED TO CHANGE THIS WHEN WE DEPLOY
 // import io from "socket.io-client";
 // const ENDPOINT = "http://127.0.0.1:8000"; // backend server endpoint

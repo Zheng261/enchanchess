@@ -1,0 +1,17 @@
+.card {
+  margin: 10px;
+}
+
+.whiteCard {
+  height: 120px;
+  width: calc(120px * var(--card-hw-ratio));
+  background: white;
+  color: black;
+}
+
+.blackCard {
+  width: 200px;
+  height: calc(200px * var(--card-hw-ratio));
+  background: black;
+  color: white;
+}

@@ -1,0 +1,38 @@
+.grid {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+.item {
+    background: red;
+}
+
+.header > * {
+    margin: 0;
+}
+
+/* css for dealer (card czar) black card screen */
+.dealerContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.dealerCardContainer {
+    display: flex;
+    flex-flow: row;
+}
+
+.cardContainer {
+    display: flex;
+    flex-flow: row;
+}
+
+.whiteCards {
+   display: flex;
+   flex-flow: row wrap;
+}
