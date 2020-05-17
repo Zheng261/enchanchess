@@ -1,14 +1,12 @@
 // this code has been integrated into index.jsx
 import React, { useState, useContext, useEffect, useRef} from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link';
 
 //import PageLayout from '../components/PageLayout'
 import CardDiv from '../components/ui-elements/CardDiv'
 import StyledButton from '../components/ui-elements/StyledButton'
 
 import styles from '../components/start-game.module.css'
-
 import io from "socket.io-client";
 
 // IMPORTANT; switch to this below endpoint when done on dev!
@@ -22,18 +20,23 @@ import UserContext from '../components/UserContext';
 export default function StartGame() {
   const router = useRouter()
   const [roomId, setRoomId] = useState("");
+  const context = useContext(UserContext);
   const [buttonText, setButtonText] = useState("Copy Link")
   const [url, setUrl] = useState("Loading...")  // the url you share with your friends
   const copyEl = useRef(null) 
 
   useEffect(() => {
     const socket = io(ENDPOINT);
+   
     socket.emit('test', "testing")
-    socket.emit('createRoom')
+    // Add user here
+    console.log(context.user)
+    socket.emit('createRoom', context.user)
     console.log("socket emitted")
     socket.on('dispatchRoomId', roomId => {
       setRoomId(roomId)
       setUrl(`${window.location.host}/room/${roomId}`)
+      router.push(`/room/${roomId}`);
     })
   }, [])
 
@@ -60,11 +63,14 @@ export default function StartGame() {
     <li key={index}>{name}</li>
   );
 
+
   // room url
   // need hidden input to implemented copy url to clipboard on button click
   return (
+    
     <div className={styles.container}>
       <div className={styles.roomLink}>
+        {url}
         <h1>Invite Your Friends!</h1>
           <a>{url}</a>
         <button 

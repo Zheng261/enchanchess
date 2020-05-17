@@ -21,12 +21,13 @@ class ChatBox extends React.Component {
       // this.socket.emit('sendChatMessage', { //TODO: DELETE THIS 
       this.props.socket.emit('sendChatMessage', {
           author: this.props.user,
-          message: this.state.message
+          message: this.state.message,
+          roomId: this.props.roomId
       });
       this.setState({message: ''});
     }
     // this.socket.on('RECEIVE_MESSAGE', msg =>{ //TODO: DELETE THIS 
-    this.props.socket.on('RECEIVE_MESSAGE', msg =>{
+    this.props.socket.on(('RECEIVE_MESSAGE').concat(this.props.roomId), msg =>{
       console.log("MESSAGE PASSED IN", msg);
       this.setState({messages: [...this.state.messages, msg]});
       console.log("MESSAGES", this.state.messages);

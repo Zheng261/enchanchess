@@ -11,23 +11,34 @@ const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
 import { useState, useEffect } from "react";
 
 import GamePlay from '../../components/GamePlay'
+import WaitingRoom from '../../components/WaitingRoom'
 
 export default ({ data }) => {
   const router = useRouter()
   const roomId = router.query.id
 
-  // people in the room
+  // People in the room
   const [players, setPlayers] = useState([]);
+
+  // Has game started yet?
+  const [gameStarted, setGameStarted] = useState(false)
   const socket = io(ENDPOINT);
 
   useEffect(() => {
   	console.log("room id", roomId, router.query)
     socket.emit('joinRoom', roomId)
     socket.emit('getPlayersInRoom', roomId)
+
   	socket.on('dispatchPlayers', res => {
   		setPlayers(res)
   		console.log(res)
-  	})
+    })
+
+    socket.on('gameStarted', res => {
+      console.log("Game Start Signal Received")
+      setGameStarted(res)
+    })
+
   }, [])
 
   // useEffect(() => {
@@ -36,15 +47,18 @@ export default ({ data }) => {
   // 		setPlayers(players)
   // 	})
   // }, [players])
-  function handleClick() {
-    console.log("whatever");
-  }
 
 // todo: store socket instance in _app.jsx (highest parent component)
-  return (
-    <GamePlay roomId = {router.query.id} socket = {socket}/>
-    // <GameLobby roomId = {router.query.id} players = {players} socket = {socket}></GameLobby>
-  )
+    if (gameStarted) {
+      return (
+        <GamePlay roomId = {router.query.id} socket = {socket}/>
+        // <GameLobby roomId = {router.query.id} players = {players} socket = {socket}></GameLobby>
+      );
+    } else {
+      return (
+        <WaitingRoom roomId = {router.query.id} socket = {socket}/>
+      );
+    }
 }
 
 // This gets called on every request
