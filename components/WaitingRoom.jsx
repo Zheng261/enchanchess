@@ -48,9 +48,8 @@ export default function WaitingRoom(props) {
     return (
         <div className={styles.container}>
             <div className={styles.roomLink}>
-        
             <h1>Invite Your Friends!</h1>
-                <a>Room: {url}</a>
+                <a>{url}</a>
             <button 
                 onMouseDown={copyUrlToClipboard.bind(null, `${url}`)} 
                 onMouseUp={() => {setButtonText("Copy Link")}}
