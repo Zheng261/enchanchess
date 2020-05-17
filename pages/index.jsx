@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import CardDiv from '../components/ui-elements/CardDiv'
 import StyledButton from '../components/ui-elements/StyledButton'
@@ -59,6 +58,7 @@ export default function Home() {
         <div className={styles.centerContainer}>
           <CardDiv>
             <input
+              className={styles.usernameInput}
               type="text"
               value={username}
               onChange={changeUsername}
