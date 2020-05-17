@@ -80,7 +80,7 @@ function GamePlay(props) {
 			<div className={styles.itemHeader}>
 				Game Chat
 			</div>
-			sdfsdfsdf
+			<ChatBox roomId = {props.roomId} user = {context.user} socket = {props.socket}></ChatBox>
 		</div>
     </div>
   );
