@@ -7,10 +7,11 @@ import GameCard from './game-objects/GameCard'
 import UserContext from './UserContext';
 import ChatBox from './ChatBox';
 import PlayGame_CardBox from './PlayGame_CardBox'
+import CzarView from './CzarView'
 
 // CALLED FROM: GameLobby, which is called in turn from rooms/[id].jsx
 // screen where cards/actual game can be played lives
-function GamePlay(props) {
+export default function GamePlay(props) {
   const context = useContext(UserContext)
   return (
     <div className={styles.grid}>
@@ -55,7 +56,10 @@ function GamePlay(props) {
 				<li>1- Sam</li>
 			</ol>
 		</div>
+		<div className={styles.overlayContainer}>
 		<PlayGame_CardBox socket = {props.socket} roomId = {props.roomId} user = {context.user}></PlayGame_CardBox>
+		<CzarView />
+		</div>
 		<div className={cx(styles.item, styles.rightItems)}>
 			<div className={styles.itemHeader}>
 				Game Chat
@@ -66,5 +70,3 @@ function GamePlay(props) {
   );
 }
 
-
-export default GamePlay;

@@ -65,7 +65,6 @@ class PlayGame_CardBox extends React.Component {
             <div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>
             <button onClick={() => this.drawCards(1, false)}>Draw Cards</button>
             <button onClick={() => this.drawCards(6, true)}>Redraw Hand</button>
-    
                 {cardBoxContent}
             </div>
         );
