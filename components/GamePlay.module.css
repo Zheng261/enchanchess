@@ -4,16 +4,27 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    /*grid-row-gap: 2px;*/
+    background: black;
 }
 
 .item {
-    background: red;
+    background: white;
 }
 
+/* cah header*/
 .header > * {
     margin: 0;
+}
+
+/* headers for scoreboard and chat */
+.itemHeader {
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
 }
 
 /* css for dealer (card czar) black card screen */
@@ -21,6 +32,10 @@
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
+    padding: 1rem;
+    padding-right: 0;
+
+    border-bottom: 2px solid black;
 }
 
 .dealerCardContainer {
@@ -30,8 +45,7 @@
 }
 
 .cardContainer {
-    display: flex;
-    flex-flow: row;
+   padding: 1rem;
 }
 
 .whiteCards {
@@ -39,4 +53,7 @@
    flex-flow: row wrap;
    flex: 1;
    overflow-y: auto;
+}
+
+.scoreboard ol{
 }

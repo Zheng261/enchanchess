@@ -43,13 +43,45 @@ function GamePlay(props) {
     			</div>
     		</div>
     	</div>
-		<div className={styles.item}>2</div>
-		<div className={cx(styles.item, styles.cardContainer)}>
+		<div className={cx(styles.item, styles.scoreboard)}>
+			<div className={styles.itemHeader}>
+				Scoreboard
+			</div>
+			<ol>	
+				<li>5- John</li>
+				<li>4- Sally</li>
+				<li>4- Jack</li>
+				<li>2- Mary</li>
+				<li>1- Sam</li>
+			</ol>
+		</div>
+		<div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
 			<GameCard color={'white'} text={'nickelback'}/>
 			<GameCard color={'white'} text={'nickelback'}/>
 			<GameCard color={'white'} text={'nickelback'}/>
 		</div>
-		<div className={styles.item}>4</div>
+		<div className={styles.item}>
+			<div className={styles.itemHeader}>
+				Game Chat
+			</div>
+			sdfsdfsdf
+		</div>
     </div>
   );
 }
