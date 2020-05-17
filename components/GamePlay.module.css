@@ -4,7 +4,6 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-template-rows: 1fr 1fr;
-    background: black;
 }
 
 .item {
@@ -71,6 +70,7 @@
    justify-content: space-evenly;
    margin: 0 auto;
    overflow-y: auto;
+   margin-right: .5rem;
 }
 
 .scoreboard ol{
