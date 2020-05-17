@@ -9,8 +9,7 @@ const GLOBAL_BACKEND_CONSTANTS = require('../../styles/backend_constants.js')
 const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
 
 import { useState, useEffect } from "react";
-// remove GameLobby component no longer used
-import GameLobby from '../../components/GameLobby'
+
 import GamePlay from '../../components/GamePlay'
 
 export default ({ data }) => {
