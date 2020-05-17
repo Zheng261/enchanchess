@@ -18,7 +18,7 @@ export default function GamePlay(props) {
     	<div className={cx(styles.item, styles.dealerContainer)}>
     		<div className={styles.header}>
     			<h2>Cards Against Humanity</h2>
-    			<p>Social distancing edition</p>
+    			<p><code>Social distancing edition</code></p>
     		</div>
     		<div className={styles.dealerCardContainer}>
     			<GameCard color={'black'} text={'Don\'t worry kids it gets better, ive been living with ____ for 20 years now'}/>

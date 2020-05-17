@@ -15,6 +15,10 @@
     margin: 0;
 }
 
+.header code{
+    margin-left: 0.8rem;
+}
+
 /* headers for scoreboard and chat */
 .itemHeader {
     background: black;
