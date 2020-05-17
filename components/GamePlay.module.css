@@ -20,11 +20,13 @@
 .dealerContainer {
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
 }
 
 .dealerCardContainer {
     display: flex;
     flex-flow: row;
+    overflow-y: hidden;
 }
 
 .cardContainer {
@@ -35,4 +37,6 @@
 .whiteCards {
    display: flex;
    flex-flow: row wrap;
+   flex: 1;
+   overflow-y: auto;
 }

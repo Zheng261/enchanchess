@@ -11,7 +11,7 @@ const GameCard = (props) => {
         {[styles.whiteCard]: props.color === 'white'}
       )}
     > 
-      Card
+      {props.text}
     </div>
   )
 }

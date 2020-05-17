@@ -20,22 +20,34 @@ function GamePlay(props) {
     			<p>Social distancing edition</p>
     		</div>
     		<div className={styles.dealerCardContainer}>
-    			<GameCard color={'black'}/>
+    			<GameCard color={'black'} text={'Don\'t worry kids it gets better, ive been living with ____ for 20 years now'}/>
     			<div className={styles.whiteCards}>
-    				<GameCard color={'white'}/>
-    				<GameCard color={'white'}/>
-    				<GameCard color={'white'}/>
-    				<GameCard color={'white'}/>
-    				<GameCard color={'white'}/>
-    				<GameCard color={'white'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
+    				<GameCard color={'white'} text={'nickelback'}/>
     			</div>
     		</div>
     	</div>
 		<div className={styles.item}>2</div>
 		<div className={cx(styles.item, styles.cardContainer)}>
-			<GameCard color={'white'}/>
-			<GameCard color={'white'}/>
-			<GameCard color={'white'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
+			<GameCard color={'white'} text={'nickelback'}/>
 		</div>
 		<div className={styles.item}>4</div>
     </div>

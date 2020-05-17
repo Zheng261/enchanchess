@@ -1,5 +1,6 @@
 .card {
-  margin: 10px;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 .whiteCard {
@@ -10,8 +11,8 @@
 }
 
 .blackCard {
-  width: 200px;
-  height: calc(200px * var(--card-hw-ratio));
+  width: 220px;
+  height: calc(220px * var(--card-hw-ratio));
   background: black;
   color: white;
 }
