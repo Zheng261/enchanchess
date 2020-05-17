@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styles from './GamePlay.module.css'
 import GameCard from './game-objects/GameCard'
 import cx from 'classnames'
+import { Html5Entities } from 'html-entities'
 
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
 
@@ -17,12 +18,13 @@ class PlayGame_CardBox extends React.Component {
     }
 
     componentDidMount() {
+        const htmlEntities = new Html5Entities()
         this.props.socket.on(('drawCardReply').concat(this.props.roomId), res => {
             var arrCopy = this.state.thisUserCards
             console.log(arrCopy)
             console.log(("card drawn: ").concat(res))
              // pushes string to card drawn 
-            arrCopy.push(res)
+            arrCopy.push(htmlEntities.decode(res))
             this.setState({thisUserCards: arrCopy});
         });
         this.drawCards(6, true, true)

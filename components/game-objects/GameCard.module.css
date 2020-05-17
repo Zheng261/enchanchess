@@ -10,6 +10,7 @@
   background: white;
   color: black;
   border: 1px solid black;
+  overflow: auto;
 }
 
 .blackCard {
@@ -17,4 +18,5 @@
   height: calc(195px * var(--card-hw-ratio));
   background: black;
   color: white;
+  overflow: auto;
 }
