@@ -35,7 +35,18 @@
     padding: 1rem;
     padding-right: 0;
 
-    border-bottom: 2px solid black;
+    position: relative;
+    /*border-bottom: 2px solid black; */
+}
+
+.dealerContainer::before {
+    content : "";
+    position : absolute;
+    left : calc((100% - 95%) / 2);
+    bottom : 0;
+    height : 1px;
+    width : 95%;  
+    border-bottom: 2px solid black;  
 }
 
 .dealerCardContainer {
