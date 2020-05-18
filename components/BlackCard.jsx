@@ -11,20 +11,20 @@ export default function BlackCard(props) {
     const [blackCardText, setBlackCardText] = useState(""); 
     const [blackCardPick, setBlackCardPick] = useState(0); 
 
-    // Update black card
-    props.socket.on('drawBlackCardReply', res => {
-        console.log(("black card drawn: ").concat(res.text))
-        let newText = htmlEntities.decode(res.text.replace(/_/g, "_____"))
-        setBlackCardText(newText)
-        setBlackCardPick(res.pick)
-    });
-
     const drawBlackCard = () => { 
         console.log("trying to draw black card for room ...", props.roomId)
         props.socket.emit('drawBlackCard', props.roomId)
     }
 
     useEffect(() => {
+        const htmlEntities = new Html5Entities()
+        // Update black card
+        props.socket.on('drawBlackCardReply', res => {
+            console.log(("black card drawn: ").concat(res.text))
+            let newText = htmlEntities.decode(res.text.replace(/_/g, "_____"))
+            setBlackCardText(newText)
+            setBlackCardPick(res.pick)
+        });
         drawBlackCard()
     }, [])
 
