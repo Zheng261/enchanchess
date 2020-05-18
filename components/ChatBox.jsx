@@ -41,7 +41,7 @@ class ChatBox extends React.Component {
       <div className= {styles.gamechat} ref={(ref) => this._div = ref}>
           {this.state.messages.map(message => {
             return (
-                 <playerText><div><strong>{this.props.user}:</strong> {message.message}</div></playerText>
+                 <playerText><div><strong>{message.author}:</strong> {message.message}</div></playerText>
             )
           })}
 

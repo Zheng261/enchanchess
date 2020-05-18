@@ -1,47 +1,37 @@
 import styles from './GamePlay.module.css'
 import GameCard from './game-objects/GameCard'
-
+import React, { useState, useContext, useEffect} from 'react'
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
-class BlackCard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-        	blackCardText: "",
-        	blackCardPick: 0,
-            socketTriggeredPostMount: false
-        }
-        this.drawBlackCard = this.drawBlackCard.bind(this);
-      
+
+export default function BlackCard(props) {
+
+    const [blackCardText, setBlackCardText] = useState(""); 
+
+    const [blackCardPick, setBlackCardPick] = useState(0); 
+
+    // Update black card
+    props.socket.on('drawBlackCardReply', res => {
+        console.log(("black card drawn: ").concat(res.text))
+        let newText = res.text.replace(/_/g, "_____")
+        setBlackCardText(newText)
+        setBlackCardPick(res.pick)
+    });
+
+    const drawBlackCard = () => { 
+        console.log("trying to draw black card for room ...", props.roomId)
+        props.socket.emit('drawBlackCard', props.roomId)
     }
 
-    componentDidMount() {
-    	this.drawBlackCard(true);
-        this.props.socket.on(('drawBlackCardReply').concat(this.props.roomId), res => {
-            console.log(("black card drawn: ").concat(res.text))
-            let newText = res.text.replace(/_/g, "_____")
-            this.setState({blackCardText: newText, blackCardPick: res.pick});
-        });
-    }
+    useEffect(() => {
+        drawBlackCard()
+    }, [])
 
-    drawBlackCard = function(startOfGame = false) { 
-        if (!this.state.socketTriggeredPostMount) {
-            // Make sure we do this again after the mount phase
-            if (!startOfGame) {
-                this.setState({socketTriggeredPostMount: true})
-            }
-        }
-        console.log("trying to draw black card...")
-        this.props.socket.emit('drawBlackCard', this.props.roomId)
-    }
+    return (
+        <GameCard 
+        color={'black'} 
+        text={blackCardText}
+        />
+    );
 
-    render() {
-        return (
-        	<GameCard 
-        	color={'black'} 
-        	text={this.state.blackCardText}
-        	/>
-        );
-    }
+
 }
-
-export default BlackCard

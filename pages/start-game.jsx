@@ -28,11 +28,9 @@ export default function StartGame() {
   useEffect(() => {
     const socket = io(ENDPOINT);
    
-    socket.emit('test', "testing")
-    // Add user here
-    console.log(context.user)
     socket.emit('createRoom', context.user)
     console.log("socket emitted")
+
     socket.on('dispatchRoomId', roomId => {
       setRoomId(roomId)
       setUrl(`${window.location.host}/room/${roomId}`)
@@ -70,7 +68,7 @@ export default function StartGame() {
     
     <div className={styles.container}>
       <div className={styles.roomLink}>
-        <h1>Invite Your Friends!</h1>
+        <h1>Invite Your Friends! (Redirect in 3...2...1...)</h1>
           <a>{url}</a>
         <button 
           onMouseDown={copyUrlToClipboard.bind(null, url)} 

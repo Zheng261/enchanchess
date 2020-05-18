@@ -1,32 +1,49 @@
 
 import cx from 'classnames'
-import React, { useState, useContext, useEffect, useRef} from 'react'
+import React, { useState, useContext, useEffect} from 'react'
 //import PageLayout from '../components/PageLayout'
 import CardDiv from './ui-elements/CardDiv'
 import StyledButton from './ui-elements/StyledButton'
 import styles from './start-game.module.css'
 import { useRouter } from 'next/router'
-import io from "socket.io-client";
 
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
 
 export default function WaitingRoom(props) {
     
     const router = useRouter()
-    const startingPlayers = ['Henry', 'Bob', 'Melinda', 'Alice']
-    const [players, setPlayers] = useState([startingPlayers])
-    const [playerList, setPlayerList] = useState(startingPlayers.map((name, index) => 
-    <li key={index}>{name}</li>))
+
+    // People in the room
+   const [players, setPlayers] = useState([]); 
+
+   const playerList = players.map((name, index) => 
+    <li key = {index+1}> {name} </li>
+   );
+   
     const [buttonText, setButtonText] = useState("Copy Link")
     const [url, setUrl] = useState("Loading...")  // the url you share with your friends
 
     const startGame = () => {
         console.log("Starting Game!")
         props.socket.emit('startGame', props.roomId)
+        console.log(props.socket)
     }
 
+     // Get ready for player list to update
+    props.socket.on('dispatchPlayers', res => {
+        setPlayers(res)
+        console.log("Players in room: ", res)
+    })
+
     useEffect(() => {
+        
         setUrl(`${window.location.host}/room/${props.roomId}`)
+        // Logs user in. If user already logged in, this does nothing
+        console.log("Joining room from waiting with roomId: ", props.roomId, " username ", props.user)
+    
+        props.socket.emit('joinRoom', {roomId: props.roomId, user: props.user})
+        
+        props.socket.emit('getPlayersInRoom', props.roomId)
     }, [])
 
     const copyUrlToClipboard = (text) =>  {
@@ -79,7 +96,7 @@ export default function WaitingRoom(props) {
             </CardDiv>
             <CardDiv heading={'Players'}>
                 <ul className={styles.playerList}>
-                {playerList}
+                    {playerList}
                 </ul>
             </CardDiv>
             </div>

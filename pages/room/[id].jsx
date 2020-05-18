@@ -1,8 +1,11 @@
 import { useRouter, Router } from 'next/router'
+import { useContext } from 'react'
+import UserContext from '../../components/UserContext';
 
 //  todo: save socket.io context in app state
 //  todo: manage app state in redux, next-redux-wrapper
 import io from "socket.io-client";
+import styles from '../../components/roomid.module.css'
 
 // IMPORTANT: remember to change this when deploying
 const GLOBAL_BACKEND_CONSTANTS = require('../../styles/backend_constants.js')
@@ -12,51 +15,57 @@ import { useState, useEffect } from "react";
 
 import GamePlay from '../../components/GamePlay'
 import WaitingRoom from '../../components/WaitingRoom'
+import SetNameView from '../../components/SetNameView'
 
 export default ({ data }) => {
   const router = useRouter()
   const roomId = router.query.id
 
-  // People in the room
-  const [players, setPlayers] = useState([]);
-
+  const context = useContext(UserContext)
+  
   // Has game started yet?
   const [gameStarted, setGameStarted] = useState(false)
+
   const socket = io(ENDPOINT);
 
-  useEffect(() => {
-  	console.log("room id", roomId, router.query)
-    socket.emit('joinRoom', roomId)
-    socket.emit('getPlayersInRoom', roomId)
 
-  	socket.on('dispatchPlayers', res => {
-  		setPlayers(res)
-  		console.log(res)
-    })
-
-    socket.on('gameStarted', res => {
-      console.log("Game Start Signal Received")
+  // Check whether game has started
+  socket.on('gameStarted', res => {
+    console.log("Game Start Signal Receiver Triggered")
+    if (res) {
+      console.log("Game Start Signal Received: Starting Game Now")
       setGameStarted(res)
-    })
+    }
+  })
 
+  useEffect(() => {
+
+  	console.log("Entering room id:", router.query)
+    // Now that socket for checking whether game started is on, we check once manually
+    // This breaks sometimes for no discernible reason.
+    socket.emit('checkStartGame', roomId)
   }, [])
 
-  // useEffect(() => {
-  // 	socket.emit('getPlayersInRoom', roomId)
-  // 	socket.on('dispatchPlayers', players => {
-  // 		setPlayers(players)
-  // 	})
-  // }, [players])
-
 // todo: store socket instance in _app.jsx (highest parent component)
-    if (gameStarted) {
+  // If does not have username, make them set one
+    if (context.user == null || context.user == "") {
       return (
-        <GamePlay roomId = {router.query.id} socket = {socket}/>
+        <div className={styles.container}>
+          <div className={styles.roomLink}>
+            <SetNameView createRoomAbility = {false}></SetNameView>
+        </div>
+       </div>
+      )
+    // Game has started
+    } else if (gameStarted) {
+      return (
+        <GamePlay roomId = {router.query.id} socket = {socket} user = {context.user}/>
         // <GameLobby roomId = {router.query.id} players = {players} socket = {socket}></GameLobby>
       );
+    // Game has not started
     } else {
       return (
-        <WaitingRoom roomId = {router.query.id} socket = {socket}/>
+        <WaitingRoom roomId = {router.query.id} socket = {socket} user = {context.user}/>
       );
     }
 }
