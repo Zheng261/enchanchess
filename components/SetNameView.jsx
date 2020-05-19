@@ -67,7 +67,7 @@ export default function SetNameView(props) {
                         onChange={changeUsername}
                         onClick={clickInput}
                         />
-                    {msg !== '' && <div className={styles.errorMsg}>{msg}</div>}`
+                    {msg !== '' && <div className={styles.errorMsg}>{msg}</div>}
                 {props.createRoomAbility ? (
                     <StyledButton onClick={createRoom}>
                         Create Room
