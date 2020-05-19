@@ -88,7 +88,16 @@ class PlayGame_CardBox extends React.Component {
          }
 
         if (this.props.czar === this.props.user) {
-            return(<CzarView></CzarView>);
+            return(
+                <div>
+                <div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>
+                <button onClick={() => this.drawCards(1, false)}>Draw Cards</button>
+                <button onClick={() => this.drawCards(6, true)}>Redraw Hand</button>
+                    {cardBoxContent}
+                </div>
+                <CzarView />
+                </div>
+                );
         } else {
             return (
                 <div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>

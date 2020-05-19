@@ -1,5 +1,5 @@
 .card {
-  margin: .5rem;
+  margin: .3rem;
   padding: 1rem;
   border-radius: 1rem;
 }
@@ -11,6 +11,11 @@
   color: black;
   border: 1px solid black;
   overflow: auto;
+}
+
+.whiteCard:hover {
+  background-color: lightgrey;
+  border: 2px solid black;
 }
 
 .blackCard {

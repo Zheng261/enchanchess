@@ -7,7 +7,6 @@ import { Html5Entities } from 'html-entities'
 
 
 export default function BlackCard(props) {
-
     const [blackCardText, setBlackCardText] = useState(""); 
     const [blackCardPick, setBlackCardPick] = useState(0); 
 
@@ -25,6 +24,7 @@ export default function BlackCard(props) {
             setBlackCardText(newText)
             setBlackCardPick(res.pick)
         });
+
         drawBlackCard()
     }, [])
 

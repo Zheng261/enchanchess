@@ -6,7 +6,6 @@ import styles from './GamePlay.module.css'
 import UserContext from './UserContext';
 import ChatBox from './ChatBox';
 import PlayGame_CardBox from './PlayGame_CardBox'
-import CzarView from './CzarView'
 import BlackCard from './BlackCard'
 import PlayedCardsBox from './PlayedCardsBox'
 
@@ -63,7 +62,7 @@ export default function GamePlay(props) {
 				Scoreboard
 				
 			</div>
-			Czar: {czar}
+			<center>Czar: {czar} </center>
 			<ol>	
 				{playerPointList}
 			</ol>
