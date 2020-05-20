@@ -12,7 +12,6 @@ class ChatBox extends React.Component {
     this.state = {
         message: '',
 				userMessages: [],
-				// gameMessages: []
     };
 
     // this.socket = io(ENDPOINT);
@@ -30,13 +29,7 @@ class ChatBox extends React.Component {
     // this.socket.on('RECEIVE_MESSAGE', msg =>{ //TODO: DELETE THIS 
     this.props.socket.on(('RECEIVE_MESSAGE').concat(this.props.roomId), (data) =>{
 			console.log("DATA", data);
-			// if (data.isUserUpdate){
-				this.setState({userMessages: [...this.state.userMessages, data]});
-			// } else{
-				// this.setState({gameMessages: [...this.state.gameMessages, data.message]});
-			// }
-			console.log("USERMESSAGES", this.state.userMessages);
-			console.log("GAMEMESSAGES", this.state.gameMessages);
+			this.setState({userMessages: [...this.state.userMessages, data]});
     });
   }
   // componentDidUpdate() { 
@@ -55,13 +48,6 @@ class ChatBox extends React.Component {
 							</div>
             )
           })}
-					{/* {this.state.gameMessages.map(message => {
-            return (
-                 <cardWinText><div>{message.message}</div></cardWinText>
-            )
-          })} */}
-      {/* </div> */}
-			{/* <div className = {styles.formInput}> */}
 				<form className = {styles.formInput} onSubmit={this.sendMessage}>
           <input 
             type="text" placeholder="Enter message" 

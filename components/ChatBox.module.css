@@ -22,7 +22,8 @@
 }
 
 .notification:nth-child(odd) {
-    background: lightgrey;
+    background-color: lightgrey;
+    width: 100%;
 }
 
 .gamechat formInput {
