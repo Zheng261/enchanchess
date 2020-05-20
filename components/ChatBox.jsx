@@ -12,7 +12,7 @@ class ChatBox extends React.Component {
     this.state = {
         message: '',
 				userMessages: [],
-				gameMessages: []
+				// gameMessages: []
     };
 
     // this.socket = io(ENDPOINT);
@@ -21,7 +21,7 @@ class ChatBox extends React.Component {
       ev.preventDefault();
       // this.socket.emit('sendChatMessage', { //TODO: DELETE THIS 
       this.props.socket.emit('sendChatMessage', {
-          author: this.props.user,
+          author: this.props.user + ":",
           message: this.state.message,
           roomId: this.props.roomId
       });
@@ -30,13 +30,11 @@ class ChatBox extends React.Component {
     // this.socket.on('RECEIVE_MESSAGE', msg =>{ //TODO: DELETE THIS 
     this.props.socket.on(('RECEIVE_MESSAGE').concat(this.props.roomId), (data) =>{
 			console.log("DATA", data);
-			console.log("MESSAGE PASSED IN", data.message);
-			console.log("isuserupdate", data.isUserUpdate);
-			if (data.isUserUpdate){
-				this.setState({userMessages: [...this.state.userMessages, data.message]});
-			} else{
-				this.setState({gameMessages: [...this.state.gameMessages, data.message]});
-			}
+			// if (data.isUserUpdate){
+				this.setState({userMessages: [...this.state.userMessages, data]});
+			// } else{
+				// this.setState({gameMessages: [...this.state.gameMessages, data.message]});
+			// }
 			console.log("USERMESSAGES", this.state.userMessages);
 			console.log("GAMEMESSAGES", this.state.gameMessages);
     });
@@ -48,16 +46,20 @@ class ChatBox extends React.Component {
   render(){
     return (
       <div className= {styles.gamechat} ref={(ref) => this._div = ref}>
-          {this.state.userMessages.map(message => {
+          {this.state.userMessages.map(data => {
             return (
-                 <playerText><div><strong>{message.author}:</strong> {message.message}</div></playerText>
+							<div className = {styles.notification}>
+								<div className = {data.isUserUpdate? styles.playerText : styles.gameNotification}>
+									<strong>{data.message.author}</strong> {data.message.message}
+								</div>
+							</div>
             )
           })}
-					{this.state.gameMessages.map(message => {
+					{/* {this.state.gameMessages.map(message => {
             return (
                  <cardWinText><div>{message.message}</div></cardWinText>
             )
-          })}
+          })} */}
       {/* </div> */}
 			{/* <div className = {styles.formInput}> */}
 				<form className = {styles.formInput} onSubmit={this.sendMessage}>

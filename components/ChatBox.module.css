@@ -4,21 +4,25 @@
     padding: 0.7rem;
     text-align: center;
     overflow-y: scroll;
+    list-style-type: none;
 }
 
-.gamechat cardWinText {
-    color: green; 
+.notification{
     margin: 0;
     font-size: 0.9rem;
     display: table;
     text-align: left
 }
-.gamechat playerText {
+
+.gameNotification {
+    color: green; 
+}
+.playerText {
     color: black; 
-    margin: 0;
-    font-size: 0.9rem;
-    text-align: left;
-    display: table;
+}
+
+.notification:nth-child(odd) {
+    background: lightgrey;
 }
 
 .gamechat formInput {
@@ -28,3 +32,4 @@
     margin-right: 0.5%;
     text-align: center;
 }
+
