@@ -7,6 +7,12 @@
     list-style-type: none;
 }
 
+.messages{
+    overflow-y: scroll;
+    max-height: 30vh;
+    min-height: 30vh;
+}
+
 .notification{
     margin: 0;
     font-size: 0.9rem;
@@ -32,5 +38,10 @@
     width: 90%; 
     margin-right: 0.5%;
     text-align: center;
+}
+
+.gamechat input[type=text] {
+    padding: 3px 3px;
+    margin: 0px 2px;
 }
 

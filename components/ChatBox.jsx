@@ -38,25 +38,27 @@ class ChatBox extends React.Component {
 
   render(){
     return (
-      <div className= {styles.gamechat} ref={(ref) => this._div = ref}>
-          {this.state.userMessages.map(data => {
-            return (
-							<div className = {styles.notification}>
-								<div className = {data.isUserUpdate? styles.playerText : styles.gameNotification}>
-									<strong>{data.message.author}</strong> {data.message.message}
+			<div className= {styles.gamechat}>
+				<div className = {styles.messages} ref={(ref) => this._div = ref}>
+						{this.state.userMessages.map(data => {
+							return (
+								<div className = {styles.notification}>
+									<div className = {data.isUserUpdate? styles.playerText : styles.gameNotification}>
+										<strong>{data.message.author}</strong> {data.message.message}
+									</div>
 								</div>
-							</div>
-            )
-          })}
-				<form className = {styles.formInput} onSubmit={this.sendMessage}>
-          <input 
-            type="text" placeholder="Enter message" 
-            value={this.state.message}
-            onChange={ev => this.setState({message: ev.target.value})}
-          />
-          <button type="submit">Send</button>
-        </form>
-			</div>
+							)
+						})}
+				</div>
+				<form onSubmit={this.sendMessage}>
+				<input  
+					type="text" placeholder="Enter message" 
+					value={this.state.message}
+					onChange={ev => this.setState({message: ev.target.value})}
+				/>
+				<button type="submit">Send</button>
+			</form>
+		</div>
     ); 
   }
 }
