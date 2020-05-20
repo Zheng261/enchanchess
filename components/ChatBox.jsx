@@ -11,7 +11,8 @@ class ChatBox extends React.Component {
 
     this.state = {
         message: '',
-        messages: []
+				userMessages: [],
+				gameMessages: []
     };
 
     // this.socket = io(ENDPOINT);
@@ -27,33 +28,47 @@ class ChatBox extends React.Component {
       this.setState({message: ''});
     }
     // this.socket.on('RECEIVE_MESSAGE', msg =>{ //TODO: DELETE THIS 
-    this.props.socket.on(('RECEIVE_MESSAGE').concat(this.props.roomId), msg =>{
-      console.log("MESSAGE PASSED IN", msg);
-      this.setState({messages: [...this.state.messages, msg]});
-      console.log("MESSAGES", this.state.messages);
-      console.log("MESSAGES-1st", this.state.messages[0]);
+    this.props.socket.on(('RECEIVE_MESSAGE').concat(this.props.roomId), (data) =>{
+			console.log("DATA", data);
+			console.log("MESSAGE PASSED IN", data.message);
+			console.log("isuserupdate", data.isUserUpdate);
+			if (data.isUserUpdate){
+				this.setState({userMessages: [...this.state.userMessages, data.message]});
+			} else{
+				this.setState({gameMessages: [...this.state.gameMessages, data.message]});
+			}
+			console.log("USERMESSAGES", this.state.userMessages);
+			console.log("GAMEMESSAGES", this.state.gameMessages);
     });
   }
-  componentDidUpdate() { this._div.scrollTop = this._div.scrollHeight;}
+  // componentDidUpdate() { 
+	// 	this._div.scrollTop = this._div.scrollHeight;
+	// }
 
   render(){
     return (
       <div className= {styles.gamechat} ref={(ref) => this._div = ref}>
-          {this.state.messages.map(message => {
+          {this.state.userMessages.map(message => {
             return (
                  <playerText><div><strong>{message.author}:</strong> {message.message}</div></playerText>
             )
           })}
-
-        <form onSubmit={this.sendMessage}>
+					{this.state.gameMessages.map(message => {
+            return (
+                 <cardWinText><div>{message.message}</div></cardWinText>
+            )
+          })}
+      {/* </div> */}
+			{/* <div className = {styles.formInput}> */}
+				<form className = {styles.formInput} onSubmit={this.sendMessage}>
           <input 
-            type="text" placeholder="Enter text" 
+            type="text" placeholder="Enter message" 
             value={this.state.message}
             onChange={ev => this.setState({message: ev.target.value})}
           />
           <button type="submit">Send</button>
         </form>
-      </div>
+			</div>
     ); 
   }
 }

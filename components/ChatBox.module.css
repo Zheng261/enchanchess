@@ -3,7 +3,7 @@
     margin-left: 2 rem;
     padding: 0.7rem;
     text-align: center;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .gamechat cardWinText {
@@ -19,4 +19,12 @@
     font-size: 0.9rem;
     text-align: left;
     display: table;
+}
+
+.gamechat formInput {
+    border: 0; 
+    padding: 10px; 
+    width: 90%; 
+    margin-right: 0.5%;
+    text-align: center;
 }

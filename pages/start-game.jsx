@@ -9,10 +9,10 @@ import StyledButton from '../components/ui-elements/StyledButton'
 import styles from '../components/start-game.module.css'
 import io from "socket.io-client";
 
+
 // IMPORTANT; switch to this below endpoint when done on dev!
 const GLOBAL_BACKEND_CONSTANTS = require('../styles/backend_constants.js')
 const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
-
 // Eventually bring in username
 import UserContext from '../components/UserContext';
 
