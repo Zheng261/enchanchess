@@ -11,7 +11,7 @@ class ChatBox extends React.Component {
 
     this.state = {
         message: '',
-        messages: []
+				userMessages: [],
     };
 
     // this.socket = io(ENDPOINT);
@@ -20,40 +20,43 @@ class ChatBox extends React.Component {
       ev.preventDefault();
       // this.socket.emit('sendChatMessage', { //TODO: DELETE THIS 
       this.props.socket.emit('sendChatMessage', {
-          author: this.props.user,
+          author: this.props.user + ":",
           message: this.state.message,
           roomId: this.props.roomId
       });
       this.setState({message: ''});
     }
     // this.socket.on('RECEIVE_MESSAGE', msg =>{ //TODO: DELETE THIS 
-    this.props.socket.on(('RECEIVE_MESSAGE').concat(this.props.roomId), msg =>{
-      console.log("MESSAGE PASSED IN", msg);
-      this.setState({messages: [...this.state.messages, msg]});
-      console.log("MESSAGES", this.state.messages);
-      console.log("MESSAGES-1st", this.state.messages[0]);
+    this.props.socket.on(('RECEIVE_MESSAGE').concat(this.props.roomId), (data) =>{
+			console.log("DATA", data);
+			this.setState({userMessages: [...this.state.userMessages, data]});
     });
   }
-  componentDidUpdate() { this._div.scrollTop = this._div.scrollHeight;}
+  // componentDidUpdate() { 
+	// 	this._div.scrollTop = this._div.scrollHeight;
+	// }
 
   render(){
     return (
       <div className= {styles.gamechat} ref={(ref) => this._div = ref}>
-          {this.state.messages.map(message => {
+          {this.state.userMessages.map(data => {
             return (
-                 <playerText><div><strong>{message.author}:</strong> {message.message}</div></playerText>
+							<div className = {styles.notification}>
+								<div className = {data.isUserUpdate? styles.playerText : styles.gameNotification}>
+									<strong>{data.message.author}</strong> {data.message.message}
+								</div>
+							</div>
             )
           })}
-
-        <form onSubmit={this.sendMessage}>
+				<form className = {styles.formInput} onSubmit={this.sendMessage}>
           <input 
-            type="text" placeholder="Enter text" 
+            type="text" placeholder="Enter message" 
             value={this.state.message}
             onChange={ev => this.setState({message: ev.target.value})}
           />
           <button type="submit">Send</button>
         </form>
-      </div>
+			</div>
     ); 
   }
 }
