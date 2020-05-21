@@ -21,6 +21,7 @@ export default function BlackCard(props) {
         props.socket.on('drawBlackCardReply', res => {
             console.log(("black card drawn: ").concat(res.text))
             let newText = htmlEntities.decode(res.text.replace(/_/g, "_____"))
+            newText = newText.replace(/<br>/g, "\n")
             setBlackCardText(newText)
             setBlackCardPick(res.pick)
         });

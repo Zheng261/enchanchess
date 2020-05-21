@@ -26,7 +26,7 @@ class PlayGame_CardBox extends React.Component {
             console.log(arrCopy)
             console.log(("card drawn: ").concat(res))
              // pushes string to card drawn 
-            arrCopy.push(htmlEntities.decode(res))
+            arrCopy.push(htmlEntities.decode(res).replace(/<br>/g, "\n"))
             this.setState({thisUserCards: arrCopy});
         });
 
