@@ -28,7 +28,6 @@ export default ({ data }) => {
 
   const socket = io(ENDPOINT);
 
-
   // Check whether game has started
   socket.on('gameStarted', res => {
     console.log("Game Start Signal Receiver Triggered")
@@ -39,8 +38,8 @@ export default ({ data }) => {
   })
 
   useEffect(() => {
-
-  	console.log("Entering room id:", router.query)
+    console.log("Entering room id:", router.query)
+    
     // Now that socket for checking whether game started is on, we check once manually
     // This breaks sometimes for no discernible reason.
     socket.emit('checkStartGame', roomId)

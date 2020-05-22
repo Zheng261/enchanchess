@@ -7,7 +7,6 @@ import { Html5Entities } from 'html-entities'
 
 
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
-
 class PlayGame_CardBox extends React.Component {
     constructor(props) {
         super(props);
