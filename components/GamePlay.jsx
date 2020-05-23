@@ -60,7 +60,6 @@ export default function GamePlay(props) {
 		<div className={cx(styles.item, styles.scoreboard, styles.rightItems)}>
 			<div className={styles.itemHeader}>
 				Scoreboard
-				
 			</div>
 			<center>Czar: {czar} </center>
 			<ul>	
@@ -68,7 +67,7 @@ export default function GamePlay(props) {
 			</ul>
 		</div>
 		<div className={styles.overlayContainer}>
-			<PlayGame_CardBox socket={props.socket} roomId={props.roomId} user={context.user} czar={czar}></PlayGame_CardBox>
+			<PlayGame_CardBox socket={props.socket} roomId={props.roomId} user={context.user} czar={czar} />
 		</div>
 		<div className={cx(styles.item, styles.rightItems)}>
 			<div className={styles.itemHeader}>

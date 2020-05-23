@@ -72,6 +72,7 @@
    display: flex;
    flex-flow: row wrap;
    flex: 1;
+   height: 100%;
    justify-content: space-evenly;
    margin: 0 auto;
    overflow-y: auto;
@@ -83,4 +84,7 @@
 
 .overlayContainer {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }

@@ -79,10 +79,12 @@ class PlayGame_CardBox extends React.Component {
          }
         if (this.props.czar === this.props.user) {
             return(
-                <div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>
-                    {cardBoxContent}
+                <React.Fragment>
+                    <div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>
+                        {cardBoxContent}
+                    </div>
                     <CzarView />
-                </div>
+                </React.Fragment>
                 );
         } else {
             return (
