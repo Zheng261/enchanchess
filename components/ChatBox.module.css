@@ -1,9 +1,8 @@
 .gamechat {
-    max-height: 80%;
+    height: 100%;
     margin-left: 2 rem;
     padding: 0.7rem;
     text-align: center;
-    overflow-y: scroll;
     list-style-type: none;
 }
 
