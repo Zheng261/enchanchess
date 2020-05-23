@@ -14,11 +14,11 @@ export default function WaitingRoom(props) {
     const router = useRouter()
 
     // People in the room
-   const [players, setPlayers] = useState([]); 
+    const [players, setPlayers] = useState([]); 
 
-   const playerList = players.map((name, index) => 
-    <li key = {index+1}> {name} </li>
-   );
+    let playerList = players.map((name, index) => 
+        <li key = {index+1}> {name} </li>
+    );
    
     const [buttonText, setButtonText] = useState("Copy Link")
     const [url, setUrl] = useState("Loading...")  // the url you share with your friends
@@ -29,12 +29,12 @@ export default function WaitingRoom(props) {
         console.log(props.socket)
     }
 
-     // Get ready for player list to update
+  /*   // Get ready for player list to update
     props.socket.on('dispatchPlayers', res => {
         setPlayers(res)
         console.log("Players in room: ", res)
     })
-
+*/
     useEffect(() => {
         
         setUrl(`${window.location.host}/room/${props.roomId}`)
@@ -42,11 +42,20 @@ export default function WaitingRoom(props) {
         console.log("Joining room from waiting with roomId: ", props.roomId, " username ", props.user)
     
         props.socket.emit('joinRoom', {roomId: props.roomId, user: props.user})
-        
-        props.socket.emit('getPlayersInRoom', props.roomId)
-        
         props.socket.emit('checkStartGame', props.roomId)
 
+        // Get ready for player list to update
+        // notice we subscribe to the socket before we emit
+        // we did this in case we run into a race condition where dispatchPlayers events 
+        // are being emitted from the server, but the client hasn’t shown 
+        // it’s interest in it yet, causing events to go missing
+        // moving the socket.on code here also reduces the amount of calls 
+        // if u look at the console.log in the frontend
+        props.socket.on('dispatchPlayers', res => {
+            setPlayers(res)
+            console.log("Players in room: ", res)
+        })
+        props.socket.emit('getPlayersInRoom', props.roomId)
     }, [])
 
     const copyUrlToClipboard = (text) =>  {
