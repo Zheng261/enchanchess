@@ -27,6 +27,10 @@ export default function StartGame() {
 
   useEffect(() => {
     const socket = io(ENDPOINT);
+
+    if (context.user == "" || context.user == null) {
+      router.push(`/`);
+    }
    
     socket.emit('createRoom', context.user)
     console.log("socket emitted")
@@ -55,12 +59,6 @@ export default function StartGame() {
     setButtonText("Copied!")
   }
 
-  // todo: remove hardcode and pull from backend
-  const players = ['Henry', 'Bob', 'Melinda', 'Alice']
-  const playerList = players.map((name, index) => 
-    <li key={index}>{name}</li>
-  );
-
 
   // room url
   // need hidden input to implemented copy url to clipboard on button click
@@ -68,40 +66,7 @@ export default function StartGame() {
     
     <div className={styles.container}>
       <div className={styles.roomLink}>
-        <h1>Invite Your Friends! (Redirect in 3...2...1...)</h1>
-          <a>{url}</a>
-        <button 
-          onMouseDown={copyUrlToClipboard.bind(null, url)} 
-          onMouseUp={() => {setButtonText("Copy Link")}}
-        >
-          {buttonText}          
-        </button> 
-      </div>
-      <div className={styles.cardContainer}>
-        <CardDiv heading={'Game Settings'}>
-          <div className={styles.gameSettings}>
-            Score Limit
-          </div>
-          <div className={styles.gameSettings}>
-            Player Limit
-          </div>
-          <div className={styles.gameSettings}>
-            Idle Limit
-          </div>
-          <StyledButton onClick={btnNavigate(`/room/${roomId}`)}>
-            Start Game!
-          </StyledButton>
-          <StyledButton onClick={btnNavigate(`/`)}>
-          Quit
-          </StyledButton>
-        </CardDiv>
-        <CardDiv heading={'Card Decks'}>
-        </CardDiv>
-        <CardDiv heading={'Players'}>
-          <ul className={styles.playerList}>
-            {playerList}
-          </ul>
-        </CardDiv>
+        <h1>Redirecting in 3...2...1...</h1>
       </div>
     </div>
   )

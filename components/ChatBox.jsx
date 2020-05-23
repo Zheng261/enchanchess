@@ -51,12 +51,14 @@ class ChatBox extends React.Component {
 						})}
 				</div>
 				<form onSubmit={this.sendMessage}>
+				
 				<input  
-					type="text" placeholder="Enter message" 
+					type="text" placeholder="Enter message" className = {styles.gamechat}
 					value={this.state.message}
 					onChange={ev => this.setState({message: ev.target.value})}
 				/>
 				<button type="submit">Send</button>
+				
 			</form>
 		</div>
     ); 

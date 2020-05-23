@@ -17,7 +17,7 @@ export default function GamePlay(props) {
    const [playersToPoints, setPlayersToPoints] = useState({}); 
    const [czar, setCzar] = useState(""); 
    const playerPointList = Object.entries(playersToPoints).map(([key, value]) => 
-    <li> {key} : {value} </li>
+    <li key = {key}>  {value} : {key} </li>
    );
 
 	// Get ready for player list to update
@@ -63,9 +63,9 @@ export default function GamePlay(props) {
 				
 			</div>
 			<center>Czar: {czar} </center>
-			<ol>	
+			<ul>	
 				{playerPointList}
-			</ol>
+			</ul>
 		</div>
 		<div className={styles.overlayContainer}>
 			<PlayGame_CardBox socket={props.socket} roomId={props.roomId} user={context.user} czar={czar}></PlayGame_CardBox>

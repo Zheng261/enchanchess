@@ -44,6 +44,9 @@ export default function WaitingRoom(props) {
         props.socket.emit('joinRoom', {roomId: props.roomId, user: props.user})
         
         props.socket.emit('getPlayersInRoom', props.roomId)
+        
+        props.socket.emit('checkStartGame', props.roomId)
+
     }, [])
 
     const copyUrlToClipboard = (text) =>  {

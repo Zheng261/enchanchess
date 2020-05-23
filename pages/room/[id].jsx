@@ -37,16 +37,18 @@ export default ({ data }) => {
     }
   })
 
+  console.log("Checking if game started yet")
+  
   useEffect(() => {
     console.log("Entering room id:", router.query)
-    
     // Now that socket for checking whether game started is on, we check once manually
     // This breaks sometimes for no discernible reason.
+      // Check whether game has started
     socket.emit('checkStartGame', roomId)
   }, [])
 
 // todo: store socket instance in _app.jsx (highest parent component)
-  // If does not have username, make them set one
+  // If does not have username, make them set one and let them join the room
     if (context.user == null || context.user == "") {
       return (
         <div className={styles.container}>

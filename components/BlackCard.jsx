@@ -10,11 +10,6 @@ export default function BlackCard(props) {
     const [blackCardText, setBlackCardText] = useState(""); 
     const [blackCardPick, setBlackCardPick] = useState(0); 
 
-    const drawBlackCard = () => { 
-        console.log("trying to draw black card for room ...", props.roomId)
-        props.socket.emit('drawBlackCard', props.roomId)
-    }
-
     useEffect(() => {
         const htmlEntities = new Html5Entities()
         // Update black card
@@ -25,8 +20,6 @@ export default function BlackCard(props) {
             setBlackCardText(newText)
             setBlackCardPick(res.pick)
         });
-
-        drawBlackCard()
     }, [])
 
     return (
@@ -38,3 +31,17 @@ export default function BlackCard(props) {
 
 
 }
+
+// This gets called on every request
+// we just need to trick next.js into thinking this page cannot be statically optimzied
+// otherwise we run into this bug
+// https://github.com/zeit/next.js/issues/10521
+export async function getServerSideProps() {
+    // // Fetch data from external API
+    // const res = await fetch(`https://.../data`)
+    // const data = await res.json()
+    const data = "test"
+  
+    // Pass data to the page via props
+    return { props: { data } }
+  }

@@ -14,43 +14,35 @@ class PlayGame_CardBox extends React.Component {
             thisUserCards: [],
             canPlayCards: true
         }
-        this.drawCards = this.drawCards.bind(this);
         this.playCard = this.playCard.bind(this);
     }
 
     componentDidMount() {
         const htmlEntities = new Html5Entities()
-        this.props.socket.on(('drawCardReply').concat(this.props.roomId), res => {
-            var arrCopy = this.state.thisUserCards
-            console.log(arrCopy)
-            console.log(("card drawn: ").concat(res))
+        // After receiving new hand (or first hand), decode everything 
+        console.log("Looking for , ", ('drawCardReply').concat(this.props.user))
+        this.props.socket.on(('drawCardReply').concat(this.props.user), res => {
+            console.log("Cards received : ", res)
+            for(let i = 0; i < res.length; i++)
+                res[i] = htmlEntities.decode(res[i]).replace(/<br>/g, "\n")
              // pushes string to card drawn 
-            arrCopy.push(htmlEntities.decode(res).replace(/<br>/g, "\n"))
-            this.setState({thisUserCards: arrCopy});
+            this.setState({thisUserCards: res});
         });
 
         // Once a card has been picked, we can play cards again
         this.props.socket.on(('pickCardReply'), res => {
-            this.setState({canPlayCards: true});
+            // Redundancy to make sure czar can't actually play cards
+            if (this.props.czar !== this.props.user) {
+                this.setState({canPlayCards: true});
+            }
         });
 
-        this.drawCards(6, true, true)
+        this.getDrawnCards()
     }
 
-    drawCards = function(numDrawn = 1, redraw = false, startOfGame = false) {
-        if (redraw) {
-            this.setState({thisUserCards: []});
-        }
-        for (var i = 0; i < numDrawn; i++) {
-            this.drawNewCard()
-        }
-    }
-
-    drawNewCard = function() {
-        console.log("trying to draw card...")
-        // console.log(("checking for: ").concat(('drawCardReply').concat(this.props.roomId)))
-        // Draws card for this room instance 
-        this.props.socket.emit('drawCard', this.props.roomId)
+    // Basically this just updates your hand. Your cards are pre-drawn. 
+    getDrawnCards = function() {
+        this.props.socket.emit('getDrawnCards', {roomId: this.props.roomId, user: this.props.user})
     }
 
     playCard = function(cardNum) {
@@ -85,23 +77,16 @@ class PlayGame_CardBox extends React.Component {
             );
 
          }
-
         if (this.props.czar === this.props.user) {
             return(
-                <div>
                 <div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>
-                <button onClick={() => this.drawCards(1, false)}>Draw Cards</button>
-                <button onClick={() => this.drawCards(6, true)}>Redraw Hand</button>
                     {cardBoxContent}
-                </div>
-                <CzarView />
+                    <CzarView />
                 </div>
                 );
         } else {
             return (
                 <div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>
-                <button onClick={() => this.drawCards(1, false)}>Draw Cards</button>
-                <button onClick={() => this.drawCards(6, true)}>Redraw Hand</button>
                     {cardBoxContent}
                 </div>
             );
