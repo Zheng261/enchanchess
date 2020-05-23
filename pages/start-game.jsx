@@ -9,6 +9,8 @@ import StyledButton from '../components/ui-elements/StyledButton'
 import styles from '../components/start-game.module.css'
 import io from "socket.io-client";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 // IMPORTANT; switch to this below endpoint when done on dev!
 const GLOBAL_BACKEND_CONSTANTS = require('../styles/backend_constants.js')
@@ -66,7 +68,8 @@ export default function StartGame() {
     
     <div className={styles.container}>
       <div className={styles.roomLink}>
-        <h1>Redirecting in 3...2...1...</h1>
+        <h1>Creating your room :)</h1>
+        <FontAwesomeIcon icon={faSpinner} size="3x" pulse />
       </div>
     </div>
   )
