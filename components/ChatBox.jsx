@@ -14,7 +14,7 @@ class ChatBox extends React.Component {
 				userMessages: [],
     };
 
-    // this.socket = io(ENDPOINT);
+    this.messagesEnd = React.createRef()
   
     this.sendMessage = ev => {
       ev.preventDefault();
@@ -31,10 +31,26 @@ class ChatBox extends React.Component {
 			console.log("DATA", data);
 			this.setState({userMessages: [...this.state.userMessages, data]});
     });
+
+    this.scrollToBottom = this.scrollToBottom.bind(this)
   }
+
+
   // componentDidUpdate() { 
 	// 	this._div.scrollTop = this._div.scrollHeight;
 	// }
+
+	 scrollToBottom() {
+	 	// lel not working
+    this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' })
+  }
+
+	componentDidMount() {
+    this.scrollToBottom()
+  }
+  componentDidUpdate() {
+    this.scrollToBottom()
+  }
 
   render(){
     return (
@@ -50,6 +66,7 @@ class ChatBox extends React.Component {
 							)
 						})}
 				</div>
+				<div ref={this.messagesEnd} />
 				<form onSubmit={this.sendMessage}>
 				
 				<input  

@@ -69,7 +69,7 @@ export default function GamePlay(props) {
 		<div className={styles.overlayContainer}>
 			<PlayGame_CardBox socket={props.socket} roomId={props.roomId} user={context.user} czar={czar} />
 		</div>
-		<div className={cx(styles.item, styles.rightItems)}>
+		<div className={cx(styles.item, styles.rightItems, styles.chatContainer)}>
 			<div className={styles.itemHeader}>
 				Game Chat
 			</div>
