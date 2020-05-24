@@ -1,14 +1,12 @@
-import styles from './CardButton.module.css'
+import styles from './CardButton.module.css';
 
 
-const CardButton = (props) => {
-  return (
-    <button className={styles.cardBtn} onClick={props.onClick}>
-      <p>
-        {props.text}
-      </p>
-    </button>
-  )
-}
+const CardButton = (props) => (
+  <button className={styles.cardBtn} onClick={props.onClick}>
+    <p>
+      {props.text}
+    </p>
+  </button>
+);
 
-export default CardButton
+export default CardButton;
