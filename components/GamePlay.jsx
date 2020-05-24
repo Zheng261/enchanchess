@@ -29,11 +29,19 @@ export default function GamePlay(props) {
     return (players.includes(key) ?  el: null)
   });
 
+  console.log(players, playersToPoints)
+
   // from now on put socket.on code before socket.emit code in useEffect to avoid race conditions
 	useEffect(() => {
 		// Logs user in. If user already logged in, this does nothing. Adding layer of redundancy
 		// In case user joins mid-game. 
 		console.log("Joining room with ", props.roomId, "and username ", props.user)
+
+		props.socket.on('dispatchPlayers', res => {
+			console.log("recievd players update", res)
+			setPlayers(res)
+			//props.socket.emit('getPlayersPoints', props.roomId)
+		})
 
 		// Get ready for player list to update
 		props.socket.on('getCardCzarReply', res => {
@@ -49,11 +57,6 @@ export default function GamePlay(props) {
 
 	// when the player list changes, update the scoreboard
 	useEffect(() => {
-		props.socket.on('dispatchPlayers', res => {
-			setPlayers(res)
-			props.socket.emit('getPlayersPoints', props.roomId)
-		})
-
 		// Get ready for player list to update
 		props.socket.on('dispatchPlayerPoints', res => {
 			setPlayersToPoints(res)

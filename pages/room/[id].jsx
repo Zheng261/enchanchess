@@ -29,12 +29,12 @@ export default ({ data }) => {
     socket.on('gameStarted', res => {
       console.log("Game Start Signal Receiver Triggered")
       if (res) {
-        console.log("Game Start Signal Received: Starting Game Now")
-        setGameStarted(res)
-        
+        console.log("Game Start Signal Received: Starting Game Now", context)
         // rejoin room 
-        //socket.emit('rejoinRoom', { roomId: roomId, user: context.user })
-        
+        if (context.user != null && context.user != "") {
+          socket.emit('rejoinRoom', { roomId: roomId, user: context.user })
+        }
+        setGameStarted(res)  
       }
     })
 
@@ -42,27 +42,28 @@ export default ({ data }) => {
     console.log("Checking if game started yet")
   }, [])
 
-// todo: store socket instance in _app.jsx (highest parent component)
   // If does not have username, make them set one and let them join the room
-    if (context.user == null || context.user == "") {
-      return (
-        <div className={styles.container}>
-          <div className={styles.roomLink}>
-            <SetNameView createRoomAbility = {false}></SetNameView>
-        </div>
-       </div>
-      )
-    // Game has started
-    } else if (gameStarted) {
-      return (
-        <GamePlay roomId = {router.query.id} socket = {socket} user = {context.user}/>
-      );
-    // Game has not started
-    } else {
-      return (
-        <WaitingRoom roomId = {router.query.id} socket = {socket} user = {context.user}/>
-      );
-    }
+ 
+  if (context.user == null || context.user == "") {
+    return (
+      <div className={styles.container}>
+        <div className={styles.roomLink}>
+          <SetNameView createRoomAbility = {false}></SetNameView>
+      </div>
+     </div>
+    )
+
+  // Game has started
+  } else if (gameStarted) {
+    return (
+      <GamePlay roomId = {router.query.id} socket = {socket} user = {context.user}/>
+    );
+  // Game has not started
+  } else {
+    return (
+      <WaitingRoom roomId = {router.query.id} socket = {socket} user = {context.user}/>
+    );
+  }
 }
 
 // This gets called on every request
