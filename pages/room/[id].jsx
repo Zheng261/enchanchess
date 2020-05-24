@@ -20,24 +20,24 @@ export default ({ data }) => {
   const [gameStarted, setGameStarted] = useState(false)
 
   const socket = context.socket;
-
-  // Check whether game has started
-  socket.on('gameStarted', res => {
-    console.log("Game Start Signal Receiver Triggered")
-    if (res) {
-      console.log("Game Start Signal Received: Starting Game Now")
-      setGameStarted(res)
-    }
-  })
-
-  console.log("Checking if game started yet")
   
   useEffect(() => {
     console.log("Entering room id:", router.query)
     // Now that socket for checking whether game started is on, we check once manually
     // This breaks sometimes for no discernible reason.
       // Check whether game has started
+    // Check whether game has started
+    socket.on('gameStarted', res => {
+      console.log("Game Start Signal Receiver Triggered")
+      if (res) {
+        console.log("Game Start Signal Received: Starting Game Now")
+        setGameStarted(res)
+      }
+    })
+
     socket.emit('checkStartGame', roomId)
+
+    console.log("Checking if game started yet")
   }, [])
 
 // todo: store socket instance in _app.jsx (highest parent component)
