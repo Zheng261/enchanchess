@@ -8,6 +8,10 @@ import ChatBox from './ChatBox';
 import PlayGame_CardBox from './PlayGame_CardBox'
 import BlackCard from './BlackCard'
 import PlayedCardsBox from './PlayedCardsBox'
+import GameSettingsModal from './ui-elements/GameSettingsModal'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCog } from '@fortawesome/free-solid-svg-icons'
 
 // CALLED FROM: GameLobby, which is called in turn from rooms/[id].jsx
 // screen where cards/actual game can be played lives
@@ -49,8 +53,13 @@ export default function GamePlay(props) {
     <div className={styles.grid}>
     	<div className={cx(styles.item, styles.dealerContainer)}>
     		<div className={styles.header}>
-    			<h2>Cards Against Humanity</h2>
-    			<p><code>Social distancing edition</code></p>
+    			<div>
+	    			<h2>Cards Against Humanity</h2>
+	    			<p><code>Social distancing edition</code></p>
+    			</div>
+    			<div id={styles.settings}>
+    				<FontAwesomeIcon icon={faCog} size="2x"/>
+    			</div>
     		</div>
     		<div className={styles.dealerCardContainer}>
     			<BlackCard socket={props.socket} roomId={props.roomId}/>
@@ -75,6 +84,8 @@ export default function GamePlay(props) {
 			</div>
 			<ChatBox roomId={props.roomId} user={context.user} socket={props.socket}></ChatBox>
 		</div>
+
+		<GameSettingsModal visible={false} />
     </div>
   );
 }
