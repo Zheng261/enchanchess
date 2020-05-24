@@ -36,12 +36,6 @@ export default function GamePlay(props) {
 		console.log("Joining room with ", props.roomId, "and username ", props.user)
 
 		// Get ready for player list to update
-		props.socket.on('dispatchPlayerPoints', res => {
-			setPlayersToPoints(res)
-			console.log("Players and points ", playersToPoints, res)
-		})
-
-		// Get ready for player list to update
 		props.socket.on('getCardCzarReply', res => {
 			setCzar(res)
 			console.log("Current card czar: ", czar)
@@ -58,6 +52,12 @@ export default function GamePlay(props) {
 		props.socket.on('dispatchPlayers', res => {
 			setPlayers(res)
 			props.socket.emit('getPlayersPoints', props.roomId)
+		})
+
+		// Get ready for player list to update
+		props.socket.on('dispatchPlayerPoints', res => {
+			setPlayersToPoints(res)
+			console.log("Players and points ", playersToPoints, res)
 		})
 
 		console.log("PLAYEERS", players)

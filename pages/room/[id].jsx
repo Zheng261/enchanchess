@@ -25,18 +25,20 @@ export default ({ data }) => {
     console.log("Entering room id:", router.query)
     // Now that socket for checking whether game started is on, we check once manually
     // This breaks sometimes for no discernible reason.
-      // Check whether game has started
     // Check whether game has started
     socket.on('gameStarted', res => {
       console.log("Game Start Signal Receiver Triggered")
       if (res) {
         console.log("Game Start Signal Received: Starting Game Now")
         setGameStarted(res)
+        
+        // rejoin room 
+        //socket.emit('rejoinRoom', { roomId: roomId, user: context.user })
+        
       }
     })
 
     socket.emit('checkStartGame', roomId)
-
     console.log("Checking if game started yet")
   }, [])
 
@@ -54,7 +56,6 @@ export default ({ data }) => {
     } else if (gameStarted) {
       return (
         <GamePlay roomId = {router.query.id} socket = {socket} user = {context.user}/>
-        // <GameLobby roomId = {router.query.id} players = {players} socket = {socket}></GameLobby>
       );
     // Game has not started
     } else {
