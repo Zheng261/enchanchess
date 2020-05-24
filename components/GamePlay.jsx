@@ -29,6 +29,7 @@ export default function GamePlay(props) {
     return (players.includes(key) ?  el: null)
   });
 
+  // from now on put socket.on code before socket.emit code in useEffect to avoid race conditions
 	useEffect(() => {
 		// Logs user in. If user already logged in, this does nothing. Adding layer of redundancy
 		// In case user joins mid-game. 
