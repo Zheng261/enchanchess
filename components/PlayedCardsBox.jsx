@@ -1,12 +1,11 @@
-
-import cx from 'classnames';
-import React, { useState, useContext, useEffect } from 'react';
+import cx from "classnames";
+import React, { useState, useContext, useEffect } from "react";
 // import PageLayout from '../components/PageLayout'
-import { useRouter } from 'next/router';
-import CardDiv from './ui-elements/CardDiv';
-import StyledButton from './ui-elements/StyledButton';
-import GameCard from './game-objects/GameCard';
-import styles from './GamePlay.module.css';
+import { useRouter } from "next/router";
+import CardDiv from "./ui-elements/CardDiv";
+import StyledButton from "./ui-elements/StyledButton";
+import GameCard from "./game-objects/GameCard";
+import styles from "./GamePlay.module.css";
 
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
 
@@ -20,28 +19,28 @@ export default function PlayedCardsBox(props) {
   const [cardsInPlay, setCardsInPlay] = useState([]);
 
   // Backend signals all players have played their cards; allows cards to be picked by Czar (currently anyone)
-  props.socket.on(('allowPickCards'), (res) => {
+  props.socket.on("allowPickCards", (res) => {
     const cardsSoFar = res;
     setCardsInPlay(cardsSoFar);
     setAllowPicking(true);
   });
 
   // Replies to card being picked by Czar
-  props.socket.on(('pickCardReply'), (res) => {
+  props.socket.on("pickCardReply", (res) => {
     setAllowPicking(false);
     setCardsInPlay([]);
   });
 
   // Replies to card being played by someone
-  props.socket.on(('playCardReply'), (res) => {
+  props.socket.on("playCardReply", (res) => {
     const cardsSoFar = res;
     setCardsInPlay(res);
   });
 
   // Game is over
-  props.socket.on(('gameOver'), (res) => {
+  props.socket.on("gameOver", (res) => {
     // Do something?
-    console.log('Game over');
+    console.log("Game over");
   });
 
   useEffect(() => {
@@ -51,10 +50,10 @@ export default function PlayedCardsBox(props) {
 
   // Send back that we picked a card
   const pickCard = function (cardNum) {
-    props.socket.emit('pickCard', {
+    props.socket.emit("pickCard", {
       roomId: props.roomId,
-		    user: props.user,
-		    card: cardsInPlay[cardNum],
+      user: props.user,
+      card: cardsInPlay[cardNum],
     });
   };
 
@@ -69,21 +68,17 @@ export default function PlayedCardsBox(props) {
       playCardBoxContent.push(
         <div onClick={() => pickCard(tempCardNum)} key={tempCardNum}>
           <GameCard color="white" text={cardsInPlay[cardNum]} />
-        </div>,
+        </div>
       );
     } else {
       // If not all players have played yet, we just show blank cards
       playCardBoxContent.push(
         <div key={tempCardNum}>
           <GameCard color="white" text="" />
-        </div>,
+        </div>
       );
     }
   }
 
-  return (
-    <div className={styles.whiteCards}>
-      {playCardBoxContent}
-    </div>
-  );
+  return <div className={styles.whiteCards}>{playCardBoxContent}</div>;
 }

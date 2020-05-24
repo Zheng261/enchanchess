@@ -1,13 +1,12 @@
-import { useRouter, Router } from 'next/router';
-import { useContext, useState, useEffect } from 'react';
-import UserContext from '../../components/UserContext';
+import { useRouter, Router } from "next/router";
+import { useContext, useState, useEffect } from "react";
+import UserContext from "../../components/UserContext";
 
-import styles from '../../components/roomid.module.css';
+import styles from "../../components/roomid.module.css";
 
-
-import GamePlay from '../../components/GamePlay';
-import WaitingRoom from '../../components/WaitingRoom';
-import SetNameView from '../../components/SetNameView';
+import GamePlay from "../../components/GamePlay";
+import WaitingRoom from "../../components/WaitingRoom";
+import SetNameView from "../../components/SetNameView";
 
 export default ({ data }) => {
   const router = useRouter();
@@ -21,26 +20,26 @@ export default ({ data }) => {
   const { socket } = context;
 
   useEffect(() => {
-    console.log('Entering room id:', router.query);
+    console.log("Entering room id:", router.query);
     // Now that socket for checking whether game started is on, we check once manually
     // This breaks sometimes for no discernible reason.
     // Check whether game has started
-    socket.on('gameStarted', (res) => {
-      console.log('Game Start Signal Receiver Triggered');
+    socket.on("gameStarted", (res) => {
+      console.log("Game Start Signal Receiver Triggered");
       if (res) {
-        console.log('Game Start Signal Received: Starting Game Now', context);
+        console.log("Game Start Signal Received: Starting Game Now", context);
         setGameStarted(res);
       }
     });
 
-    socket.emit('checkStartGame', roomId);
-    console.log('Checking if game started yet');
+    socket.emit("checkStartGame", roomId);
+    console.log("Checking if game started yet");
   }, []);
 
   // If does not have username, make them set one and let them join the room
 
-  if (context.user == null || context.user == '') {
-    console.log('new user');
+  if (context.user == null || context.user == "") {
+    console.log("new user");
     return (
       <div className={styles.container}>
         <div className={styles.roomLink}>
@@ -49,15 +48,16 @@ export default ({ data }) => {
       </div>
     );
 
-  // Game has started
-  } if (gameStarted) {
+    // Game has started
+  }
+  if (gameStarted) {
     // rejoin room
-    console.log('rejoining as', context.user);
-    socket.emit('rejoinRoom', { roomId, user: context.user });
+    console.log("rejoining as", context.user);
+    socket.emit("rejoinRoom", { roomId, user: context.user });
     return (
       <GamePlay roomId={router.query.id} socket={socket} user={context.user} />
     );
-  // Game has not started
+    // Game has not started
   }
   return (
     <WaitingRoom roomId={router.query.id} socket={socket} user={context.user} />
@@ -72,7 +72,7 @@ export async function getServerSideProps() {
   // // Fetch data from external API
   // const res = await fetch(`https://.../data`)
   // const data = await res.json()
-  const data = 'test';
+  const data = "test";
 
   // Pass data to the page via props
   return { props: { data } };

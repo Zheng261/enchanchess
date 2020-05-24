@@ -62,7 +62,7 @@
 
 .centerContainer input {
   width: 80%;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   border: solid 1px black;
   padding: 10px;
 }

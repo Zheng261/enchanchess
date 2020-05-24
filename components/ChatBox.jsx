@@ -1,5 +1,5 @@
-import React from 'react';
-import styles from './ChatBox.module.css';
+import React from "react";
+import styles from "./ChatBox.module.css";
 
 // TODO: NEED TO CHANGE THIS WHEN WE DEPLOY
 // import io from "socket.io-client";
@@ -10,7 +10,7 @@ class ChatBox extends React.Component {
     super(props);
 
     this.state = {
-      message: '',
+      message: "",
       userMessages: [],
     };
 
@@ -19,30 +19,32 @@ class ChatBox extends React.Component {
     this.sendMessage = (ev) => {
       ev.preventDefault();
       // this.socket.emit('sendChatMessage', { //TODO: DELETE THIS
-      this.props.socket.emit('sendChatMessage', {
+      this.props.socket.emit("sendChatMessage", {
         author: `${this.props.user}:`,
         message: this.state.message,
         roomId: this.props.roomId,
       });
-      this.setState({ message: '' });
+      this.setState({ message: "" });
     };
     // this.socket.on('RECEIVE_MESSAGE', msg =>{ //TODO: DELETE THIS
-    this.props.socket.on(('RECEIVE_MESSAGE').concat(this.props.roomId), (data) => {
-      console.log('DATA', data);
-      this.setState({ userMessages: [...this.state.userMessages, data] });
-    });
+    this.props.socket.on(
+      "RECEIVE_MESSAGE".concat(this.props.roomId),
+      (data) => {
+        console.log("DATA", data);
+        this.setState({ userMessages: [...this.state.userMessages, data] });
+      }
+    );
 
     this.scrollToBottom = this.scrollToBottom.bind(this);
   }
-
 
   // componentDidUpdate() {
   // 	this._div.scrollTop = this._div.scrollHeight;
   // }
 
-	 scrollToBottom() {
-	 	// lel not working
-    this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' });
+  scrollToBottom() {
+    // lel not working
+    this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
   }
 
   componentDidMount() {
@@ -56,20 +58,23 @@ class ChatBox extends React.Component {
   render() {
     return (
       <div className={styles.gamechat}>
-        <div className={styles.messages} ref={(ref) => this._div = ref}>
+        <div className={styles.messages} ref={(ref) => (this._div = ref)}>
           {this.state.userMessages.map((data) => (
             <div className={styles.notification}>
-              <div className={data.isUserUpdate ? styles.playerText : styles.gameNotification}>
-                <strong>{data.message.author}</strong>
-                {' '}
-                {data.message.message}
+              <div
+                className={
+                  data.isUserUpdate
+                    ? styles.playerText
+                    : styles.gameNotification
+                }
+              >
+                <strong>{data.message.author}</strong> {data.message.message}
               </div>
             </div>
           ))}
         </div>
         <div ref={this.messagesEnd} />
         <form onSubmit={this.sendMessage}>
-
           <input
             type="text"
             placeholder="Enter message"
@@ -78,7 +83,6 @@ class ChatBox extends React.Component {
             onChange={(ev) => this.setState({ message: ev.target.value })}
           />
           <button type="submit">Send</button>
-
         </form>
       </div>
     );
