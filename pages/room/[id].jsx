@@ -2,14 +2,7 @@ import { useRouter, Router } from 'next/router'
 import { useContext } from 'react'
 import UserContext from '../../components/UserContext';
 
-//  todo: save socket.io context in app state
-//  todo: manage app state in redux, next-redux-wrapper
-import io from "socket.io-client";
 import styles from '../../components/roomid.module.css'
-
-// IMPORTANT: remember to change this when deploying
-const GLOBAL_BACKEND_CONSTANTS = require('../../styles/backend_constants.js')
-const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
 
 import { useState, useEffect } from "react";
 
@@ -26,7 +19,7 @@ export default ({ data }) => {
   // Has game started yet?
   const [gameStarted, setGameStarted] = useState(false)
 
-  const socket = io(ENDPOINT);
+  const socket = context.socket;
 
   // Check whether game has started
   socket.on('gameStarted', res => {

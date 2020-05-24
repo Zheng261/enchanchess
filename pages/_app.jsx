@@ -4,6 +4,10 @@ import App from 'next/app';
 import Router from 'next/router';
 import UserContext from '../components/UserContext';
 
+import io from "socket.io-client";
+const GLOBAL_BACKEND_CONSTANTS = require('../styles/backend_constants.js')
+const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
+
 /*
   This App component is the top-level component which will be common across 
 	all the different pages. You can use this App component to keep state when 
@@ -14,7 +18,8 @@ import UserContext from '../components/UserContext';
 class AppWithState extends App {
   // App records username throughout navigation 
   state = {
-    user: null
+    user: null,
+    socket: io(ENDPOINT)
   };
   
   // When component loads, lets it access user parameter
@@ -50,7 +55,12 @@ class AppWithState extends App {
     const { Component, pageProps } = this.props;
     return(
     // Wraps everything inside this big parent context
-    <UserContext.Provider value={{ user: this.state.user, signIn: this.signIn, signOut: this.signOut }}>
+    <UserContext.Provider value={{ 
+      user: this.state.user, 
+      signIn: this.signIn, 
+      signOut: this.signOut,
+      socket: this.state.socket 
+    }}>
       <Component {...pageProps} />
     </UserContext.Provider>);
   }

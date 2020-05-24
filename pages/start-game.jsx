@@ -4,14 +4,9 @@ import { useRouter } from 'next/router'
 import UserContext from '../components/UserContext';
 
 import styles from '../components/start-game.module.css'
-import io from "socket.io-client";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
-
-// IMPORTANT; switch to this below endpoint when done on dev!
-const GLOBAL_BACKEND_CONSTANTS = require('../styles/backend_constants.js')
-const ENDPOINT = GLOBAL_BACKEND_CONSTANTS.ENDPOINT // backend server endpoint
 
 // waiting page until server generates room link
 export default function StartGame() {
@@ -20,17 +15,15 @@ export default function StartGame() {
   const context = useContext(UserContext);
 
   useEffect(() => {
-    const socket = io(ENDPOINT);
-
     if (context.user == "" || context.user == null) {
       router.push(`/`);
     }
     
-    socket.on('dispatchRoomId', roomId => {
+    context.socket.on('dispatchRoomId', roomId => {
       setRoomId(roomId)
       router.replace(`/room/${roomId}`);
     })
-    socket.emit('createRoom', context.user)
+    context.socket.emit('createRoom', context.user)
   }, [])
 
   return (
