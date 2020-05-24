@@ -20,6 +20,8 @@ export default function GamePlay(props) {
     // People in the room
    const [playersToPoints, setPlayersToPoints] = useState({}); 
    const [czar, setCzar] = useState(""); 
+   const [visible, setVisible] = useState(false); 
+
    const playerPointList = Object.entries(playersToPoints).map(([key, value]) => 
     <li key = {key}>  {value} : {key} </li>
    );
@@ -51,13 +53,14 @@ export default function GamePlay(props) {
 
   return (
     <div className={styles.grid}>
+
     	<div className={cx(styles.item, styles.dealerContainer)}>
     		<div className={styles.header}>
     			<div>
 	    			<h2>Cards Against Humanity</h2>
 	    			<p><code>Social distancing edition</code></p>
     			</div>
-    			<div id={styles.settings}>
+    			<div id={styles.settings} onClick={() => { setVisible(true) }}>
     				<FontAwesomeIcon icon={faCog} size="2x"/>
     			</div>
     		</div>
@@ -66,26 +69,30 @@ export default function GamePlay(props) {
     			<PlayedCardsBox socket = {props.socket} roomId ={props.roomId} user={context.user} czar={czar}/>
     		</div>
     	</div>
-		<div className={cx(styles.item, styles.scoreboard, styles.rightItems)}>
-			<div className={styles.itemHeader}>
-				Scoreboard
-			</div>
-			<center>Czar: {czar} </center>
-			<ul>	
-				{playerPointList}
-			</ul>
-		</div>
-		<div className={styles.overlayContainer}>
-			<PlayGame_CardBox socket={props.socket} roomId={props.roomId} user={context.user} czar={czar} />
-		</div>
-		<div className={cx(styles.item, styles.rightItems, styles.chatContainer)}>
-			<div className={styles.itemHeader}>
-				Game Chat
-			</div>
-			<ChatBox roomId={props.roomId} user={context.user} socket={props.socket}></ChatBox>
-		</div>
 
-		<GameSettingsModal visible={false} />
+			<div className={cx(styles.item, styles.scoreboard, styles.rightItems)}>
+				<div className={styles.itemHeader}>
+					Scoreboard
+				</div>
+				<center>Czar: {czar} </center>
+				<ul>	
+					{playerPointList}
+				</ul>
+			</div>
+
+			<div className={styles.overlayContainer}>
+				<PlayGame_CardBox socket={props.socket} roomId={props.roomId} user={context.user} czar={czar} />
+			</div>
+
+			<div className={cx(styles.item, styles.rightItems, styles.chatContainer)}>
+				<div className={styles.itemHeader}>
+					Game Chat
+				</div>
+				<ChatBox roomId={props.roomId} user={context.user} socket={props.socket}></ChatBox>
+			</div>
+
+			<GameSettingsModal closeSettings={() => { setVisible(false) }} visible={visible} />
+
     </div>
   );
 }
