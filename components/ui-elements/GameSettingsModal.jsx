@@ -1,11 +1,24 @@
 import Modal from "./Modal"
 import { useRouter } from 'next/router'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+
+import UserContext from '../UserContext';
 
 import styles from './GameSettingsModal.module.css'
 
 const GameSettingsModal = (props) => {
   const router = useRouter()
+  const context = useContext(UserContext)
+
+  useEffect(() => {
+
+    // cleanup, runs after component dismount
+    return () => {
+      console.log('leaveRoom');
+      props.socket.emit('leaveRoom', { user: context.user, roomId: props.roomId })
+    }
+  }, [])
+
   return (
     <Modal visible={props.visible}>
       <div className={styles.container}>

@@ -19,34 +19,48 @@ export default function GamePlay(props) {
 	
     // People in the room
    const [playersToPoints, setPlayersToPoints] = useState({}); 
+   const [players, setPlayers] = useState([])
    const [czar, setCzar] = useState(""); 
    const [visible, setVisible] = useState(false); 
 
-   const playerPointList = Object.entries(playersToPoints).map(([key, value]) => 
-    <li key = {key}>  {value} : {key} </li>
-   );
-
-	// Get ready for player list to update
-	props.socket.on('dispatchPlayerPoints', res => {
-		setPlayersToPoints(res)
-		console.log("Players and points ", playersToPoints)
-	})
-
-	// Get ready for player list to update
-	props.socket.on('getCardCzarReply', res => {
-		setCzar(res)
-		console.log("Current card czar: ", czar)
-	})
+  // only show scores for players in players list
+  const playerPointList = Object.entries(playersToPoints).map(([key, value]) => {
+  	const el = <li key={key}> {value} : {key} </li>
+    return (players.includes(key) ?  el: null)
+  });
 
 	useEffect(() => {
 		// Logs user in. If user already logged in, this does nothing. Adding layer of redundancy
 		// In case user joins mid-game. 
 		console.log("Joining room with ", props.roomId, "and username ", props.user)
+
+		// Get ready for player list to update
+		props.socket.on('dispatchPlayerPoints', res => {
+			setPlayersToPoints(res)
+			console.log("Players and points ", playersToPoints, res)
+		})
+
+		// Get ready for player list to update
+		props.socket.on('getCardCzarReply', res => {
+			setCzar(res)
+			console.log("Current card czar: ", czar)
+		})
+
 		props.socket.emit('joinRoom', {roomId: props.roomId, user: props.user})
 
 		// Figure out who current czar is 
 		props.socket.emit('getCardCzar', props.roomId)
 	}, [])
+
+	// when the player list changes, update the scoreboard
+	useEffect(() => {
+		props.socket.on('dispatchPlayers', res => {
+			setPlayers(res)
+			props.socket.emit('getPlayersPoints', props.roomId)
+		})
+
+		console.log("PLAYEERS", players)
+	}, [players])
 
   const context = useContext(UserContext)
 
@@ -99,7 +113,7 @@ export default function GamePlay(props) {
 				<ChatBox roomId={props.roomId} user={context.user} socket={props.socket}></ChatBox>
 			</div>
 
-			<GameSettingsModal closeSettings={closeSettings} visible={visible} />
+			<GameSettingsModal closeSettings={closeSettings} visible={visible} socket={props.socket} roomId={props.roomId} />
 
     </div>
   );
