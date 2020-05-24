@@ -30,10 +30,6 @@ export default ({ data }) => {
       console.log("Game Start Signal Receiver Triggered")
       if (res) {
         console.log("Game Start Signal Received: Starting Game Now", context)
-        // rejoin room 
-        if (context.user != null && context.user != "") {
-          socket.emit('rejoinRoom', { roomId: roomId, user: context.user })
-        }
         setGameStarted(res)  
       }
     })
@@ -45,6 +41,7 @@ export default ({ data }) => {
   // If does not have username, make them set one and let them join the room
  
   if (context.user == null || context.user == "") {
+    console.log("new user")
     return (
       <div className={styles.container}>
         <div className={styles.roomLink}>
@@ -55,6 +52,9 @@ export default ({ data }) => {
 
   // Game has started
   } else if (gameStarted) {
+    //rejoin room
+    console.log("rejoining as", context.user)
+    socket.emit('rejoinRoom', { roomId: roomId, user: context.user })
     return (
       <GamePlay roomId = {router.query.id} socket = {socket} user = {context.user}/>
     );
