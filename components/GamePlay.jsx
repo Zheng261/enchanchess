@@ -50,6 +50,14 @@ export default function GamePlay(props) {
 
   const context = useContext(UserContext)
 
+  // functions for toggling settings menu
+  const openSettings = () => { 
+  	setVisible(true) 
+  }
+
+  const closeSettings = () => { 
+  	setVisible(false) 
+  }
 
   return (
     <div className={styles.grid}>
@@ -60,7 +68,7 @@ export default function GamePlay(props) {
 	    			<h2>Cards Against Humanity</h2>
 	    			<p><code>Social distancing edition</code></p>
     			</div>
-    			<div id={styles.settings} onClick={() => { setVisible(true) }}>
+    			<div id={styles.settings} onClick={openSettings}>
     				<FontAwesomeIcon icon={faCog} size="2x"/>
     			</div>
     		</div>
@@ -91,7 +99,7 @@ export default function GamePlay(props) {
 				<ChatBox roomId={props.roomId} user={context.user} socket={props.socket}></ChatBox>
 			</div>
 
-			<GameSettingsModal closeSettings={() => { setVisible(false) }} visible={visible} />
+			<GameSettingsModal closeSettings={closeSettings} visible={visible} />
 
     </div>
   );
