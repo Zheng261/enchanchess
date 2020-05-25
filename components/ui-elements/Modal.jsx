@@ -1,19 +1,18 @@
-import styles from './Modal.module.css'
-import cx from 'classnames'
-import { useState, useEffect } from 'react'
+import React, { useEffect } from "react";
+import cx from "classnames";
 
-const Modal = (props) => {
-  return (
-    <div className={cx(
-        styles.modalContainer,
-        {[styles.show]: props.visible === true},
-        {[styles.hide]: props.visible === false}
-      )}>
-      <section className={styles.modalBody}>
-        {props.children}
-      </section>
-    </div>
-  );
-};
+import styles from "./Modal.module.css";
 
-export default Modal
+const Modal = (props) => (
+  <div
+    className={cx(
+      styles.modalContainer,
+      { [styles.show]: props.visible === true },
+      { [styles.hide]: props.visible === false }
+    )}
+  >
+    <section className={styles.modalBody}>{props.children}</section>
+  </div>
+);
+
+export default Modal;

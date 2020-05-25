@@ -1,70 +1,68 @@
-import { useRouter, Router } from 'next/router'
-import { useContext } from 'react'
-import UserContext from '../../components/UserContext';
+import React, { useContext, useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import UserContext from "../../config/UserContext";
 
-import styles from '../../components/roomid.module.css'
+import styles from "../../styles/room-id.module.css";
 
-import { useState, useEffect } from "react";
-
-import GamePlay from '../../components/GamePlay'
-import WaitingRoom from '../../components/WaitingRoom'
-import SetNameView from '../../components/SetNameView'
+import GamePlay from "../../components/GamePlay";
+import WaitingRoom from "../../components/WaitingRoom";
+import SetNameView from "../../components/SetNameView";
 
 export default ({ data }) => {
-  const router = useRouter()
-  const roomId = router.query.id
+  const router = useRouter();
+  const roomId = router.query.id;
 
-  const context = useContext(UserContext)
-  
+  const context = useContext(UserContext);
+
   // Has game started yet?
-  const [gameStarted, setGameStarted] = useState(false)
+  const [gameStarted, setGameStarted] = useState(false);
 
-  const socket = context.socket;
-  
+  const { socket } = context;
+
   useEffect(() => {
-    console.log("Entering room id:", router.query)
+    console.log("Entering room id:", router.query);
     // Now that socket for checking whether game started is on, we check once manually
     // This breaks sometimes for no discernible reason.
     // Check whether game has started
-    socket.on('gameStarted', res => {
-      console.log("Game Start Signal Receiver Triggered")
+    socket.on("gameStarted", (res) => {
+      console.log("Game Start Signal Receiver Triggered");
       if (res) {
-        console.log("Game Start Signal Received: Starting Game Now", context)
-        setGameStarted(res)  
+        console.log("Game Start Signal Received: Starting Game Now", context);
+        setGameStarted(res);
       }
-    })
+    });
 
-    socket.emit('checkStartGame', roomId)
-    console.log("Checking if game started yet")
-  }, [])
+    socket.emit("checkStartGame", roomId);
+    console.log("Checking if game started yet");
+  }, []);
 
   // If does not have username, make them set one and let them join the room
- 
-  if (context.user == null || context.user == "") {
-    console.log("new user")
+
+  if (context.user === null || context.user === "") {
+    console.log("new user");
     return (
       <div className={styles.container}>
         <div className={styles.roomLink}>
-          <SetNameView createRoomAbility = {false}></SetNameView>
+          <SetNameView createRoomAbility={false} />
+        </div>
       </div>
-     </div>
-    )
+    );
 
-  // Game has started
-  } else if (gameStarted) {
-    //rejoin room
-    console.log("rejoining as", context.user)
-    socket.emit('rejoinRoom', { roomId: roomId, user: context.user })
-    return (
-      <GamePlay roomId = {router.query.id} socket = {socket} user = {context.user}/>
-    );
-  // Game has not started
-  } else {
-    return (
-      <WaitingRoom roomId = {router.query.id} socket = {socket} user = {context.user}/>
-    );
+    // Game has started
   }
-}
+  if (gameStarted) {
+    // rejoin room
+    console.log("rejoining as", context.user);
+    socket.emit("rejoinRoom", { roomId, user: context.user });
+    return (
+      <GamePlay roomId={router.query.id} socket={socket} user={context.user} />
+    );
+    // Game has not started
+  }
+  return (
+    <WaitingRoom roomId={router.query.id} socket={socket} user={context.user} />
+  );
+};
 
 // This gets called on every request
 // we just need to trick next.js into thinking this page cannot be statically optimzied
@@ -74,8 +72,8 @@ export async function getServerSideProps() {
   // // Fetch data from external API
   // const res = await fetch(`https://.../data`)
   // const data = await res.json()
-  const data = "test"
+  const data = "test";
 
   // Pass data to the page via props
-  return { props: { data } }
+  return { props: { data } };
 }

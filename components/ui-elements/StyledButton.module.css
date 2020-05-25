@@ -1,17 +1,16 @@
 .styledBtn {
-	width: 60%;
-	padding: .5rem;
-	margin-top: 1rem;
-	font-weight: bold;
-	font-size: 1.2rem;
+  width: 60%;
+  padding: 0.5rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
 
-	background-color: var(--btn-primary-color);
-	color: black;
-	border: 2px solid var(--btn-primary-color);
-	border-radius: .5rem;
-	box-shadow: 1px 2px 5px 1px grey;
+  background-color: var(--btn-primary-color);
+  color: black;
+  border: 2px solid var(--btn-primary-color);
+  border-radius: 0.5rem;
+  box-shadow: 1px 2px 5px 1px grey;
 }
-
 
 .styledBtn:hover,
 .styledBtn:focus,

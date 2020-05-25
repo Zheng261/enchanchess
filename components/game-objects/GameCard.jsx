@@ -1,19 +1,21 @@
-import cx from 'classnames'
-import styles from './GameCard.module.css'
+import React from "react";
+import cx from "classnames";
+import styles from "./GameCard.module.css";
 
 // a cards against humanity card, can be black or white
 const GameCard = (props) => {
+  const { color, text } = props;
   return (
-    <div 
+    <div
       className={cx(
         styles.card,
-        {[styles.blackCard]: props.color === 'black'},
-        {[styles.whiteCard]: props.color === 'white'}
+        { [styles.blackCard]: color === "black" },
+        { [styles.whiteCard]: color === "white" }
       )}
-    > 
-      {props.text}
+    >
+      {text}
     </div>
-  )
-}
+  );
+};
 
-export default GameCard
+export default GameCard;

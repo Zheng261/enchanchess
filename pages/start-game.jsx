@@ -1,30 +1,29 @@
-// this code has been integrated into index.jsx
-import React, { useState, useContext, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import UserContext from '../components/UserContext';
+import React, { useState, useContext, useEffect } from "react";
+import { useRouter } from "next/router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-import styles from '../components/start-game.module.css'
+import styles from "../styles/start-game.module.css";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import UserContext from "../config/UserContext";
 
 // waiting page until server generates room link
 export default function StartGame() {
-  const router = useRouter()
+  const router = useRouter();
   const [roomId, setRoomId] = useState("");
   const context = useContext(UserContext);
 
   useEffect(() => {
-    if (context.user == "" || context.user == null) {
-      router.push(`/`);
+    if (context.user === "" || context.user == null) {
+      router.push("/");
     }
-    
-    context.socket.on('dispatchRoomId', roomId => {
-      setRoomId(roomId)
+
+    context.socket.on("dispatchRoomId", (roomId) => {
+      setRoomId(roomId);
       router.replace(`/room/${roomId}`);
-    })
-    context.socket.emit('createRoom', context.user)
-  }, [])
+    });
+    context.socket.emit("createRoom", context.user);
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -33,5 +32,5 @@ export default function StartGame() {
         <FontAwesomeIcon icon={faSpinner} size="3x" pulse />
       </div>
     </div>
-  )
+  );
 }

@@ -1,12 +1,10 @@
-import styles from './StyledButton.module.css'
+import React from "react";
+import styles from "./StyledButton.module.css";
 
+const StyledButton = (props) => (
+  <button className={styles.styledBtn} onClick={props.onClick} type="button">
+    {props.children}
+  </button>
+);
 
-const StyledButton = (props) => {
-	return (
-		<button className={styles.styledBtn} onClick={props.onClick}>
-			{props.children}
-		</button>
-	)
-}
-
-export default StyledButton
+export default StyledButton;

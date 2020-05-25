@@ -1,58 +1,55 @@
 .gamechat {
-    /*height: 100%;*/
-    flex: 1;
-    margin-left: 2 rem;
-    padding: 0.7rem;
-    text-align: center;
-    list-style-type: none;
+  /*height: 100%;*/
+  flex: 1;
+  margin-left: 2 rem;
+  padding: 0.7rem;
+  text-align: center;
+  list-style-type: none;
 }
 
-.messages{
-    overflow-y: auto;
-    /*max-height: 30vh;
+.messages {
+  overflow-y: auto;
+  /*max-height: 30vh;
     min-height: 30vh;*/
-    /*  height of the text input form + vertical margin + vertical padding*/
-    height: 30vh;
-
+  /*  height of the text input form + vertical margin + vertical padding*/
+  height: 30vh;
 }
 
-.notification{
-    margin: 0;
-    font-size: 0.9rem;
-    display: table;
-    text-align: left
+.notification {
+  margin: 0;
+  font-size: 0.9rem;
+  display: table;
+  text-align: left;
 }
 
 .gameNotification {
-    color: green; 
+  color: green;
 }
 .playerText {
-    color: black; 
+  color: black;
 }
 
 .notification:nth-child(odd) {
-    background-color: lightgrey;
-    width: 100%;
+  background-color: lightgrey;
+  width: 100%;
 }
 
-.gamechat input[type=text] {
-    padding: 2px 2px;
-    height: 30px;
-    width: 70%;
-    margin: 0px 2px;
-    text-align: left;
-    font-size:15px;
+.gamechat input[type="text"] {
+  padding: 2px 2px;
+  height: 30px;
+  width: 70%;
+  margin: 0px 2px;
+  text-align: left;
+  font-size: 15px;
 }
 
 .gamechat button {
-    margin-left: 1em;
-    font-size:15px;
-	padding: .5rem;
-	background-color: white;
-	color: black;
-	border: 2px solid black;
-	border-radius: .5rem;
-	transition: background-color 200ms;
+  margin-left: 1em;
+  font-size: 15px;
+  padding: 0.5rem;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  transition: background-color 200ms;
 }
-
-
