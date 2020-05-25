@@ -12,27 +12,28 @@ export default function PlayedCardBox(props) {
   // card strings in play
   const [cardsInPlay, setCardsInPlay] = useState([]);
 
+  const { socket, roomId, user } = props;
+
   // Backend signals all players have played their cards; allows cards to be picked by Czar (currently anyone)
-  props.socket.on("allowPickCards", (res) => {
+  socket.on("allowPickCards", (res) => {
     const cardsSoFar = res;
     setCardsInPlay(cardsSoFar);
     setAllowPicking(true);
   });
 
   // Replies to card being picked by Czar
-  props.socket.on("pickCardReply", (res) => {
+  socket.on("pickCardReply", (res) => {
     setAllowPicking(false);
     setCardsInPlay([]);
   });
 
   // Replies to card being played by someone
-  props.socket.on("playCardReply", (res) => {
-    const cardsSoFar = res;
+  socket.on("playCardReply", (res) => {
     setCardsInPlay(res);
   });
 
   // Game is over
-  props.socket.on("gameOver", (res) => {
+  socket.on("gameOver", (res) => {
     // Do something?
     console.log("Game over");
   });
@@ -43,17 +44,17 @@ export default function PlayedCardBox(props) {
   }, []);
 
   // Send back that we picked a card
-  const pickCard = function (cardNum) {
-    props.socket.emit("pickCard", {
-      roomId: props.roomId,
-      user: props.user,
+  const pickCard = (cardNum) => {
+    socket.emit("pickCard", {
+      roomId,
+      user,
       card: cardsInPlay[cardNum],
     });
   };
 
   const playCardBoxContent = [];
   // If we allow picking, show the cards
-  for (let cardNum = 0; cardNum < cardsInPlay.length; cardNum++) {
+  for (let cardNum = 0; cardNum < cardsInPlay.length; cardNum += 1) {
     // If we need to start a new row of cards
     const tempCardNum = cardNum;
 

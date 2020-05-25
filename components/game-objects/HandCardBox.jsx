@@ -1,9 +1,10 @@
-import Link from "next/link";
-import styles from "./CardBox.module.css";
-import GameCard from "./GameCard";
+import React from "react";
 import cx from "classnames";
-import CzarView from "./CzarView";
 import { Html5Entities } from "html-entities";
+import GameCard from "./GameCard";
+import CzarView from "./CzarView";
+
+import styles from "./CardBox.module.css";
 
 // Called from Gameplay.jsx
 // component that holds white cards in user's hand
@@ -14,25 +15,28 @@ class HandCardBox extends React.Component {
       thisUserCards: [],
       canPlayCards: true,
     };
+
+    this.getDrawnCards = this.getDrawnCards.bind(this);
     this.playCard = this.playCard.bind(this);
   }
 
   componentDidMount() {
+    const { socket, user, czar } = this.props;
     const htmlEntities = new Html5Entities();
     // After receiving new hand (or first hand), decode everything
-    console.log("Looking for , ", "drawCardReply".concat(this.props.user));
-    this.props.socket.on("drawCardReply".concat(this.props.user), (res) => {
+    console.log("Looking for , ", "drawCardReply".concat(user));
+    socket.on("drawCardReply".concat(user), (res) => {
       console.log("Cards received : ", res);
-      for (let i = 0; i < res.length; i++)
+      for (let i = 0; i < res.length; i += 1)
         res[i] = htmlEntities.decode(res[i]).replace(/<br>/g, "\n");
       // pushes string to card drawn
       this.setState({ thisUserCards: res });
     });
 
     // Once a card has been picked, we can play cards again
-    this.props.socket.on("pickCardReply", (res) => {
+    socket.on("pickCardReply", (res) => {
       // Redundancy to make sure czar can't actually play cards
-      if (this.props.czar !== this.props.user) {
+      if (czar !== user) {
         this.setState({ canPlayCards: true });
       }
     });
@@ -41,52 +45,54 @@ class HandCardBox extends React.Component {
   }
 
   // Basically this just updates your hand. Your cards are pre-drawn.
-  getDrawnCards = function () {
-    this.props.socket.emit("getDrawnCards", {
-      roomId: this.props.roomId,
-      user: this.props.user,
+  getDrawnCards() {
+    const { socket, roomId, user } = this.props;
+    socket.emit("getDrawnCards", {
+      roomId,
+      user,
     });
-  };
+  }
 
-  playCard = function (cardNum) {
+  playCard(cardNum) {
+    const { socket, roomId, user } = this.props;
+    const { thisUserCards, canPlayCards } = this.state;
+
     // Only if we can play cards
-    if (this.state.canPlayCards) {
-      console.log("Playing card ", this.state.thisUserCards[cardNum]);
-      this.props.socket.emit(
+    if (canPlayCards) {
+      console.log("Playing card ", thisUserCards[cardNum]);
+      socket.emit(
         "playCard",
         // Passes what card the user played, the room ID, and the username
         {
-          roomId: this.props.roomId,
-          user: this.props.user,
-          card: this.state.thisUserCards[cardNum],
+          roomId,
+          user,
+          card: thisUserCards[cardNum],
         }
       );
       // Get rid of card
-      let newUserCards = this.state.thisUserCards;
+      const newUserCards = thisUserCards;
       newUserCards.splice(cardNum, 1);
       this.setState({ thisUserCards: newUserCards });
       // Can't play cards until one is picked
       this.setState({ canPlayCards: false });
     }
-  };
+  }
 
   render() {
-    let cardBoxContent = [];
-    for (
-      var cardNum = 0;
-      cardNum < this.state.thisUserCards.length;
-      cardNum += 1
-    ) {
+    const { user, czar } = this.props;
+    const { thisUserCards } = this.state;
+    const cardBoxContent = [];
+    for (let cardNum = 0; cardNum < thisUserCards.length; cardNum += 1) {
       // If we need to start a new row of cards
-      let tempCardNum = cardNum;
+      const tempCardNum = cardNum;
 
       cardBoxContent.push(
         <div key={cardNum} onClick={() => this.playCard(tempCardNum)}>
-          <GameCard color={"white"} text={this.state.thisUserCards[cardNum]} />
+          <GameCard color="white" text={thisUserCards[cardNum]} />
         </div>
       );
     }
-    if (this.props.czar === this.props.user) {
+    if (czar === user) {
       return (
         <React.Fragment>
           <div
@@ -97,15 +103,12 @@ class HandCardBox extends React.Component {
           <CzarView />
         </React.Fragment>
       );
-    } else {
-      return (
-        <div
-          className={cx(styles.item, styles.whiteCards, styles.cardContainer)}
-        >
-          {cardBoxContent}
-        </div>
-      );
     }
+    return (
+      <div className={cx(styles.item, styles.whiteCards, styles.cardContainer)}>
+        {cardBoxContent}
+      </div>
+    );
   }
 }
 

@@ -17,7 +17,7 @@ export default ({ data }) => {
   // Has game started yet?
   const [gameStarted, setGameStarted] = useState(false);
 
-  const { socket } = context;
+  const { user, socket } = context;
 
   useEffect(() => {
     console.log("Entering room id:", router.query);
@@ -38,7 +38,7 @@ export default ({ data }) => {
 
   // If does not have username, make them set one and let them join the room
 
-  if (context.user === null || context.user === "") {
+  if (user === null || user === "") {
     console.log("new user");
     return (
       <div className={styles.container}>
@@ -52,16 +52,12 @@ export default ({ data }) => {
   }
   if (gameStarted) {
     // rejoin room
-    console.log("rejoining as", context.user);
-    socket.emit("rejoinRoom", { roomId, user: context.user });
-    return (
-      <GamePlay roomId={router.query.id} socket={socket} user={context.user} />
-    );
-    // Game has not started
+    console.log("rejoining as", user);
+    socket.emit("rejoinRoom", { roomId, user });
+    return <GamePlay roomId={router.query.id} socket={socket} user={user} />;
   }
-  return (
-    <WaitingRoom roomId={router.query.id} socket={socket} user={context.user} />
-  );
+  // Game has not started
+  return <WaitingRoom roomId={router.query.id} socket={socket} user={user} />;
 };
 
 // This gets called on every request

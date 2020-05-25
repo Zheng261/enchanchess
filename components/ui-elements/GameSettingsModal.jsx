@@ -28,13 +28,16 @@ const GameSettingsModal = (props) => {
     <Modal visible={props.visible}>
       <div className={styles.container}>
         <button
+          type="button"
           onClick={() => {
             router.push("/");
           }}
         >
           Quit
         </button>
-        <button onClick={props.closeSettings}>Close</button>
+        <button type="button" onClick={props.closeSettings}>
+          Close
+        </button>
       </div>
     </Modal>
   );

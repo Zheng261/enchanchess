@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,6 @@ import UserContext from "../config/UserContext";
 // waiting page until server generates room link
 export default function StartGame() {
   const router = useRouter();
-  const [roomId, setRoomId] = useState("");
   const context = useContext(UserContext);
 
   useEffect(() => {
@@ -19,7 +18,6 @@ export default function StartGame() {
     }
 
     context.socket.on("dispatchRoomId", (roomId) => {
-      setRoomId(roomId);
       router.replace(`/room/${roomId}`);
     });
     context.socket.emit("createRoom", context.user);
