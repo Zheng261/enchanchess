@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./CardDiv.module.css";
 
 // ui card element, used throughout app for game settings, card decks, players, etc,

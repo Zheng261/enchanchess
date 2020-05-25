@@ -1,5 +1,6 @@
+import React, { useEffect } from "react";
 import cx from "classnames";
-import { useState, useEffect } from "react";
+
 import styles from "./Modal.module.css";
 
 const Modal = (props) => (

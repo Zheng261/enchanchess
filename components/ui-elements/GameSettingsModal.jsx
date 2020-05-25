@@ -1,8 +1,9 @@
+import React, { useEffect, useContext } from "react";
 import { useRouter } from "next/router";
-import React, { useState, useEffect, useContext } from "react";
-import Modal from "./Modal";
 
 import UserContext from "../../config/UserContext";
+
+import Modal from "./Modal";
 
 import styles from "./GameSettingsModal.module.css";
 
