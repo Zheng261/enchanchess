@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import HeaderLayout from "../components/HeaderLayout";
+
+import styles from "../styles/index.module.css";
+
+import HeaderLayout from "../components/ui-elements/HeaderLayout";
 import CardDiv from "../components/ui-elements/CardDiv";
 import StyledButton from "../components/ui-elements/StyledButton";
 import CardButton from "../components/ui-elements/CardButton";
-import styles from "../styles/index.module.css";
 
 export default function About() {
   return (

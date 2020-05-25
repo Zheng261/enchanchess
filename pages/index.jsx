@@ -2,9 +2,10 @@ import React from "react";
 import { useRouter } from "next/router";
 // import CardDiv from "../components/ui-elements/CardDiv";
 // import StyledButton from "../components/ui-elements/StyledButton";
-import CardButton from "../components/ui-elements/CardButton";
-import HeaderLayout from "../components/HeaderLayout";
 import styles from "../styles/index.module.css";
+
+import CardButton from "../components/ui-elements/CardButton";
+import HeaderLayout from "../components/ui-elements/HeaderLayout";
 
 import SetNameView from "../components/SetNameView";
 

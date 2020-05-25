@@ -1,12 +1,11 @@
-// this code has been integrated into index.jsx
 import React, { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-import UserContext from "../config/UserContext";
-
 import styles from "../styles/start-game.module.css";
+
+import UserContext from "../config/UserContext";
 
 // waiting page until server generates room link
 export default function StartGame() {
