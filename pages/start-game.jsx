@@ -3,9 +3,10 @@ import React, { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import UserContext from "../components/UserContext";
 
-import styles from "../components/start-game.module.css";
+import UserContext from "../config/UserContext";
+
+import styles from "../styles/start-game.module.css";
 
 // waiting page until server generates room link
 export default function StartGame() {
@@ -14,7 +15,7 @@ export default function StartGame() {
   const context = useContext(UserContext);
 
   useEffect(() => {
-    if (context.user == "" || context.user == null) {
+    if (context.user === "" || context.user == null) {
       router.push("/");
     }
 

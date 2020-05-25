@@ -1,12 +1,13 @@
 import Link from "next/link";
-import styles from "./GamePlay.module.css";
-import GameCard from "./game-objects/GameCard";
+import styles from "./CardBox.module.css";
+import GameCard from "./GameCard";
 import cx from "classnames";
 import CzarView from "./CzarView";
 import { Html5Entities } from "html-entities";
 
-// Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
-class PlayGame_CardBox extends React.Component {
+// Called from Gameplay.jsx
+// component that holds white cards in user's hand
+class HandCardBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -74,7 +75,7 @@ class PlayGame_CardBox extends React.Component {
     for (
       var cardNum = 0;
       cardNum < this.state.thisUserCards.length;
-      cardNum++
+      cardNum += 1
     ) {
       // If we need to start a new row of cards
       let tempCardNum = cardNum;
@@ -108,4 +109,4 @@ class PlayGame_CardBox extends React.Component {
   }
 }
 
-export default PlayGame_CardBox;
+export default HandCardBox;

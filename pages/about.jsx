@@ -1,9 +1,10 @@
+import React from "react";
 import Link from "next/link";
 import HeaderLayout from "../components/HeaderLayout";
 import CardDiv from "../components/ui-elements/CardDiv";
 import StyledButton from "../components/ui-elements/StyledButton";
 import CardButton from "../components/ui-elements/CardButton";
-import styles from "../components/index.module.css";
+import styles from "../styles/index.module.css";
 
 export default function About() {
   return (
@@ -24,9 +25,9 @@ export default function About() {
                 href="http://s3.amazonaws.com/cah/CAH_Rules.pdf"
                 target="_blank"
               >
-                here
+                here.
               </a>
-              . <br />
+              <br />
               This site was developed by Team GGEZ in Spring 2020 for Stanford's
               CS194 class. We're unaffiliated with the CAH team and all that.
               <br />

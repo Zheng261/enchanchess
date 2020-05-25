@@ -31,9 +31,9 @@
   color: #d0d0d0;
   transition: 300ms;
 
-  animation-name: spin-reverse;
+ /* animation-name: spin-reverse;
   animation-duration: 300ms;
-  transition-timing-function: ease;
+  transition-timing-function: ease;*/
 }
 
 #settings:hover svg path {
@@ -111,21 +111,6 @@
 
   padding: 1rem;
   padding-right: 0;
-}
-
-.cardContainer {
-  padding: 1rem;
-  position: absolute;
-}
-
-.whiteCards {
-  display: flex;
-  flex-flow: row wrap;
-  flex: 1;
-  height: 100%;
-  justify-content: space-evenly;
-  margin: 0 auto;
-  overflow-y: auto;
 }
 
 .scoreboard ol {

@@ -1,10 +1,10 @@
-import cx from "classnames";
-import React, { useState, useContext, useEffect } from "react";
-// import PageLayout from '../components/PageLayout'
+import React, { useState, useEffect } from "react";
+import uuid from "react-uuid";
+
 import { useRouter } from "next/router";
 import CardDiv from "./ui-elements/CardDiv";
 import StyledButton from "./ui-elements/StyledButton";
-import styles from "./start-game.module.css";
+import styles from "./WaitingRoom.module.css";
 
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
 
@@ -14,9 +14,7 @@ export default function WaitingRoom(props) {
   // People in the room
   const [players, setPlayers] = useState([]);
 
-  const playerList = players.map((name, index) => (
-    <li key={index + 1}> {name} </li>
-  ));
+  const playerList = players.map((name) => <li key={uuid()}>{name}</li>);
 
   const [buttonText, setButtonText] = useState("Copy Link");
   const [url, setUrl] = useState("Loading..."); // the url you share with your friends
@@ -71,8 +69,9 @@ export default function WaitingRoom(props) {
     <div className={styles.container}>
       <div className={styles.roomLink}>
         <h1>Invite Your Friends!</h1>
-        <a>{url}</a>
+        <p>{url}</p>
         <button
+          type="button"
           onMouseDown={copyUrlToClipboard.bind(null, `${url}`)}
           onMouseUp={() => {
             setButtonText("Copy Link");

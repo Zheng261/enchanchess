@@ -1,8 +1,8 @@
-import { useRouter, Router } from "next/router";
-import { useContext, useState, useEffect } from "react";
-import UserContext from "../../components/UserContext";
+import React, { useContext, useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import UserContext from "../../config/UserContext";
 
-import styles from "../../components/roomid.module.css";
+import styles from "../../styles/room-id.module.css";
 
 import GamePlay from "../../components/GamePlay";
 import WaitingRoom from "../../components/WaitingRoom";
@@ -38,7 +38,7 @@ export default ({ data }) => {
 
   // If does not have username, make them set one and let them join the room
 
-  if (context.user == null || context.user == "") {
+  if (context.user === null || context.user === "") {
     console.log("new user");
     return (
       <div className={styles.container}>

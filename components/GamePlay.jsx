@@ -1,18 +1,19 @@
-import { useContext, useEffect, useState } from "react";
-import Link from "next/link";
+import React, { useContext, useEffect, useState } from "react";
 import cx from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
+
+import UserContext from "../config/UserContext";
+
 import styles from "./GamePlay.module.css";
 
-import UserContext from "./UserContext";
 import ChatBox from "./ChatBox";
-import PlayGame_CardBox from "./PlayGame_CardBox";
-import BlackCard from "./BlackCard";
-import PlayedCardsBox from "./PlayedCardsBox";
+import HandCardBox from "./game-objects/HandCardBox";
+import BlackCard from "./game-objects/BlackCard";
+import PlayedCardBox from "./game-objects/PlayedCardBox";
 import GameSettingsModal from "./ui-elements/GameSettingsModal";
 
-// CALLED FROM: GameLobby, which is called in turn from rooms/[id].jsx
+// CALLED FROM: rooms/[id].jsx
 // screen where cards/actual game can be played lives
 export default function GamePlay(props) {
   // People in the room
@@ -103,7 +104,7 @@ export default function GamePlay(props) {
         </div>
         <div className={styles.dealerCardContainer}>
           <BlackCard socket={props.socket} roomId={props.roomId} />
-          <PlayedCardsBox
+          <PlayedCardBox
             socket={props.socket}
             roomId={props.roomId}
             user={context.user}
@@ -122,7 +123,7 @@ export default function GamePlay(props) {
       </div>
 
       <div className={styles.overlayContainer}>
-        <PlayGame_CardBox
+        <HandCardBox
           socket={props.socket}
           roomId={props.roomId}
           user={context.user}

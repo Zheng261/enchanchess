@@ -1,17 +1,11 @@
-import cx from "classnames";
-import React, { useState, useContext, useEffect } from "react";
-// import PageLayout from '../components/PageLayout'
-import { useRouter } from "next/router";
-import CardDiv from "./ui-elements/CardDiv";
-import StyledButton from "./ui-elements/StyledButton";
-import GameCard from "./game-objects/GameCard";
-import styles from "./GamePlay.module.css";
+import React, { useState, useEffect } from "react";
+
+import GameCard from "./GameCard";
+import styles from "./CardBox.module.css";
 
 // Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
 
-export default function PlayedCardsBox(props) {
-  const router = useRouter();
-
+export default function PlayedCardBox(props) {
   // do we allow picking?
   const [allowPicking, setAllowPicking] = useState(false);
 

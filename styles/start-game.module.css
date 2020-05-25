@@ -7,12 +7,6 @@
   justify-content: center;
 }
 
-.cardContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .roomLink {
   color: white;
   text-align: center;
@@ -23,17 +17,10 @@
   margin-bottom: 0.5rem;
 }
 
-.roomLink a {
+.roomLink p {
   color: white;
   font-weight: bold;
   font-size: 1.25rem;
-}
-
-.roomLink a:hover,
-.roomLink a:active,
-.roomLink a:focus {
-  text-decoration: none;
-  background-color: #212121;
 }
 
 .roomLink button {
@@ -55,15 +42,4 @@
   background-color: var(--btn-primary-color);
   color: black;
   text-decoration: none;
-}
-
-.gameSettings {
-  font-size: 1.2rem;
-}
-
-.playerList {
-  width: 100%;
-  list-style-type: circle;
-  text-align: left;
-  margin-left: 2em;
 }

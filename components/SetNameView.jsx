@@ -1,19 +1,22 @@
 import { useRouter } from "next/router";
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useContext } from "react";
 // import PageLayout from '../components/PageLayout'
 import CardDiv from "./ui-elements/CardDiv";
 import StyledButton from "./ui-elements/StyledButton";
-import styles from "./index.module.css";
-import UserContext from "./UserContext";
+import styles from "./SetNameView.module.css";
+import UserContext from "../config/UserContext";
 
-// Called from Gameplay.jsx, which is in turn called by GameLobby.jsx
-
+// called from pages/room/[id].jsx and index.jsx
 export default function SetNameView(props) {
   const router = useRouter();
   const context = useContext(UserContext);
   const [username, setUsername] = useState("Username");
   const [msg, setMsg] = useState("");
-  const changeUsername = function (event) {
+
+  // props destructuring
+  const { createRoomAbility } = props;
+
+  const changeUsername = (event) => {
     setUsername(event.target.value);
     if (event.target.value !== "") {
       setMsg("");
@@ -24,16 +27,14 @@ export default function SetNameView(props) {
     router.push(link);
   };
 
-  const clickInput = function () {
+  const clickInput = () => {
     // clear input on click
     console.log("cleared input");
     setUsername("");
   };
 
-  useEffect(() => {}, []);
-
   // only at beginning
-  const createRoom = function (event) {
+  const createRoom = (event) => {
     if (username !== "" && username !== "Username") {
       context.signIn(username);
       btnNavigate("/start-game").call();
@@ -43,7 +44,7 @@ export default function SetNameView(props) {
     }
   };
 
-  const joinRoom = function (event) {
+  const joinRoom = (event) => {
     if (username !== "" && username !== "Username") {
       context.signIn(username);
       // Refresh
@@ -65,7 +66,7 @@ export default function SetNameView(props) {
           onClick={clickInput}
         />
         {msg !== "" && <div className={styles.errorMsg}>{msg}</div>}
-        {props.createRoomAbility ? (
+        {createRoomAbility ? (
           <StyledButton onClick={createRoom}>Create Room</StyledButton>
         ) : (
           <StyledButton onClick={joinRoom}>Join Room</StyledButton>

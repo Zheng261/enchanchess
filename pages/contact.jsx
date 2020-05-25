@@ -1,9 +1,10 @@
+import React from "react";
 import Link from "next/link";
 import HeaderLayout from "../components/HeaderLayout";
 import CardDiv from "../components/ui-elements/CardDiv";
-import StyledButton from "../components/ui-elements/StyledButton";
+
 import CardButton from "../components/ui-elements/CardButton";
-import styles from "../components/index.module.css";
+import styles from "../styles/index.module.css";
 
 export default function About() {
   return (
@@ -18,11 +19,14 @@ export default function About() {
           <CardDiv>
             <h2> Contact </h2>
             <div className={styles.text}>
-              We're Team GGEZ and we're trying to help you social distance :)
+              We&apos;re Team GGEZ and we&apos;re trying to help you social
+              distance :)
             </div>
             <div>
-              Have suggestions? <br />
-              Email us: <br />
+              Have suggestions?
+              <br />
+              Email us:
+              <br />
               <a href="mailto:team-ggez@abc.com"> team-ggez@abc.com </a>
             </div>
           </CardDiv>

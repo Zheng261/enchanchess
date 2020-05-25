@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect, useContext } from "react";
 import Modal from "./Modal";
 
-import UserContext from "../UserContext";
+import UserContext from "../../config/UserContext";
 
 import styles from "./GameSettingsModal.module.css";
 
