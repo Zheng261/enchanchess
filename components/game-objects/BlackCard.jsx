@@ -6,6 +6,7 @@ import GameCard from "./GameCard";
 
 export default function BlackCard(props) {
   const [blackCardText, setBlackCardText] = useState("");
+  const [blackCardPick, setBlackCardPick] = useState(1);
 
   useEffect(() => {
     const htmlEntities = new Html5Entities();
@@ -15,8 +16,9 @@ export default function BlackCard(props) {
       let newText = htmlEntities.decode(res.text.replace(/_/g, "_____"));
       newText = newText.replace(/<br>/g, "\n");
       setBlackCardText(newText);
+      setBlackCardPick(res.pick);
     });
   }, []);
 
-  return <GameCard color="black" text={blackCardText} />;
+  return <GameCard color="black" text={blackCardText} pick={blackCardPick} />;
 }

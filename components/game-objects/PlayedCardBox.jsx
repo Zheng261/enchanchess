@@ -9,6 +9,8 @@ export default function PlayedCardBox(props) {
   // do we allow picking?
   const [allowPicking, setAllowPicking] = useState(false);
 
+  const [numToPick, setNumToPick] = useState(1);
+
   // card strings in play
   const [cardsInPlay, setCardsInPlay] = useState([]);
 
@@ -16,7 +18,9 @@ export default function PlayedCardBox(props) {
 
   // Backend signals all players have played their cards; allows cards to be picked by Czar (currently anyone)
   socket.on("allowPickCards", (res) => {
-    const cardsSoFar = res;
+    const cardsSoFar = res.cards;
+    const numToPick = res.pick
+    setNumToPick(numToPick)
     setCardsInPlay(cardsSoFar);
     setAllowPicking(true);
   });
@@ -65,6 +69,17 @@ export default function PlayedCardBox(props) {
           <GameCard color="white" text={cardsInPlay[cardNum]} />
         </div>
       );
+      // If we are done with a player's cards but there's, like, more to go
+      if ((cardNum+1) % numToPick == 0 && cardNum < (cardsInPlay.length-1) && numToPick > 1) {
+        // Spacer, this is pretty bad right now lol
+        // May have to rewrite draw logic or cardbox spacing logic
+        // later for better UI
+        playCardBoxContent.push(
+          <div key={"spacer" + tempCardNum}>
+              |
+          </div>
+        );
+      }
     } else {
       // If not all players have played yet, we just show blank cards
       playCardBoxContent.push(

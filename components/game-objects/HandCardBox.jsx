@@ -14,12 +14,15 @@ class HandCardBox extends React.Component {
     this.state = {
       thisUserCards: [],
       canPlayCards: true,
+      numCardsPick: 1,
+      numCardsCurrPicked: 0,
     };
 
     this.getDrawnCards = this.getDrawnCards.bind(this);
     this.playCard = this.playCard.bind(this);
   }
 
+  
   componentDidMount() {
     const { socket, user, czar } = this.props;
     const htmlEntities = new Html5Entities();
@@ -34,10 +37,11 @@ class HandCardBox extends React.Component {
     });
 
     // Once a card has been picked, we can play cards again
-    socket.on("pickCardReply", (res) => {
+    socket.on("allowChooseCards", (res) => {
       // Redundancy to make sure czar can't actually play cards
       if (czar !== user) {
         this.setState({ canPlayCards: true });
+        this.setState({ numCardsPick : res})
       }
     });
 
@@ -55,10 +59,12 @@ class HandCardBox extends React.Component {
 
   playCard(cardNum) {
     const { socket, roomId, user } = this.props;
-    const { thisUserCards, canPlayCards } = this.state;
-
+    const { thisUserCards, canPlayCards, numCardsPick, numCardsCurrPicked} = this.state;
+    console.log("we can pick : ",  numCardsPick)
+    console.log("we've picked : ",  numCardsCurrPicked)
     // Only if we can play cards
     if (canPlayCards) {
+
       console.log("Playing card ", thisUserCards[cardNum]);
       socket.emit(
         "playCard",
@@ -72,9 +78,14 @@ class HandCardBox extends React.Component {
       // Get rid of card
       const newUserCards = thisUserCards;
       newUserCards.splice(cardNum, 1);
+      
+      if ((numCardsCurrPicked+1) >= numCardsPick) {
+        // Can't play more cards until one is picked, if we picked the correct # cards
+        this.setState({ canPlayCards: false });
+      }
+
+      this.setState({ numCardsCurrPicked: numCardsCurrPicked+1});
       this.setState({ thisUserCards: newUserCards });
-      // Can't play cards until one is picked
-      this.setState({ canPlayCards: false });
     }
   }
 

@@ -4,16 +4,25 @@ import styles from "./GameCard.module.css";
 
 // a cards against humanity card, can be black or white
 const GameCard = (props) => {
-  const { color, text } = props;
+  const { color, text, pick} = props;
+  console.log(pick)
   return (
-    <div
-      className={cx(
-        styles.card,
-        { [styles.blackCard]: color === "black" },
-        { [styles.whiteCard]: color === "white" }
-      )}
-    >
-      {text}
+    <div>
+      <div
+        className={cx(
+          styles.card,
+          { [styles.blackCard]: color === "black" },
+          { [styles.whiteCard]: color === "white" }
+        )}
+      >
+        {text}
+        {(pick > 1)? (
+          // Maybe we should include an image here?
+          <div><br/> <i>Pick: {pick}</i></div>
+        ) : (
+          <div></div>
+        )}
+      </div>
     </div>
   );
 };
