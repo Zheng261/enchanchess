@@ -69,7 +69,7 @@ export default function GamePlay(props) {
       console.log("Players and points ", playersToPoints, res);
     });
 
-    console.log("PLAYEERS", players);
+    console.log("PLAYERS", players);
   }, [players]);
 
   // functions for toggling settings menu
