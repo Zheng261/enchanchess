@@ -23,9 +23,8 @@ class AppWithState extends App {
     // App records username throughout navigation
     this.state = {
       user: null,
-      socket: io(ENDPOINT, { transport : ['websocket'] }),
+      socket: io(ENDPOINT),
     };
-
     this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
   }
