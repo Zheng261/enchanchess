@@ -20,7 +20,7 @@
 
 .blackCard {
   width: 14vw;
-  height: calc(20vh * var(--card-hw-ratio));
+  height: calc(26vh * var(--card-hw-ratio));
   background: black;
   color: white;
   overflow: auto;

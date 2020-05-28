@@ -109,8 +109,7 @@ export default function GamePlay(props) {
       <div className={cx(styles.item, styles.scoreboard, styles.rightItems)}>
         <div className={styles.itemHeader}>Scoreboard</div>
         <center>
-          Czar:
-          {czar}
+          Czar: {czar}
         </center>
         <ul>{playerPointList}</ul>
       </div>
