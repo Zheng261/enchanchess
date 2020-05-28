@@ -106,11 +106,13 @@ class HandCardBox extends React.Component {
     if (czar === user) {
       return (
         <React.Fragment>
+        <center>
           <div
             className={cx(styles.item, styles.whiteCards, styles.cardContainer)}
           >
             {cardBoxContent}
           </div>
+          </center>
           <CzarView />
         </React.Fragment>
       );

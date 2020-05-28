@@ -5,8 +5,8 @@
 }
 
 .whiteCard {
-  height: 120px;
-  width: calc(120px * var(--card-hw-ratio));
+  height: 20vh;
+  width: calc(6vw * var(--card-hw-ratio));
   background: white;
   color: black;
   border: 1px solid black;
@@ -19,8 +19,8 @@
 }
 
 .blackCard {
-  width: 220px;
-  height: calc(195px * var(--card-hw-ratio));
+  width: 14vw;
+  height: calc(20vh * var(--card-hw-ratio));
   background: black;
   color: white;
   overflow: auto;

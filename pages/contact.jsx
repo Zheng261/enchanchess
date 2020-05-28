@@ -16,6 +16,11 @@ export default function About() {
             <CardButton text="Back" />
           </Link>
         </div>
+                <div>
+          <Link href="/import-cards">
+            <CardButton text="Add Cards" />
+          </Link>
+        </div>
         <div className={styles.centerContainer}>
           <CardDiv>
             <h2> Contact </h2>
@@ -38,8 +43,8 @@ export default function About() {
           </Link>
         </div>
         <div>
-          <Link href="/import-cards">
-            <CardButton text="Add Cards" />
+          <Link href="/rules">
+            <CardButton text="Rules" />
           </Link>
         </div>
       </div>

@@ -27,6 +27,9 @@ export default function Home() {
         <div>
           <CardButton onClick={btnNavigate("/import-cards")} text="Add Cards" />
         </div>
+        <div>
+          <CardButton onClick={btnNavigate("/rules")} text="Rules" />
+        </div>
         <SetNameView createRoomAbility />
         <div>
           <CardButton onClick={btnNavigate("/about")} text="About" />
