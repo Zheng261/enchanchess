@@ -1,6 +1,7 @@
 .cardContainer {
   padding: 1rem;
-  position: absolute;
+  text-align: left;
+  margin-left: 25px;
 }
 
 .whiteCards {
@@ -11,6 +12,7 @@
   justify-content: space-evenly;
   margin: 0 auto;
   overflow-y: auto;
+  font-size: 15px;
 }
 
 .item {

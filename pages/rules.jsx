@@ -8,7 +8,7 @@ import CardDiv from "../components/ui-elements/CardDiv";
 import StyledButton from "../components/ui-elements/StyledButton";
 import CardButton from "../components/ui-elements/CardButton";
 
-export default function About() {
+export default function Rules() {
   return (
     <HeaderLayout>
       <div className={styles.cardContainer}>
@@ -24,20 +24,21 @@ export default function About() {
         </div>
         <div className={styles.centerContainer}>
           <CardDiv>
-            <h2> About </h2>
+            <h2> Rules </h2>
             <div className={styles.text}>
-              This is an online version of Cards Against Humanity, a classic
-              party game for horrible people.
-              <br />
-              This site was developed by Team GGEZ in Spring 2020 for Stanford's
-              CS194 class. We're unaffiliated with the CAH team and all that.
-              <br />
+            Rules can be found{" "}
+              <a
+                href="http://s3.amazonaws.com/cah/CAH_Rules.pdf"
+                target="_blank"
+              >
+                here.
+              </a>
             </div>
           </CardDiv>
         </div>
         <div>
-          <Link href="/rules">
-            <CardButton text="Rules" />
+          <Link href="/about">
+            <CardButton text="About" />
           </Link>
         </div>
         <div>
