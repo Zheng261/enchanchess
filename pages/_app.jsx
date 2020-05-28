@@ -25,7 +25,6 @@ class AppWithState extends App {
       user: null,
       socket: io(ENDPOINT),
     };
-
     this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
   }
