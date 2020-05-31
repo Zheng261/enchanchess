@@ -18,7 +18,7 @@ export default function ImportCards() {
         </div>
         <div>
           <Link href="/rules">
-            <CardButton text="Rules" />
+            <CardButton text="How to Play" />
           </Link>
         </div>
         <div className={styles.centerContainer}>

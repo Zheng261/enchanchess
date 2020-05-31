@@ -44,7 +44,7 @@ export default function About() {
         </div>
         <div>
           <Link href="/rules">
-            <CardButton text="Rules" />
+            <CardButton text="How to Play" />
           </Link>
         </div>
       </div>

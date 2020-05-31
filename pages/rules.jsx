@@ -24,15 +24,12 @@ export default function Rules() {
         </div>
         <div className={styles.centerContainer}>
           <CardDiv>
-            <h2> Rules </h2>
+            <h2> How to Play </h2>
             <div className={styles.text}>
-            Rules can be found{" "}
-              <a
-                href="http://s3.amazonaws.com/cah/CAH_Rules.pdf"
-                target="_blank"
-              >
-                here.
-              </a>
+            <b>To start a game</b>, pick a username and create a game room. Once you've created a room, you will receive a <b>room link</b> that you can share with your friends! 
+            <br />
+            Once in-game, one player will be designated as the <b>Card Czar</b>. The other players must pick cards to fill the <b>black card</b> in the most humorous way. Once all players have played their card(s), the Card Czar will select the <b>funniest play</b>.
+            The game ends once a player has reached the <b>score limit</b> or the group has hit the <b>round limit</b>.
             </div>
           </CardDiv>
         </div>
