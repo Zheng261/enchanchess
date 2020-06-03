@@ -13,23 +13,28 @@ class ChatBox extends React.Component {
       userMessages: [],
     };
 
+    const { roomId, user, socket } = this.props;
+    const { message, userMessages } = this.state;
+
+    socket.on("RECEIVE_MESSAGE".concat(roomId), (data) => {
+      const { message, userMessages } = this.state;
+      console.log("DATA", data);
+      console.log(userMessages)
+      this.setState({ userMessages: [...userMessages, data] });
+    });
+
     this.messagesEnd = React.createRef();
 
     this.sendMessage = (ev) => {
-      ev.preventDefault();
-
       const { roomId, user, socket } = this.props;
       const { message, userMessages } = this.state;
-      socket.on("RECEIVE_MESSAGE".concat(roomId), (data) => {
-        console.log("DATA", data);
-        this.setState({ userMessages: [...userMessages, data] });
-      });
-
+      ev.preventDefault();
       socket.emit("sendChatMessage", {
         author: `${user}:`,
         message,
         roomId,
       });
+      console.log("Chat socket emitted")
       this.setState({ message: "" });
     };
 
@@ -41,6 +46,7 @@ class ChatBox extends React.Component {
   // }
 
   componentDidMount() {
+    console.log("chatbox mounted")
     this.scrollToBottom();
   }
 
@@ -60,8 +66,8 @@ class ChatBox extends React.Component {
     return (
       <div className={styles.gamechat}>
         <div className={styles.messages}>
-          {userMessages.map((data) => (
-            <div className={styles.notification}>
+          {userMessages.map((data, index) => (
+            <div className={styles.notification} key={index}>
               <div
                 className={
                   data.isUserUpdate
@@ -70,7 +76,7 @@ class ChatBox extends React.Component {
                 }
               >
                 <strong>{data.message.author}</strong>
-                {data.message.message}
+                  {data.message.message}
               </div>
             </div>
           ))}

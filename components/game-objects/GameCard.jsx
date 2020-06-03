@@ -5,7 +5,6 @@ import styles from "./GameCard.module.css";
 // a cards against humanity card, can be black or white
 const GameCard = (props) => {
   const { color, text, pick} = props;
-  console.log(pick)
   return (
     <div>
       <div
