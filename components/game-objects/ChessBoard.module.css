@@ -19,7 +19,7 @@
 }
 
 .blackCard {
-  width: 14vw;
+  width: 40vw;
   height: calc(26vh * var(--card-hw-ratio));
   background: black;
   color: white;

@@ -14,7 +14,7 @@ export default function SetNameView(props) {
   const [msg, setMsg] = useState("");
 
   // props destructuring
-  const { createRoomAbility } = props;
+  const { createRoomAbility, roomId, socket, errorMessage } = props;
 
   const changeUsername = (event) => {
     setUsername(event.target.value);
@@ -48,6 +48,7 @@ export default function SetNameView(props) {
     if (username !== "" && username !== "Username") {
       context.signIn(username);
       // Refresh
+      socket.emit("joinRoom", { roomId: roomId, user: username});
       btnNavigate(`/room/${router.query.id}`).call();
     } else {
       setMsg("Please enter your username");
@@ -57,6 +58,7 @@ export default function SetNameView(props) {
 
   return (
     <div className={styles.centerContainer}>
+      {errorMessage}
       <CardDiv>
         <input
           className={styles.usernameInput}
@@ -67,9 +69,9 @@ export default function SetNameView(props) {
         />
         {msg !== "" && <div className={styles.errorMsg}>{msg}</div>}
         {createRoomAbility ? (
-          <StyledButton onClick={createRoom}>Create Room</StyledButton>
+          <StyledButton onClick={createRoom}>Create Game</StyledButton>
         ) : (
-          <StyledButton onClick={joinRoom}>Join Room</StyledButton>
+          <StyledButton onClick={joinRoom}>Join Game</StyledButton>
         )}
       </CardDiv>
     </div>

@@ -81,7 +81,6 @@
   overflow-y: hidden;
 }
 
-/* css for dealer (card czar) black card screen */
 .dealerContainer {
   display: flex;
   flex-direction: column;
@@ -111,9 +110,6 @@
 
   padding: 1rem;
   padding-right: 0;
-}
-
-.scoreboard ol {
 }
 
 .scoreboard {

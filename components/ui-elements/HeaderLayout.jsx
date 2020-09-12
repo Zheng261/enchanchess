@@ -4,13 +4,12 @@ import styles from "./HeaderLayout.module.css";
 export default function HeaderLayout({ children }) {
   return (
     <div className={styles.container}>
-      <title>Cards Against Humanity</title>
+      <title>Enchanchess -- chess with meme builds</title>
       <link rel="icon" href="/favicon.ico" />
-      <h2 className={styles.title}>Cards Against Humanity</h2>
+      <h2 className={styles.title}>Enchanchess</h2>
+      <img src = '/queenpiece.png' width='100' length='50'></img>
       <p className={styles.description}>
-        A Card Game for Horrible People
-        <br />
-        <code>social distancing edition</code>
+        Chess, but better!
       </p>
       {children}
     </div>

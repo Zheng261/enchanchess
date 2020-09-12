@@ -18,22 +18,14 @@ export default function About() {
         </div>
                 <div>
           <Link href="/import-cards">
-            <CardButton text="Add Cards" />
+            <CardButton text="Your Equipment" />
           </Link>
         </div>
         <div className={styles.centerContainer}>
           <CardDiv>
             <h2> Contact </h2>
             <div className={styles.text}>
-              We&apos;re Team GGEZ and we&apos;re trying to help you social
-              distance :)
-            </div>
-            <div>
-              Have suggestions?
-              <br />
-              Email us:
-              <br />
-              <a href="mailto:team-ggez@abc.com"> team-ggez@abc.com </a>
+              Hello!
             </div>
           </CardDiv>
         </div>

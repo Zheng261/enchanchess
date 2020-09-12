@@ -26,7 +26,7 @@ export default function StartGame() {
   return (
     <div className={styles.container}>
       <div className={styles.roomLink}>
-        <h1>Creating your room :)</h1>
+        <h1>Creating your room :D</h1>
         <FontAwesomeIcon icon={faSpinner} size="3x" pulse />
       </div>
     </div>

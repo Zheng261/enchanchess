@@ -29,14 +29,14 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/StanfordCS194/Team-12.git"
+    "url": "git+https://github.com/Zheng261/enchanchess.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/StanfordCS194/Teamsdfsdfsdfhghghghg-12/issues"
+    "url": "https://github.com/Zheng261/enchanchess.git"
   },
-  "homepage": "https://github.com/StanfordCS194/Team-12#readme",
+  "homepage": "https://github.com/Zheng261/enchanchess",
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",

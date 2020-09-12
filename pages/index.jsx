@@ -25,12 +25,12 @@ export default function Home() {
     <HeaderLayout>
       <div className={styles.cardContainer}>
         <div>
-          <CardButton onClick={btnNavigate("/import-cards")} text="Add Cards" />
+          <CardButton onClick={btnNavigate("/import-cards")} text="Shop" />
         </div>
         <div>
           <CardButton onClick={btnNavigate("/rules")} text="How to Play" />
         </div>
-        <SetNameView createRoomAbility />
+        <SetNameView createRoomAbility={true} roomId={null} socket={null} errorMessage={""} />
         <div>
           <CardButton onClick={btnNavigate("/about")} text="About" />
         </div>

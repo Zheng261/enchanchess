@@ -23,12 +23,10 @@ export default function ImportCards() {
         </div>
         <div className={styles.centerContainer}>
           <CardDiv>
-            <h2> Add New Cards! </h2>
-            <div>Upload from .csv or .json:</div>
-            <input type="file" id="myFile" name="filename" />
-            <br />
-            <div>Enter a Cardcast Code:</div>
-            <input type="text" />
+            <h2> Your equipment </h2>
+            <div className={styles.text}>
+               Shop will come soon
+               </div>
           </CardDiv>
         </div>
         <div>

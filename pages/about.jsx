@@ -19,18 +19,14 @@ export default function About() {
         </div>
         <div>
           <Link href="/import-cards">
-            <CardButton text="Add Cards" />
+            <CardButton text="Your Equipment" />
           </Link>
         </div>
         <div className={styles.centerContainer}>
           <CardDiv>
             <h2> About </h2>
             <div className={styles.text}>
-              This is an online version of Cards Against Humanity, a classic
-              party game for horrible people.
-              <br />
-              This site was developed by Team GGEZ in Spring 2020 for Stanford's
-              CS194 class. We're unaffiliated with the CAH team and all that.
+              The chess meta has gotten stale, so let's meme it up
               <br />
             </div>
           </CardDiv>

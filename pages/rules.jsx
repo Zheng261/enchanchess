@@ -19,17 +19,14 @@ export default function Rules() {
         </div>
         <div>
           <Link href="/import-cards">
-            <CardButton text="Add Cards" />
+            <CardButton text="Your Equipment" />
           </Link>
         </div>
         <div className={styles.centerContainer}>
           <CardDiv>
             <h2> How to Play </h2>
             <div className={styles.text}>
-            <b>To start a game</b>, pick a username and create a game room. Once you've created a room, you will receive a <b>room link</b> that you can share with your friends! 
-            <br />
-            Once in-game, one player will be designated as the <b>Card Czar</b>. The other players must pick cards to fill the <b>black card</b> in the most humorous way. Once all players have played their card(s), the Card Czar will select the <b>funniest play</b>.
-            The game ends once a player has reached the <b>score limit</b> or the group has hit the <b>round limit</b>.
+            It's just chess, but <b>with your own builds.</b>
             </div>
           </CardDiv>
         </div>
