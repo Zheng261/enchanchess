@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import $ from 'jquery';
 
 import styles from "../styles/index.module.css";
 

@@ -1,21 +1,11 @@
-import React from "react";
-import cx from "classnames";
-import styles from "./ChessBoard.module.css";
 
-// a cards against humanity card, can be black or white
+import React, { useState, useEffect } from "react";
+import ChessBoardUI from "./ChessBoardUI";
+
 const ChessBoard = (props) => {
-  return (
-    <div>
-      <div
-        className={cx(
-          styles.card,
-          styles.blackCard,
-        )}
-      >
-      Hello
-      </div>
-    </div>
-  );
+    return (
+     <ChessBoardUI/>
+    )
 };
 
 export default ChessBoard;

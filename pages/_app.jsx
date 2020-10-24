@@ -3,6 +3,7 @@ import App from "next/app";
 import Router from "next/router";
 
 import "../styles/global.css";
+import 'react-chessground/dist/styles/chessground.css'
 
 // importing constants
 import UserContext from "../config/UserContext";

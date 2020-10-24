@@ -1,7 +1,11 @@
-.card {
+.board {
   margin: 0.3rem;
   padding: 1rem;
   border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 .whiteCard {
@@ -19,8 +23,8 @@
 }
 
 .blackCard {
-  width: 40vw;
-  height: calc(26vh * var(--card-hw-ratio));
+  width: 50vw;
+  height: calc(35vh * var(--card-hw-ratio));
   background: black;
   color: white;
   overflow: auto;
